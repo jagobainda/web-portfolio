@@ -1,0 +1,27 @@
+---
+interface Props {
+    href: string;
+    icon: string;
+    text: string;
+    external?: boolean;
+}
+
+const { href, icon, text, external = false } = Astro.props;
+---
+
+<a
+        href={href}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noopener noreferrer' : undefined}
+        class:list={[
+            'flex items-center gap-4',
+            'py-3 px-4 font-mono text-base',
+            'text-text-color bg-(--bg-secondary) rounded-md',
+            'no-underline transition-all duration-300',
+            'shadow-[3px_3px_5px_var(--shadow-light)]',
+            'hover:shadow-[4px_4px_8px_var(--shadow-dark)] hover:-translate-y-0.5'
+        ]}
+>
+    <i class={`${icon} text-2xl`}></i>
+    <span>{text}</span>
+</a>

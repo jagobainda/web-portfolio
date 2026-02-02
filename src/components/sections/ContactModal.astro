@@ -1,0 +1,42 @@
+---
+import Modal from '../ui/Modal.astro';
+import ContactLink from '../cards/ContactLink.astro';
+
+interface Props {
+    title: string;
+    emailText: string;
+    linkedinText: string;
+    githubText: string;
+    resumeText: string;
+}
+
+const { title, emailText, linkedinText, githubText, resumeText } = Astro.props;
+---
+
+<Modal id="contact" title={title} variant="contact">
+    <div class="flex flex-col gap-4">
+        <ContactLink
+                href="mailto:contact@jagoba.dev"
+                icon="bi bi-envelope-fill"
+                text={emailText}
+        />
+        <ContactLink
+                href="https://www.linkedin.com/in/jagoba-inda-49a2aa2ab/"
+                icon="bi bi-linkedin"
+                text={linkedinText}
+                external
+        />
+        <ContactLink
+                href="https://github.com/jagobainda"
+                icon="bi bi-github"
+                text={githubText}
+                external
+        />
+        <ContactLink
+                href="https://drive.proton.me/urls/TTMMFM3E8M#MspGCID6Qlhb"
+                icon="bi bi-file-earmark-person-fill"
+                text={resumeText}
+                external
+        />
+    </div>
+</Modal>

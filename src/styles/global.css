@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+    --bg-primary: #bdbdbd;
+    --bg-secondary: #aaaaaa;
+    --text-color: #333;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+body.dark {
+    --bg-primary: #222;
+    --bg-secondary: #444;
+    --text-color: #f5f5f5;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+@theme {
+    --animate-blink: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}

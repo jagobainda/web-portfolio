@@ -1,0 +1,85 @@
+---
+interface Props {
+    id: string;
+    title: string;
+    variant?: 'default' | 'contact' | 'project' | 'technology';
+    class?: string;
+}
+
+const { id, title, variant = 'default', class: className } = Astro.props;
+
+const maxWidthClass = {
+    default: 'max-w-[800px]',
+    contact: 'max-w-[500px]',
+    project: 'max-w-[800px]',
+    technology: 'max-w-[800px]',
+}[variant];
+---
+
+<div
+        id={`modal-${id}`}
+        class:list={[
+            'modal fixed inset-0 z-1000 hidden',
+            'flex items-center justify-center',
+            'bg-black/50'
+        ]}
+        data-modal={id}
+>
+    <div
+            class:list={[
+                'modal-content relative flex flex-col overflow-hidden',
+                'bg-(--bg-primary) text-text-color',
+                'p-8 rounded-lg w-[90%] max-h-[90vh]',
+                'shadow-[6px_6px_12px_var(--shadow-dark)]',
+                'transition-colors duration-300 ease-in-out',
+                maxWidthClass,
+                'max-md:w-[95%] max-md:p-5',
+                'max-sm:p-4 max-sm:max-w-[calc(100%-20px)] max-sm:max-h-[85vh]',
+                className
+            ]}
+    >
+        <button
+                class:list={[
+                    'close-btn absolute top-2 right-3',
+                    'text-2xl bg-transparent border-none cursor-pointer',
+                    'text-text-color transition-colors duration-300',
+                    'hover:text-red-400'
+                ]}
+                aria-label="Close modal"
+        >
+            &times;
+        </button>
+
+        <h2 class:list={[
+            'text-center mt-0 mb-6',
+            'font-mono text-3xl',
+            'max-md:text-2xl max-md:mb-5'
+        ]}>
+            {title}
+        </h2>
+
+        <div class:list={[
+            'modal-body max-h-[60vh] pr-1 overflow-y-auto',
+            'max-md:max-h-[55vh]',
+            'max-sm:max-h-[50vh]'
+        ]}>
+            <slot />
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-body::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+        border-radius: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+        background: var(--bg-secondary);
+        border-radius: 8px;
+    }
+</style>

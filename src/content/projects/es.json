@@ -1,0 +1,187 @@
+{
+    "tabNames": {
+        "personal": "Personales",
+        "work": "Laborales",
+        "student": "Académicos"
+    },
+    "personal": [
+        {
+            "name": "SkinHolder Desktop",
+            "description": "Aplicación de escritorio destinada a trackear inversiones en skins de Counter-Strike desarrollada para Windows y Linux.",
+            "tags": ["WPF", ".NET Core 8.0", "C#", "XAML", "MVVM", "Velopack"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderDesktop",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Descargar instalador",
+                    "url": "https://cdn.jagoba.dev/downloads/skinholder-desktop-latest/SkinHolderDesktop-win-Setup.exe",
+                    "icon": "bi bi-download"
+                }
+            ]
+        },
+        {
+            "name": "SkinHolder Web",
+            "description": "Aplicación web destinada a trackear inversiones en skins de Counter-Strike.",
+            "tags": ["React", "Tailwind", "TypeScript", "Arquitectura limpia"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderWeb",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Producción",
+                    "url": "https://skinholder.jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        },
+        {
+            "name": "SkinHolder App",
+            "description": "Aplicación móvil para Android destinada a trackear inversiones en skins de Counter-Strike desarrollada para Android.",
+            "tags": ["Android Studio", "Kotlin", "MVC", "SQLite"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderApp",
+                    "icon": "bi bi-github"
+                }
+            ]
+        },
+        {
+            "name": "SkinHolder API",
+            "description": "API RESTful para la aplicación SkinHolder, su función es hacer de intermediario entre las diferentes versiones de SkinHolder y la base de datos.",
+            "tags": ["ASP.NET Core 8.0", "Clean Architecture", "MySQL", "C#", "AutoMapper", "FluentValidation", "JWT"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderAPI",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Producción",
+                    "url": "https://shapi.jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        },
+        {
+            "name": "Extensión de Chrome para CSWatch",
+            "description": "Extensión de Chrome oficial contruida para CSWatch la cual muestra las estadísticas de la página directamente en el perfil de Steam.",
+            "tags": ["JavaScript", "CSS", "HTML", "Extensión / Addon", "Shell"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/CSWatchChromeExtension",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Chrome",
+                    "url": "https://chromewebstore.google.com/detail/cswatch-stats-viewer/nklafihgaifhoahbfcfiaemfmpoplkch",
+                    "icon": "bi bi-browser-chrome"
+                },
+                {
+                    "text": "Firefox",
+                    "url": "https://addons.mozilla.org/en-US/firefox/addon/cswatch/",
+                    "icon": "bi bi-browser-firefox"
+                }
+            ]
+        },
+        {
+            "name": "Portfolio Interactivo",
+            "description": "Sitio web de portfolio personal construido con TypeScript y anime.js con soporte multilenguaje y diseño responsive.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/interactive-portfolio",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Producción",
+                    "url": "https://jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        },
+        {
+            "name": "Web de Emails Temporales - Fase analisis",
+            "description": "Sitio web que proporciona correos electrónicos temporales para registro en servicios web.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML", "Python", "FastAPI", "Redis"],
+            "links": [
+                {
+                    "text": "Producción",
+                    "url": "https://tmp-mail.org",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        }
+    ],
+    "work": [
+        {
+            "name": "Herramienta de Gestión de Procesos Empresariales",
+            "description": "Aplicación web interna con backend complejo para gestionar los flujos de trabajo de la empresa y de negocios asociados. Permite controlar procesos, asignar tareas, almacenar documentos y realizar seguimiento de estados.",
+            "tags": [".NET", "C#", "MS SQL", "TypeScript", "SCSS", "Arquitectura limpia"],
+            "links": []
+        },
+        {
+            "name": "Migración de Portal Angular Legacy",
+            "description": "Migración de un portal web basado en AngularJS a una versión moderna del framework. El portal permite a clientes y trabajadores consultar datos, descargar informes y comunicarse con la empresa.",
+            "tags": ["Angular", "TypeScript", "Bootstrap", ".NET", "API REST", "Arquitectura limpia"],
+            "links": []
+        },
+        {
+            "name": "Scripts de Automatización Personalizados para Clientes",
+            "description": "Desarrollo de scripts en PowerShell adaptados a los flujos de trabajo de distintos clientes, como generación de informes, gestión de usuarios o manipulación de archivos en red.",
+            "tags": ["PowerShell", "Automatización", "Windows Server", "Active Directory"],
+            "links": []
+        },
+        {
+            "name": "Automatizaciones para SharePoint Online",
+            "description": "Automatización de tareas administrativas y de contenido en SharePoint Online mediante PowerShell PnP. Incluye migraciones, creación de sites, control de permisos y mantenimiento.",
+            "tags": ["PowerShell", "PnP", "SharePoint Online", "Scripting"],
+            "links": []
+        },
+        {
+            "name": "APIs RESTful para Productos y Clientes",
+            "description": "Diseño, desarrollo y mantenimiento de APIs en .NET para consumo interno y externo. Exponen servicios de autenticación, consulta de datos, generación de informes y gestión de procesos.",
+            "tags": [".NET", "C#", "REST", "Insomnia", "JWT", "MS SQL", "Arquitectura limpia"],
+            "links": []
+        },
+        {
+            "name": "Dashboards Dinámicos para Clientes",
+            "description": "Creación de dashboards sencillos para mostrar información clave a clientes de forma visual. Los datos se consultan en tiempo real a través de nuestras APIs.",
+            "tags": ["TypeScript", "HTML", "CSS", "Chart.js", "REST APIs"],
+            "links": []
+        },
+        {
+            "name": "Producto Postventa para Constructoras",
+            "description": "Aplicación desarrollada internamente como producto propio para gestionar incidencias postventa de constructoras. Permite la comunicación entre cliente final, constructora y operarios.",
+            "tags": [".NET", "TypeScript", "MS SQL", "C#", "Gestión de incidencias", "Arquitectura limpia"],
+            "links": []
+        }
+    ],
+    "student": [
+        {
+            "name": "TFG - Sistema completo de red DDoS - Privado",
+            "description": "Trabajo de fin de grado que integra programación y ciberseguridad. Desarrolla un sistema completo: desde el panel de control del atacante y el servidor C&C, hasta el malware que infecta a las víctimas. El proyecto busca ser original y destacar por el uso variado y bien elegido de tecnologías.",
+            "tags": ["CSS & JavaScript", "Tails Linux", "Shell", "Python", "Rust (descartado)", "C#", ".NET Framework"],
+            "links": []
+        },
+        {
+            "name": "SkinHolder Console App - Deprecado",
+            "description": "Primera versión de SkinHolder la cual empecé a hacer nada más empezar a programar en Java. Actualmente está obsoleta y no se mantiene.",
+            "tags": ["Java", "XML"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderJava",
+                    "icon": "bi bi-github"
+                }
+            ]
+        }
+    ]
+}

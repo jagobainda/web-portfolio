@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import ContactModal from '../components/sections/ContactModal.astro';
+import ProjectsModal from '../components/sections/ProjectsModal.astro';
+import TechnologiesModal from '../components/sections/TechnologiesModal.astro';
+import ExperienceModal from '../components/sections/ExperienceModal.astro';
+import AboutMeModal from '../components/sections/AboutMeModal.astro';
+
+const locale = Astro.currentLocale || 'es';
+const lang = (locale === 'en' || locale === 'es') ? locale : 'es';
+
+const translations = {
+    es: {
+        contactTitle: 'Contacto',
+        emailText: 'contact@jagoba.dev',
+        linkedinText: 'LinkedIn',
+        githubText: 'GitHub',
+        resumeText: 'Descargar CV',
+        projectsTitle: 'Proyectos',
+        technologiesTitle: 'Tecnologías',
+        experienceTitle: 'Experiencia',
+        aboutMeTitle: 'Sobre mí',
+        techTabs: { technologies: 'Tecnologías', programs: 'Programas', os: 'SO & Servicios' },
+        buttons: { projects: 'Proyectos', technologies: 'Tecnologías', experience: 'Experiencia', aboutMe: 'Sobre mí' }
+    },
+    en: {
+        contactTitle: 'Contact Me',
+        emailText: 'contact@jagoba.dev',
+        linkedinText: 'LinkedIn',
+        githubText: 'GitHub',
+        resumeText: 'Download Resume',
+        projectsTitle: 'Projects',
+        technologiesTitle: 'Technologies',
+        experienceTitle: 'Experience',
+        aboutMeTitle: 'About Me',
+        techTabs: { technologies: 'Technologies', programs: 'Programs', os: 'OS & Services' },
+        buttons: { projects: 'Projects', technologies: 'Key skills', experience: 'Experience', aboutMe: 'About Me' }
+    }
+};
+
+const ui = translations[lang];
+---
+
+<BaseLayout title="Jagoba Inda - Full Stack Developer">
+    <div id="app" class:list={[
+        'bg-bg-primary w-screen h-screen',
+        'flex flex-col justify-center items-center gap-11',
+        'transition-colors duration-300',
+        'max-lg:gap-7',
+        'max-md:gap-6',
+        'max-sm:gap-3 max-sm:h-screen max-sm:justify-center max-sm:pt-14 max-sm:pb-4 max-sm:px-4 max-sm:box-border max-sm:overflow-hidden'
+    ]}>
+        <h1
+                id="welcome-title"
+                class:list={[
+                    'after:content-["|"] after:animate-blink',
+                    'm-0 text-center font-mono font-bold',
+                    'typing-cursor m-0 text-center font-mono',
+                    'text-text-color text-[6rem]',
+                    'transition-[color,text-shadow] duration-300 ease-in-out',
+                    '[text-shadow:3px_3px_5px_var(--shadow-light)]',
+                    'dark:[text-shadow:3px_3px_6px_var(--shadow-dark)]',
+                    'max-[1109px]:min-[769px]:text-[4.5rem]',
+                    'max-[768px]:min-[481px]:text-[3.5rem]',
+                    'max-[480px]:text-[2rem] max-[480px]:mb-5 max-[480px]:-mt-15',
+                    'landscape:max-h-[480px]:text-[2.2rem] landscape:max-h-[480px]:mb-2.5 landscape:max-h-[480px]:mt-0'
+                ]}
+        ></h1>
+
+        <div class:list={[
+            'flex justify-center items-center gap-6 w-full',
+            'max-[900px]:flex-wrap max-[900px]:w-[90%] max-[900px]:max-w-175 max-[900px]:gap-4',
+            'max-sm:flex-col max-sm:w-[90%] max-sm:gap-2.5 max-sm:mt-0'
+        ]}>
+            <Button id="btn-projects" icon="bi bi-code-square" text={ui.buttons.projects} />
+            <Button id="btn-technologies" icon="bi bi-tools" text={ui.buttons.technologies} />
+            <Button id="btn-experience" icon="bi bi-briefcase" text={ui.buttons.experience} />
+            <Button id="btn-about-me" icon="bi bi-person" text={ui.buttons.aboutMe} />
+        </div>
+    </div>
+
+    <ContactModal title={ui.contactTitle} emailText={ui.emailText} linkedinText={ui.linkedinText} githubText={ui.githubText} resumeText={ui.resumeText} />
+
+    <ProjectsModal title={ui.projectsTitle} lang={lang} />
+
+    <TechnologiesModal title={ui.technologiesTitle} tabLabels={ui.techTabs} />
+
+    <ExperienceModal title={ui.experienceTitle} lang={lang} />
+
+    <AboutMeModal title={ui.aboutMeTitle} lang={lang} />
+</BaseLayout>

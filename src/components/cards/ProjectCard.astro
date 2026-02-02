@@ -1,0 +1,63 @@
+---
+interface Link {
+    text: string;
+    url: string;
+    icon: string;
+}
+
+interface Props {
+    name: string;
+    description: string;
+    tags: string[];
+    links: Link[];
+}
+
+const { name, description, tags, links } = Astro.props;
+---
+
+<div class:list={[
+    'bg-(--bg-secondary) rounded-lg overflow-hidden',
+    'flex flex-col',
+    'shadow-[0_4px_6px_var(--shadow-light)]',
+    'transition-all duration-300',
+    'hover:-translate-y-0.5 hover:shadow-[0_6px_12px_var(--shadow-dark)]'
+]}>
+    <div class="p-5 grow flex flex-col">
+        <h3 class="font-mono text-xl font-bold my-2">{name}</h3>
+        <p class="text-sm mb-4 grow leading-relaxed">{description}</p>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mt-auto mb-3">
+            {tags.map(tag => (
+                    <span class:list={[
+                        'bg-(--bg-primary) px-3 py-1.5 rounded-full text-sm',
+                        'flex items-center'
+                    ]}>
+          <i class="bi bi-check-circle-fill text-xs mr-1.5 text-green-500"></i>
+                        {tag}
+        </span>
+            ))}
+        </div>
+
+        {links.length > 0 && (
+                <div class="flex gap-4 mt-auto ml-1">
+                    {links.map(link => (
+                            <a
+                                    href={link.url}
+                                    target={link.url.startsWith('http') ? '_blank' : undefined}
+                                    rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                    class:list={[
+                                        'text-text-color no-underline',
+                                        'flex items-center gap-1 text-sm',
+                                        'transition-opacity duration-200',
+                                        'hover:opacity-70'
+                                    ]}
+                            >
+                                <i class={link.icon}></i>
+                                {link.text}
+                            </a>
+                    ))}
+                </div>
+        )}
+    </div>
+</div>

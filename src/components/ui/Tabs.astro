@@ -1,0 +1,71 @@
+---
+interface Tab {
+    id: string;
+    label: string;
+}
+
+interface Props {
+    tabs: Tab[];
+    name: string;
+    class?: string;
+}
+
+const { tabs, name, class: className } = Astro.props;
+---
+
+<div class:list={['tabs-container', className]} data-tabs={name}>
+    <div class:list={[
+        'tab-buttons flex justify-center flex-wrap',
+        'border-b border-bg-secondary mb-6',
+        'max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:justify-start max-sm:gap-0 max-sm:pb-1 max-sm:mb-3'
+    ]}>
+        {tabs.map((tab, index) => (
+                <button
+                        type="button"
+                        class:list={[
+                            'tab-btn bg-transparent border-none cursor-pointer',
+                            'py-3 px-6 mx-2 font-mono text-base',
+                            'text-text-color border-b-2 border-transparent',
+                            'transition-all duration-300 ease-in-out',
+                            'hover:border-b-bg-secondary',
+                            'max-md:py-2 max-md:px-4 max-md:text-sm',
+                            'max-sm:py-1.5 max-sm:px-2 max-sm:mx-0.5 max-sm:text-xs max-sm:whitespace-nowrap',
+                            index === 0 && 'active'
+                        ]}
+                        data-target={`${name}-${tab.id}`}
+                >
+                    {tab.label}
+                </button>
+        ))}
+    </div>
+
+    <div class="tab-panels">
+        {tabs.map(async (tab, index) => (
+                <div
+                        id={`${name}-${tab.id}`}
+                        class:list={[
+                            'tab-panel',
+                            index !== 0 && 'hidden'
+                        ]}
+                >
+                    <Fragment set:html={await Astro.slots.render(tab.id)} />
+                </div>
+        ))}
+    </div>
+</div>
+
+<style>
+    .tab-btn.active {
+        border-bottom-color: var(--text-color);
+        font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+        .tab-buttons::-webkit-scrollbar {
+            height: 3px;
+        }
+        .tab-buttons::-webkit-scrollbar-thumb {
+            background: var(--bg-secondary);
+        }
+    }
+</style>
