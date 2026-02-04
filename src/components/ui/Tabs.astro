@@ -16,7 +16,7 @@ const { tabs, name, class: className } = Astro.props;
 <div class:list={['tabs-container', className]} data-tabs={name}>
     <div class:list={[
         'tab-buttons flex justify-center flex-wrap',
-        'border-b border-bg-secondary mb-6',
+        'border-b border-(--bg-secondary) mb-6',
         'max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:justify-start max-sm:gap-0 max-sm:pb-1 max-sm:mb-3'
     ]}>
         {tabs.map((tab, index) => (
@@ -39,7 +39,7 @@ const { tabs, name, class: className } = Astro.props;
         ))}
     </div>
 
-    <div class="tab-panels">
+    <div class="tab-panels p-3">
         {tabs.map(async (tab, index) => (
                 <div
                         id={`${name}-${tab.id}`}
