@@ -1,0 +1,23 @@
+{
+  "contactTitle": "Contacto",
+  "emailText": "contact@jagoba.dev",
+  "linkedinText": "LinkedIn",
+  "githubText": "GitHub",
+  "resumeText": "Descargar CV",
+  "projectsTitle": "Proyectos",
+  "technologiesTitle": "Tecnologías",
+  "experienceTitle": "Experiencia",
+  "aboutMeTitle": "Sobre mí",
+  "techTabs": {
+    "technologies": "Tecnologías",
+    "programs": "Programas",
+    "os": "SO & Servicios"
+  },
+  "buttons": {
+    "projects": "Proyectos",
+    "technologies": "Tecnologías",
+    "experience": "Experiencia",
+    "aboutMe": "Sobre mí"
+  }
+}
+

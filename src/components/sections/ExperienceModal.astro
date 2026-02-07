@@ -20,12 +20,18 @@ const labels = {
 ---
 
 <Modal id="experience" title={title}>
-    {experience ? (
+    {experience && experience.experiences ? (
             <div class="flex flex-col gap-6 p-1">
                 {experience.experiences.map((exp, index) => (
                         <>
                             <ExperienceCard
-                                {...exp}
+                                position={exp.position}
+                                company={exp.company}
+                                location={exp.location}
+                                period={exp.period}
+                                responsibilities={exp.responsibilities}
+                                technologies={exp.technologies}
+                                icon={exp.icon}
                                 responsibilitiesLabel={labels.responsibilities}
                                 technologiesLabel={labels.technologies}
                             />
@@ -39,3 +45,4 @@ const labels = {
             <p>No experience data found.</p>
     )}
 </Modal>
+

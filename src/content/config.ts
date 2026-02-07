@@ -74,9 +74,36 @@ const technologiesCollection = defineCollection({
     }),
 });
 
+const uiCollection = defineCollection({
+    type: 'data',
+    schema: z.object({
+        contactTitle: z.string(),
+        emailText: z.string(),
+        linkedinText: z.string(),
+        githubText: z.string(),
+        resumeText: z.string(),
+        projectsTitle: z.string(),
+        technologiesTitle: z.string(),
+        experienceTitle: z.string(),
+        aboutMeTitle: z.string(),
+        techTabs: z.object({
+            technologies: z.string(),
+            programs: z.string(),
+            os: z.string(),
+        }),
+        buttons: z.object({
+            projects: z.string(),
+            technologies: z.string(),
+            experience: z.string(),
+            aboutMe: z.string(),
+        }),
+    }),
+});
+
 export const collections = {
     projects: projectsCollection,
     experience: experienceCollection,
     about: aboutCollection,
     technologies: technologiesCollection,
+    ui: uiCollection,
 };

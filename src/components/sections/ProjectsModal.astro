@@ -31,7 +31,12 @@ const tabs = projects ? [
                     'max-sm:grid-cols-1'
                 ]}>
                     {projects.personal.map(project => (
-                            <ProjectCard {...project} />
+                            <ProjectCard
+                                name={project.name}
+                                description={project.description}
+                                tags={project.tags}
+                                links={project.links}
+                            />
                     ))}
                 </div>
 
@@ -42,7 +47,12 @@ const tabs = projects ? [
                     'max-sm:grid-cols-1'
                 ]}>
                     {projects.work.map(project => (
-                            <ProjectCard {...project} />
+                            <ProjectCard
+                                name={project.name}
+                                description={project.description}
+                                tags={project.tags}
+                                links={project.links}
+                            />
                     ))}
                 </div>
 
@@ -53,7 +63,12 @@ const tabs = projects ? [
                     'max-sm:grid-cols-1'
                 ]}>
                     {projects.student.map(project => (
-                            <ProjectCard {...project} />
+                            <ProjectCard
+                                name={project.name}
+                                description={project.description}
+                                tags={project.tags}
+                                links={project.links}
+                            />
                     ))}
                 </div>
             </Tabs>

@@ -6,40 +6,13 @@ import ProjectsModal from '../components/sections/ProjectsModal.astro';
 import TechnologiesModal from '../components/sections/TechnologiesModal.astro';
 import ExperienceModal from '../components/sections/ExperienceModal.astro';
 import AboutMeModal from '../components/sections/AboutMeModal.astro';
+import { getEntry } from 'astro:content';
 
 const locale = Astro.currentLocale || 'es';
 const lang = (locale === 'en' || locale === 'es') ? locale : 'es';
 
-const translations = {
-    es: {
-        contactTitle: 'Contacto',
-        emailText: 'contact@jagoba.dev',
-        linkedinText: 'LinkedIn',
-        githubText: 'GitHub',
-        resumeText: 'Descargar CV',
-        projectsTitle: 'Proyectos',
-        technologiesTitle: 'Tecnologías',
-        experienceTitle: 'Experiencia',
-        aboutMeTitle: 'Sobre mí',
-        techTabs: { technologies: 'Tecnologías', programs: 'Programas', os: 'SO & Servicios' },
-        buttons: { projects: 'Proyectos', technologies: 'Tecnologías', experience: 'Experiencia', aboutMe: 'Sobre mí' }
-    },
-    en: {
-        contactTitle: 'Contact Me',
-        emailText: 'contact@jagoba.dev',
-        linkedinText: 'LinkedIn',
-        githubText: 'GitHub',
-        resumeText: 'Download Resume',
-        projectsTitle: 'Projects',
-        technologiesTitle: 'Technologies',
-        experienceTitle: 'Experience',
-        aboutMeTitle: 'About Me',
-        techTabs: { technologies: 'Technologies', programs: 'Programs', os: 'OS & Services' },
-        buttons: { projects: 'Projects', technologies: 'Key skills', experience: 'Experience', aboutMe: 'About Me' }
-    }
-};
-
-const ui = translations[lang];
+const uiEntry = await getEntry('ui', lang);
+const ui = uiEntry!.data;
 ---
 
 <BaseLayout title="Jagoba Inda - Full Stack Developer">
