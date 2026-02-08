@@ -1,0 +1,14 @@
+{
+  "backButton": "← Back to home",
+  "usageStats": "Usage Statistics",
+  "technologies": "Technologies Used",
+  "links": "Links",
+  "avgDailyRequests3m": "Daily average (3 months)",
+  "totalRequests3m": "Total requests (3 months)",
+  "avgDailyRequests1m": "Daily average (1 month)",
+  "totalRequests1m": "Total requests (1 month)",
+  "requestsGrowthRate": "Monthly growth rate",
+  "maxRequestsInADay": "Maximum in a day (3 months)",
+  "lastUpdated": "Last updated",
+  "requests": "requests"
+}

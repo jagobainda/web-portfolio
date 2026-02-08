@@ -1,0 +1,14 @@
+{
+  "backButton": "← Volver al inicio",
+  "usageStats": "Estadísticas de Uso",
+  "technologies": "Tecnologías Utilizadas",
+  "links": "Enlaces",
+  "avgDailyRequests3m": "Promedio diario (3 meses)",
+  "totalRequests3m": "Total de peticiones (3 meses)",
+  "avgDailyRequests1m": "Promedio diario (1 mes)",
+  "totalRequests1m": "Total de peticiones (1 mes)",
+  "requestsGrowthRate": "Tasa de crecimiento mensual",
+  "maxRequestsInADay": "Máximo en un día (3 meses)",
+  "lastUpdated": "Última actualización",
+  "requests": "peticiones"
+}

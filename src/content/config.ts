@@ -100,10 +100,29 @@ const uiCollection = defineCollection({
     }),
 });
 
+const projectDetailsCollection = defineCollection({
+    type: 'data',
+    schema: z.object({
+        backButton: z.string(),
+        usageStats: z.string(),
+        technologies: z.string(),
+        links: z.string(),
+        avgDailyRequests3m: z.string(),
+        totalRequests3m: z.string(),
+        avgDailyRequests1m: z.string(),
+        totalRequests1m: z.string(),
+        requestsGrowthRate: z.string(),
+        maxRequestsInADay: z.string(),
+        lastUpdated: z.string(),
+        requests: z.string(),
+    }),
+});
+
 export const collections = {
     projects: projectsCollection,
     experience: experienceCollection,
     about: aboutCollection,
     technologies: technologiesCollection,
     ui: uiCollection,
+    'project-details': projectDetailsCollection,
 };

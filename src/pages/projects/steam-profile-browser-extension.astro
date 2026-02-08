@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const locale = Astro.currentLocale || 'es';
+const lang = (locale === 'en' || locale === 'es') ? locale : 'es';
+
+const projectsEntry = await getEntry('projects', lang);
+const projects = projectsEntry!.data;
+
+const extensionProject = projects.personal.find(p =>
+    p.name === "Chrome Extension for CSWatch" ||
+    p.name === "Extensión de Chrome para CSWatch"
+);
+
+const contentEntry = await getEntry('project-details', `steam-extension-${lang}`);
+const t = contentEntry!.data;
+
+let usageStats = null;
+try {
+    const response = await fetch('https://shapi.jagoba.dev/External/GetExtensionUsage');
+    if (response.ok) {
+        usageStats = await response.json();
+    }
+} catch (error) {
+    console.error('Error fetching usage stats:', error);
+}
+
+
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(lang, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+};
+
+const formatNumber = (num: number) => {
+    return new Intl.NumberFormat(lang).format(num);
+};
+---
+
+<BaseLayout title={`${extensionProject?.name || 'Project'} - Jagoba Inda`} showContactButton={false}>
+    <div class:list={[
+        'bg-bg-primary min-h-screen w-full',
+        'transition-colors duration-300',
+        'py-20 px-8',
+        'max-sm:py-16 max-sm:px-4'
+    ]}>
+        <div class="max-w-5xl mx-auto">
+            <a
+                href="/"
+                class:list={[
+                    'inline-flex items-center gap-2 mb-8',
+                    'text-text-color no-underline',
+                    'hover:opacity-70 transition-opacity duration-300',
+                    'font-mono text-lg'
+                ]}
+            >
+                {t.backButton}
+            </a>
+
+            <div class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-10 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h1 class:list={[
+                    'font-mono font-bold text-5xl mb-4',
+                    'text-text-color',
+                    'transition-colors duration-300',
+                    'max-sm:text-3xl'
+                ]}>
+                    {extensionProject?.name}
+                </h1>
+                <p class:list={[
+                    'text-xl leading-relaxed',
+                    'text-text-color opacity-90',
+                    'max-sm:text-lg'
+                ]}>
+                    {extensionProject?.description}
+                </p>
+
+                <div class="flex flex-wrap gap-4 mt-6">
+                    {extensionProject?.links.map(link => (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class:list={[
+                                'inline-flex items-center gap-2',
+                                'bg-(--bg-primary) px-5 py-3 rounded-lg',
+                                'text-text-color no-underline font-mono',
+                                'hover:-translate-y-1 hover:shadow-[0_6px_12px_var(--shadow-dark)]',
+                                'transition-all duration-300'
+                            ]}
+                        >
+                            <i class={link.icon}></i>
+                            {link.text}
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            {usageStats && (
+                <section class:list={[
+                    'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                    'shadow-[4px_4px_12px_var(--shadow-light)]',
+                    'max-sm:p-6'
+                ]}>
+                    <h2 class:list={[
+                        'font-mono font-bold text-3xl mb-6',
+                        'text-text-color',
+                        'max-sm:text-2xl'
+                    ]}>
+                        {t.usageStats}
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl',
+                            'border-l-4 border-blue-500'
+                        ]}>
+                            <div class="text-sm opacity-70 mb-2">{t.avgDailyRequests3m}</div>
+                            <div class="text-3xl font-bold font-mono">{formatNumber(usageStats.avgDailyRequests3m)}</div>
+                            <div class="text-xs opacity-60 mt-1">{t.requests}</div>
+                        </div>
+
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl',
+                            'border-l-4 border-purple-500'
+                        ]}>
+                            <div class="text-sm opacity-70 mb-2">{t.totalRequests3m}</div>
+                            <div class="text-3xl font-bold font-mono">{formatNumber(usageStats.totalRequests3m)}</div>
+                            <div class="text-xs opacity-60 mt-1">{t.requests}</div>
+                        </div>
+
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl',
+                            'border-l-4 border-green-500'
+                        ]}>
+                            <div class="text-sm opacity-70 mb-2">{t.avgDailyRequests1m}</div>
+                            <div class="text-3xl font-bold font-mono">{formatNumber(usageStats.avgDailyRequests1m)}</div>
+                            <div class="text-xs opacity-60 mt-1">{t.requests}</div>
+                        </div>
+
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl',
+                            'border-l-4 border-cyan-500'
+                        ]}>
+                            <div class="text-sm opacity-70 mb-2">{t.totalRequests1m}</div>
+                            <div class="text-3xl font-bold font-mono">{formatNumber(usageStats.totalRequests1m)}</div>
+                            <div class="text-xs opacity-60 mt-1">{t.requests}</div>
+                        </div>
+
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl',
+                            `border-l-4 ${usageStats.requestsGrowthRateLastMonth >= 0 ? 'border-green-500' : 'border-red-500'}`
+                        ]}>
+                            <div class="text-sm opacity-70 mb-2">{t.requestsGrowthRate}</div>
+                            <div class="text-3xl font-bold font-mono flex items-center gap-2">
+                                {usageStats.requestsGrowthRateLastMonth >= 0 ? '+' : ''}{usageStats.requestsGrowthRateLastMonth.toFixed(1)}%
+                                <i class={`bi ${usageStats.requestsGrowthRateLastMonth >= 0 ? 'bi-arrow-up-right' : 'bi-arrow-down-right'} text-2xl`}></i>
+                            </div>
+                        </div>
+
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl',
+                            'border-l-4 border-orange-500'
+                        ]}>
+                            <div class="text-sm opacity-70 mb-2">{t.maxRequestsInADay}</div>
+                            <div class="text-3xl font-bold font-mono">{formatNumber(usageStats.maxRequestsInADay3m)}</div>
+                            <div class="text-xs opacity-60 mt-1">{t.requests}</div>
+                        </div>
+                    </div>
+                    <div class="text-xs opacity-60 mt-6 text-center">
+                        {t.lastUpdated}: {formatDate(usageStats.lastUpdatedUtc)}
+                    </div>
+                </section>
+            )}
+
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl'
+                ]}>
+                    {t.technologies}
+                </h2>
+                <div class="flex flex-wrap gap-3">
+                    {extensionProject?.tags.map(tag => (
+                        <span class:list={[
+                            'bg-(--bg-primary) px-4 py-2 rounded-full',
+                            'font-mono text-base',
+                            'flex items-center gap-2'
+                        ]}>
+                            <i class="bi bi-code-slash text-sm"></i>
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            </section>
+        </div>
+    </div>
+</BaseLayout>
