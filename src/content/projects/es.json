@@ -88,7 +88,8 @@
                     "url": "https://addons.mozilla.org/en-US/firefox/addon/cswatch/",
                     "icon": "bi bi-browser-firefox"
                 }
-            ]
+            ],
+            "detailsUrl": "/projects/steam-profile-browser-extension"
         },
         {
             "name": "Portfolio Interactivo",

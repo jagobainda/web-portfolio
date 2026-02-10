@@ -14,6 +14,9 @@ const { title, lang = 'es' } = Astro.props;
 const projectsEntry = await getEntry('projects', lang);
 const projects = projectsEntry?.data;
 
+const uiEntry = await getEntry('ui', lang);
+const ui = uiEntry?.data;
+
 const tabs = projects ? [
     { id: 'personal', label: projects.tabNames.personal },
     { id: 'work', label: projects.tabNames.work },
@@ -36,6 +39,8 @@ const tabs = projects ? [
                                 description={project.description}
                                 tags={project.tags}
                                 links={project.links}
+                                detailsUrl={project.detailsUrl}
+                                viewDetailsText={ui?.viewDetails}
                             />
                     ))}
                 </div>
@@ -52,6 +57,8 @@ const tabs = projects ? [
                                 description={project.description}
                                 tags={project.tags}
                                 links={project.links}
+                                detailsUrl={project.detailsUrl}
+                                viewDetailsText={ui?.viewDetails}
                             />
                     ))}
                 </div>
@@ -68,6 +75,8 @@ const tabs = projects ? [
                                 description={project.description}
                                 tags={project.tags}
                                 links={project.links}
+                                detailsUrl={project.detailsUrl}
+                                viewDetailsText={ui?.viewDetails}
                             />
                     ))}
                 </div>

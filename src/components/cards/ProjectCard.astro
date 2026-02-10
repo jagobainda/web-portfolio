@@ -10,9 +10,11 @@ interface Props {
     description: string;
     tags: string[];
     links: Link[];
+    detailsUrl?: string;
+    viewDetailsText?: string;
 }
 
-const { name, description, tags, links } = Astro.props;
+const { name, description, tags, links, detailsUrl, viewDetailsText = 'Ver detalles' } = Astro.props;
 ---
 
 <div class:list={[
@@ -26,7 +28,6 @@ const { name, description, tags, links } = Astro.props;
         <h3 class="font-mono text-xl font-bold my-2">{name}</h3>
         <p class="text-sm mb-4 grow leading-relaxed">{description}</p>
 
-        <!-- Tags -->
         <div class="flex flex-wrap gap-2 mt-auto mb-3">
             {tags.map(tag => (
                     <span class:list={[
@@ -57,6 +58,25 @@ const { name, description, tags, links } = Astro.props;
                                 {link.text}
                             </a>
                     ))}
+                </div>
+        )}
+
+        {detailsUrl && (
+                <div class="mt-4 pt-4 border-t border-(--border-color)">
+                    <a
+                            href={detailsUrl}
+                            class:list={[
+                                'text-text-color no-underline',
+                                'flex items-center justify-center gap-2 text-sm font-medium',
+                                'px-4 py-2 rounded-md',
+                                'bg-(--bg-primary)',
+                                'transition-all duration-200',
+                                'hover:opacity-80'
+                            ]}
+                    >
+                        <span>{viewDetailsText}</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
                 </div>
         )}
     </div>

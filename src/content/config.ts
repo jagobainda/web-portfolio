@@ -11,6 +11,7 @@ const projectSchema = z.object({
     description: z.string(),
     tags: z.array(z.string()),
     links: z.array(projectLinkSchema),
+    detailsUrl: z.string().optional(),
 });
 
 const projectsCollection = defineCollection({
@@ -97,6 +98,7 @@ const uiCollection = defineCollection({
             experience: z.string(),
             aboutMe: z.string(),
         }),
+        viewDetails: z.string(),
     }),
 });
 
