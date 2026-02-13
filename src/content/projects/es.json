@@ -20,7 +20,8 @@
                     "url": "https://cdn.jagoba.dev/downloads/skinholder-desktop-latest/SkinHolderDesktop-win-Setup.exe",
                     "icon": "bi bi-download"
                 }
-            ]
+            ],
+            "detailsUrl": "/projects/skinholder"
         },
         {
             "name": "SkinHolder Web",
@@ -37,7 +38,8 @@
                     "url": "https://skinholder.jagoba.dev",
                     "icon": "bi bi-globe"
                 }
-            ]
+            ],
+            "detailsUrl": "/projects/skinholder"
         },
         {
             "name": "SkinHolder App",
@@ -49,7 +51,8 @@
                     "url": "https://github.com/jagobainda/SkinHolderApp",
                     "icon": "bi bi-github"
                 }
-            ]
+            ],
+            "detailsUrl": "/projects/skinholder"
         },
         {
             "name": "SkinHolder API",
@@ -66,7 +69,8 @@
                     "url": "https://shapi.jagoba.dev",
                     "icon": "bi bi-globe"
                 }
-            ]
+            ],
+            "detailsUrl": "/projects/skinholder"
         },
         {
             "name": "Extensión de Chrome para CSWatch",
@@ -104,18 +108,6 @@
                 {
                     "text": "Producción",
                     "url": "https://jagoba.dev",
-                    "icon": "bi bi-globe"
-                }
-            ]
-        },
-        {
-            "name": "Web de Emails Temporales - Fase analisis",
-            "description": "Sitio web que proporciona correos electrónicos temporales para registro en servicios web.",
-            "tags": ["TypeScript", "Web", "CSS", "HTML", "Python", "FastAPI", "Redis"],
-            "links": [
-                {
-                    "text": "Producción",
-                    "url": "https://tmp-mail.org",
                     "icon": "bi bi-globe"
                 }
             ]

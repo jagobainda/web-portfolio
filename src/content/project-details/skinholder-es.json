@@ -1,0 +1,23 @@
+{
+  "backButton": "← Volver al inicio",
+  "title": "SkinHolder",
+  "subtitle": "Rastrea tus inversiones en skins de Counter-Strike",
+  "whatIs": "¿Qué es SkinHolder?",
+  "whatIsDescription": "SkinHolder es una plataforma completa diseñada para ayudar a los jugadores de Counter-Strike a rastrear y gestionar sus inversiones en skins. Disponible en múltiples plataformas incluyendo Web, Escritorio (Windows/Linux), Android, y respaldada por una robusta API RESTful.",
+  "features": "Características Principales",
+  "feature1": "Seguimiento completo del portafolio de inversiones",
+  "feature2": "Actualizaciones de precios en tiempo real",
+  "feature3": "Sincronización entre plataformas",
+  "feature4": "Análisis detallado de ganancias/pérdidas",
+  "feature5": "Gráficos históricos de precios",
+  "architecture": "Arquitectura del Proyecto",
+  "architectureDesc": "SkinHolder sigue un enfoque de arquitectura limpia, asegurando la separación de responsabilidades y mantenibilidad. El ecosistema consiste en múltiples clientes que se comunican con una API central.",
+  "madeBy": "Creado por Jagoba Inda",
+  "technologies": "Tecnologías Utilizadas",
+  "platforms": "Plataformas Disponibles",
+  "platformWeb": "Aplicación Web",
+  "platformDesktop": "Aplicación de Escritorio",
+  "platformMobile": "Aplicación Móvil",
+  "platformApi": "API RESTful"
+}
+

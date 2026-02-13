@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const locale = Astro.currentLocale || 'es';
+const lang = (locale === 'en' || locale === 'es') ? locale : 'es';
+
+const projectsEntry = await getEntry('projects', lang);
+const projects = projectsEntry!.data;
+
+const skinholderProjects = projects.personal.filter(p => p.name.includes('SkinHolder'));
+
+const contentEntry = await getEntry('project-details', `skinholder-${lang}`);
+const t = contentEntry!.data;
+---
+
+<BaseLayout title={`${t.title} - Jagoba Inda`} showContactButton={false}>
+    <div class:list={[
+        'bg-bg-primary min-h-screen w-full',
+        'transition-colors duration-300',
+        'py-20 px-8',
+        'max-sm:py-16 max-sm:px-4'
+    ]}>
+        <div class="max-w-5xl mx-auto">
+            <!-- Back Button -->
+            <a
+                href="/"
+                class:list={[
+                    'inline-flex items-center gap-2 mb-8',
+                    'text-text-color no-underline',
+                    'hover:opacity-70 transition-opacity duration-300',
+                    'font-mono text-lg'
+                ]}
+            >
+                {t.backButton}
+            </a>
+
+            <!-- Header Section -->
+            <div class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-10 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h1 class:list={[
+                    'font-mono font-bold text-5xl mb-4',
+                    'text-text-color',
+                    'transition-colors duration-300',
+                    'max-sm:text-3xl'
+                ]}>
+                    {t.title}
+                </h1>
+                <p class:list={[
+                    'text-lg leading-relaxed',
+                    'text-text-color opacity-90'
+                ]}>
+                    {t.whatIsDescription}
+                </p>
+            </div>
+
+            <!-- Features -->
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl',
+                    'flex items-center gap-3'
+                ]}>
+                    <i class="bi bi-star text-2xl"></i>
+                    {t.features}
+                </h2>
+                <ul class="space-y-4">
+                    <li class:list={[
+                        'flex items-center gap-3',
+                        'bg-(--bg-primary) p-4 rounded-xl',
+                        'text-text-color'
+                    ]}>
+                        <i class="bi bi-check-circle text-green-500 text-xl"></i>
+                        <span class="text-lg">{t.feature1}</span>
+                    </li>
+                    <li class:list={[
+                        'flex items-center gap-3',
+                        'bg-(--bg-primary) p-4 rounded-xl',
+                        'text-text-color'
+                    ]}>
+                        <i class="bi bi-check-circle text-green-500 text-xl"></i>
+                        <span class="text-lg">{t.feature3}</span>
+                    </li>
+                    <li class:list={[
+                        'flex items-center gap-3',
+                        'bg-(--bg-primary) p-4 rounded-xl',
+                        'text-text-color'
+                    ]}>
+                        <i class="bi bi-check-circle text-green-500 text-xl"></i>
+                        <span class="text-lg">{t.feature5}</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Architecture -->
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl',
+                    'flex items-center gap-3'
+                ]}>
+                    <i class="bi bi-diagram-3 text-2xl"></i>
+                    {t.architecture}
+                </h2>
+                <p class:list={[
+                    'text-lg leading-relaxed mb-8',
+                    'text-text-color opacity-90'
+                ]}>
+                    {t.architectureDesc}
+                </p>
+
+                <!-- Architecture Diagram -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class:list={[
+                        'bg-(--bg-primary) p-6 rounded-xl text-center',
+                        'border-t-4 border-blue-500'
+                    ]}>
+                        <i class="bi bi-globe text-3xl text-blue-500 mb-3"></i>
+                        <div class="font-mono font-bold">{t.platformWeb}</div>
+                        <div class="text-sm opacity-70 mt-2">React + TypeScript</div>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-6 rounded-xl text-center',
+                        'border-t-4 border-purple-500'
+                    ]}>
+                        <i class="bi bi-pc-display text-3xl text-purple-500 mb-3"></i>
+                        <div class="font-mono font-bold">{t.platformDesktop}</div>
+                        <div class="text-sm opacity-70 mt-2">WPF + .NET 8</div>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-6 rounded-xl text-center',
+                        'border-t-4 border-green-500'
+                    ]}>
+                        <i class="bi bi-phone text-3xl text-green-500 mb-3"></i>
+                        <div class="font-mono font-bold">{t.platformMobile}</div>
+                        <div class="text-sm opacity-70 mt-2">Kotlin + Android</div>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-6 rounded-xl text-center',
+                        'border-t-4 border-orange-500'
+                    ]}>
+                        <i class="bi bi-hdd-stack text-3xl text-orange-500 mb-3"></i>
+                        <div class="font-mono font-bold">{t.platformApi}</div>
+                        <div class="text-sm opacity-70 mt-2">ASP.NET Core 8</div>
+                    </div>
+                </div>
+
+                <!-- Central API connection visual -->
+                <div class="text-center">
+                    <div class:list={[
+                        'inline-flex items-center gap-4',
+                        'bg-(--bg-primary) px-8 py-4 rounded-full',
+                        'text-text-color font-mono'
+                    ]}>
+                        <i class="bi bi-arrow-down-up text-2xl"></i>
+                        <span class="text-lg font-bold">SkinHolder API</span>
+                        <i class="bi bi-database text-2xl"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Platforms / Projects -->
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl',
+                    'flex items-center gap-3'
+                ]}>
+                    <i class="bi bi-collection text-2xl"></i>
+                    {t.platforms}
+                </h2>
+                <div class="space-y-4">
+                    {skinholderProjects.map(project => (
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl',
+                            'border-l-4 border-blue-500'
+                        ]}>
+                            <h3 class="font-mono font-bold text-xl mb-2">{project.name}</h3>
+                            <p class="text-text-color opacity-80 mb-4">{project.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                {project.tags.map(tag => (
+                                    <span class:list={[
+                                        'bg-(--bg-secondary) px-3 py-1 rounded-full',
+                                        'font-mono text-sm'
+                                    ]}>
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                {project.links.map(link => (
+                                    <a
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class:list={[
+                                            'inline-flex items-center gap-2',
+                                            'bg-(--bg-secondary) px-4 py-2 rounded-lg',
+                                            'text-text-color no-underline font-mono text-sm',
+                                            'hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--shadow-dark)]',
+                                            'transition-all duration-300'
+                                        ]}
+                                    >
+                                        <i class={link.icon}></i>
+                                        {link.text}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <div class="mt-12 text-center space-y-6">
+                <div class="flex justify-center gap-8 text-sm">
+                    <a
+                        href="https://jagoba.dev"
+                        class:list={[
+                            'text-text-color opacity-70',
+                            'hover:opacity-100 transition-opacity',
+                            'no-underline'
+                        ]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {t.madeBy}
+                    </a>
+                    <a
+                        href="mailto:skinholder@jagoba.dev"
+                        class:list={[
+                            'text-text-color opacity-50',
+                            'hover:opacity-100 transition-opacity',
+                            'no-underline'
+                        ]}
+                    >
+                        skinholder@jagoba.dev
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
