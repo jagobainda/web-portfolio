@@ -14,9 +14,14 @@ export const initModals = (): void => {
     });
 
     window.addEventListener('popstate', () => {
-        const openModal = document.querySelector('.modal:not(.hidden)');
-        if (openModal) closeModal(true);
+        handleHashChange();
     });
+
+    window.addEventListener('hashchange', () => {
+        handleHashChange();
+    });
+
+    checkInitialHash();
 };
 
 export const openModal = (id: string): void => {
@@ -106,4 +111,62 @@ const initTabsInModal = (modal: Element): void => {
             });
         });
     });
+};
+
+const checkInitialHash = (): void => {
+    const hash = location.hash.slice(1); // Remover el #
+    if (hash) {
+        const modalId = hash;
+        const modal = document.getElementById(`modal-${modalId}`);
+        if (modal) {
+            // Abrir sin agregar al historial ya que ya estamos en esa URL
+            openModalWithoutHistory(modalId);
+        }
+    }
+};
+
+const handleHashChange = (): void => {
+    const hash = location.hash.slice(1);
+    const openModal = document.querySelector('.modal:not(.hidden)');
+
+    if (hash) {
+        // Hay un hash en la URL
+        const modalId = hash;
+        const targetModal = document.getElementById(`modal-${modalId}`);
+
+        if (targetModal && !targetModal.classList.contains('hidden')) {
+            // El modal correcto ya está abierto
+            return;
+        }
+
+        if (openModal) {
+            // Cerrar el modal actual y abrir el nuevo
+            closeModal(true, () => openModalWithoutHistory(modalId));
+        } else {
+            // No hay modal abierto, abrir el correspondiente al hash
+            openModalWithoutHistory(modalId);
+        }
+    } else {
+        // No hay hash, cerrar cualquier modal abierto
+        if (openModal) {
+            closeModal(true);
+        }
+    }
+};
+
+const openModalWithoutHistory = (id: string): void => {
+    if (isTransitioning) return;
+
+    const modal = document.getElementById(`modal-${id}`);
+    if (!modal) return;
+
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+
+    const content = modal.querySelector('.modal-content') as HTMLElement;
+    if (content) {
+        animateModalOpen(content);
+    }
+
+    initTabsInModal(modal);
 };
