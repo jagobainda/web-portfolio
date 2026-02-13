@@ -1,6 +1,10 @@
 ---
+export const prerender = false;
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getEntry } from 'astro:content';
+
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600, must-revalidate');
 
 const locale = Astro.currentLocale || 'es';
 const lang = (locale === 'en' || locale === 'es') ? locale : 'es';
