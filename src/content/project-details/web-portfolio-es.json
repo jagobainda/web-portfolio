@@ -1,0 +1,21 @@
+{
+  "backButton": "← Volver al inicio",
+  "title": "Portfolio Interactivo",
+  "subtitle": "Una experiencia web moderna y envolvente",
+  "description": "Este es el sitio web que estás viendo ahora mismo. Un portfolio personal construido desde cero con tecnologías modernas, diseñado para ofrecer una experiencia de usuario fluida, animaciones elegantes y soporte multilingüe completo.",
+  "techStack": "Stack Tecnológico",
+  "techAstro": "Framework principal para generación de sitio estático con hidratación parcial",
+  "techTypeScript": "Tipado estático para código más robusto y mantenible",
+  "techTailwind": "Framework CSS utility-first para estilos rápidos y consistentes",
+  "techAnime": "Librería de animaciones JavaScript ligera y potente",
+  "techZod": "Validación de esquemas para el sistema de contenido",
+  "architecture": "Arquitectura del Proyecto",
+  "architectureDesc": "El portfolio sigue una arquitectura limpia orientada a contenido. Astro permite crear páginas estáticas optimizadas mientras que el contenido se gestiona mediante colecciones tipadas con Zod, facilitando la internacionalización y el mantenimiento.",
+  "designPhilosophy": "Filosofía de Diseño",
+  "designDesc": "La filosofía se basa en dos pilares fundamentales: simplicidad y accesibilidad inmediata a la información más relevante. Cada elemento está diseñado para que el usuario encuentre lo que busca sin fricciones ni distracciones innecesarias.",
+  "stackPhilosophy": "Filosofía del Stack",
+  "stackDesc": "El stack tecnológico está elegido estratégicamente por ser el más rápido en dos sentidos: velocidad de desarrollo para este tipo de proyecto y rendimiento en producción. Astro genera HTML estático ultrarrápido, TypeScript acelera el desarrollo con autocompletado y detección de errores, y Tailwind permite estilizar sin salir del código.",
+  "sourceCode": "Código Fuente",
+  "liveDemo": "Ver en Vivo"
+}
+

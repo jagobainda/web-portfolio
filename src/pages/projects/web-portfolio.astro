@@ -1,0 +1,374 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const locale = Astro.currentLocale || 'es';
+const lang = (locale === 'en' || locale === 'es') ? locale : 'es';
+
+const projectsEntry = await getEntry('projects', lang);
+const projects = projectsEntry!.data;
+
+const portfolioProject = projects.personal.find(p =>
+    p.name === "Interactive Portfolio" ||
+    p.name === "Portfolio Interactivo"
+);
+
+const contentEntry = await getEntry('project-details', `web-portfolio-${lang}`);
+const t = contentEntry!.data;
+---
+
+<BaseLayout title={`${t.title} - Jagoba Inda`} showContactButton={false}>
+    <div class:list={[
+        'bg-bg-primary min-h-screen w-full',
+        'transition-colors duration-300',
+        'py-20 px-8',
+        'max-sm:py-16 max-sm:px-4'
+    ]}>
+        <div class="max-w-5xl mx-auto">
+            <!-- Back Button -->
+            <a
+                href="/"
+                class:list={[
+                    'inline-flex items-center gap-2 mb-8',
+                    'text-text-color no-underline',
+                    'hover:opacity-70 transition-opacity duration-300',
+                    'font-mono text-lg'
+                ]}
+            >
+                {t.backButton}
+            </a>
+
+            <!-- Header Section -->
+            <div class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-10 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class:list={[
+                        'w-16 h-16 rounded-xl',
+                        'bg-linear-to-br from-purple-500 to-pink-500',
+                        'flex items-center justify-center',
+                        'shadow-lg'
+                    ]}>
+                        <i class="bi bi-code-slash text-3xl text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class:list={[
+                            'font-mono font-bold text-4xl',
+                            'text-text-color',
+                            'transition-colors duration-300',
+                            'max-sm:text-2xl'
+                        ]}>
+                            {t.title}
+                        </h1>
+                        <p class="text-lg opacity-70 font-mono">{t.subtitle}</p>
+                    </div>
+                </div>
+                <p class:list={[
+                    'text-lg leading-relaxed mt-6',
+                    'text-text-color opacity-90'
+                ]}>
+                    {t.description}
+                </p>
+
+                <!-- Links -->
+                <div class="flex flex-wrap gap-4 mt-6">
+                    {portfolioProject?.links.map(link => (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class:list={[
+                                'inline-flex items-center gap-2',
+                                'bg-(--bg-primary) px-5 py-3 rounded-lg',
+                                'text-text-color no-underline font-mono',
+                                'hover:-translate-y-1 hover:shadow-[0_6px_12px_var(--shadow-dark)]',
+                                'transition-all duration-300'
+                            ]}
+                        >
+                            <i class={link.icon}></i>
+                            {link.text}
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+
+            <!-- Tech Stack Section -->
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl',
+                    'flex items-center gap-3'
+                ]}>
+                    <i class="bi bi-stack text-2xl text-blue-500"></i>
+                    {t.techStack}
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl',
+                        'border-t-4 border-orange-500'
+                    ]}>
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="bi bi-rocket-takeoff text-2xl text-orange-500"></i>
+                            <span class="font-mono font-bold text-lg">Astro</span>
+                        </div>
+                        <p class="text-sm opacity-80">{t.techAstro}</p>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl',
+                        'border-t-4 border-blue-500'
+                    ]}>
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="bi bi-filetype-tsx text-2xl text-blue-500"></i>
+                            <span class="font-mono font-bold text-lg">TypeScript</span>
+                        </div>
+                        <p class="text-sm opacity-80">{t.techTypeScript}</p>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl',
+                        'border-t-4 border-cyan-500'
+                    ]}>
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="bi bi-wind text-2xl text-cyan-500"></i>
+                            <span class="font-mono font-bold text-lg">Tailwind CSS</span>
+                        </div>
+                        <p class="text-sm opacity-80">{t.techTailwind}</p>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl',
+                        'border-t-4 border-pink-500'
+                    ]}>
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="bi bi-play-circle text-2xl text-pink-500"></i>
+                            <span class="font-mono font-bold text-lg">anime.js</span>
+                        </div>
+                        <p class="text-sm opacity-80">{t.techAnime}</p>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl',
+                        'border-t-4 border-purple-500'
+                    ]}>
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="bi bi-shield-check text-2xl text-purple-500"></i>
+                            <span class="font-mono font-bold text-lg">Zod</span>
+                        </div>
+                        <p class="text-sm opacity-80">{t.techZod}</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture Section -->
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl',
+                    'flex items-center gap-3'
+                ]}>
+                    <i class="bi bi-diagram-3 text-2xl text-green-500"></i>
+                    {t.architecture}
+                </h2>
+                <p class:list={[
+                    'text-lg leading-relaxed mb-8',
+                    'text-text-color opacity-90'
+                ]}>
+                    {t.architectureDesc}
+                </p>
+
+                <!-- Architecture Diagram -->
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class:list={[
+                            'bg-(--bg-primary) p-5 rounded-xl text-center',
+                            'border-t-4 border-orange-500'
+                        ]}>
+                            <i class="bi bi-file-earmark-code text-3xl text-orange-500 mb-2"></i>
+                            <div class="font-mono font-bold">Astro Pages</div>
+                            <div class="text-sm opacity-70 mt-1">.astro components</div>
+                        </div>
+                        <div class:list={[
+                            'bg-(--bg-primary) p-5 rounded-xl text-center',
+                            'border-t-4 border-blue-500'
+                        ]}>
+                            <i class="bi bi-collection text-3xl text-blue-500 mb-2"></i>
+                            <div class="font-mono font-bold">Content Collections</div>
+                            <div class="text-sm opacity-70 mt-1">JSON + Zod schemas</div>
+                        </div>
+                        <div class:list={[
+                            'bg-(--bg-primary) p-5 rounded-xl text-center',
+                            'border-t-4 border-cyan-500'
+                        ]}>
+                            <i class="bi bi-brush text-3xl text-cyan-500 mb-2"></i>
+                            <div class="font-mono font-bold">Tailwind Styles</div>
+                            <div class="text-sm opacity-70 mt-1">Utility-first CSS</div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-2">
+                        <div class:list={[
+                            'flex flex-col items-center',
+                            'text-text-color opacity-70'
+                        ]}>
+                            <i class="bi bi-arrow-down text-3xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl text-center w-full md:w-2/3',
+                            'border-t-4 border-purple-500'
+                        ]}>
+                            <i class="bi bi-lightning-charge text-3xl text-purple-500 mb-2"></i>
+                            <div class="font-mono font-bold">Static Build</div>
+                            <div class="text-sm opacity-70 mt-1">Optimized HTML, CSS & JS</div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-2">
+                        <div class:list={[
+                            'flex flex-col items-center',
+                            'text-text-color opacity-70'
+                        ]}>
+                            <i class="bi bi-arrow-down text-3xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class:list={[
+                            'bg-(--bg-primary) p-6 rounded-xl text-center w-full md:w-2/3',
+                            'border-t-4 border-orange-400'
+                        ]}>
+                            <i class="bi bi-shield-check text-3xl text-orange-400 mb-2"></i>
+                            <div class="font-mono font-bold">Cloudflare Defensive Deployment</div>
+                            <div class="text-sm opacity-70 mt-1">jagoba.dev</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design Philosophy Section -->
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl',
+                    'flex items-center gap-3'
+                ]}>
+                    <i class="bi bi-palette text-2xl text-pink-500"></i>
+                    {t.designPhilosophy}
+                </h2>
+                <p class:list={[
+                    'text-lg leading-relaxed',
+                    'text-text-color opacity-90'
+                ]}>
+                    {t.designDesc}
+                </p>
+
+                <!-- Design principles -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl',
+                        'flex items-start gap-4'
+                    ]}>
+                        <i class="bi bi-bullseye text-3xl text-blue-500"></i>
+                        <div>
+                            <div class="font-mono font-bold mb-1">Simplicidad</div>
+                            <div class="text-sm opacity-80">Sin elementos innecesarios que distraigan</div>
+                        </div>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl',
+                        'flex items-start gap-4'
+                    ]}>
+                        <i class="bi bi-lightning-charge text-3xl text-yellow-500"></i>
+                        <div>
+                            <div class="font-mono font-bold mb-1">Acceso Inmediato</div>
+                            <div class="text-sm opacity-80">La información relevante siempre visible</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stack Philosophy Section -->
+            <section class:list={[
+                'bg-(--bg-secondary) rounded-2xl p-8 mb-8',
+                'shadow-[4px_4px_12px_var(--shadow-light)]',
+                'max-sm:p-6'
+            ]}>
+                <h2 class:list={[
+                    'font-mono font-bold text-3xl mb-6',
+                    'text-text-color',
+                    'max-sm:text-2xl',
+                    'flex items-center gap-3'
+                ]}>
+                    <i class="bi bi-gear text-2xl text-green-500"></i>
+                    {t.stackPhilosophy}
+                </h2>
+                <p class:list={[
+                    'text-lg leading-relaxed',
+                    'text-text-color opacity-90'
+                ]}>
+                    {t.stackDesc}
+                </p>
+
+                <!-- Stack benefits -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl text-center'
+                    ]}>
+                        <i class="bi bi-speedometer2 text-2xl text-orange-500 mb-2"></i>
+                        <div class="font-mono font-bold">Rendimiento</div>
+                        <div class="text-sm opacity-70 mt-1">HTML estático ultrarrápido</div>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl text-center'
+                    ]}>
+                        <i class="bi bi-code-slash text-2xl text-blue-500 mb-2"></i>
+                        <div class="font-mono font-bold">DX</div>
+                        <div class="text-sm opacity-70 mt-1">Desarrollo ágil con tipado</div>
+                    </div>
+                    <div class:list={[
+                        'bg-(--bg-primary) p-5 rounded-xl text-center'
+                    ]}>
+                        <i class="bi bi-brush text-2xl text-cyan-500 mb-2"></i>
+                        <div class="font-mono font-bold">Estilos</div>
+                        <div class="text-sm opacity-70 mt-1">CSS sin salir del código</div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Footer -->
+            <div class="mt-12 text-center">
+                <a
+                    href="mailto:contact@jagoba.dev"
+                    class:list={[
+                        'text-text-color opacity-50',
+                        'hover:opacity-100 transition-opacity',
+                        'no-underline'
+                    ]}
+                >
+                    contact@jagoba.dev
+                </a>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+

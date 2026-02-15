@@ -105,9 +105,10 @@ const uiCollection = defineCollection({
 const projectDetailsCollection = defineCollection({
     type: 'data',
     schema: z.object({
+        // Extension specific
         backButton: z.string(),
         usageStats: z.string().optional(),
-        technologies: z.string(),
+        technologies: z.string().optional(),
         links: z.string().optional(),
         avgDailyRequests3m: z.string().optional(),
         totalRequests3m: z.string().optional(),
@@ -136,6 +137,20 @@ const projectDetailsCollection = defineCollection({
         platformDesktop: z.string().optional(),
         platformMobile: z.string().optional(),
         platformApi: z.string().optional(),
+        // Web Portfolio specific
+        description: z.string().optional(),
+        techStack: z.string().optional(),
+        techAstro: z.string().optional(),
+        techTypeScript: z.string().optional(),
+        techTailwind: z.string().optional(),
+        techAnime: z.string().optional(),
+        techZod: z.string().optional(),
+        designPhilosophy: z.string().optional(),
+        designDesc: z.string().optional(),
+        stackPhilosophy: z.string().optional(),
+        stackDesc: z.string().optional(),
+        sourceCode: z.string().optional(),
+        liveDemo: z.string().optional(),
     }),
 });
 

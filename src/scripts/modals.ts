@@ -34,9 +34,7 @@ export const openModal = (id: string): void => {
     document.body.classList.add('overflow-hidden');
 
     const content = modal.querySelector('.modal-content') as HTMLElement;
-    if (content) {
-        animateModalOpen(content);
-    }
+    if (content) animateModalOpen(content);
 
     initTabsInModal(modal);
 
@@ -114,43 +112,34 @@ const initTabsInModal = (modal: Element): void => {
 };
 
 const checkInitialHash = (): void => {
-    const hash = location.hash.slice(1); // Remover el #
-    if (hash) {
-        const modalId = hash;
-        const modal = document.getElementById(`modal-${modalId}`);
-        if (modal) {
-            // Abrir sin agregar al historial ya que ya estamos en esa URL
-            openModalWithoutHistory(modalId);
-        }
-    }
+    const hash = location.hash.slice(1);
+
+    if (!hash) return;
+
+    const modalId = hash;
+    const modal = document.getElementById(`modal-${modalId}`);
+
+    if (modal) openModalWithoutHistory(modalId);
 };
 
 const handleHashChange = (): void => {
     const hash = location.hash.slice(1);
     const openModal = document.querySelector('.modal:not(.hidden)');
 
-    if (hash) {
-        // Hay un hash en la URL
-        const modalId = hash;
-        const targetModal = document.getElementById(`modal-${modalId}`);
+    if (!hash) {
+        if (openModal) closeModal(true);
+        return;
+    }
 
-        if (targetModal && !targetModal.classList.contains('hidden')) {
-            // El modal correcto ya está abierto
-            return;
-        }
+    const modalId = hash;
+    const targetModal = document.getElementById(`modal-${modalId}`);
 
-        if (openModal) {
-            // Cerrar el modal actual y abrir el nuevo
-            closeModal(true, () => openModalWithoutHistory(modalId));
-        } else {
-            // No hay modal abierto, abrir el correspondiente al hash
-            openModalWithoutHistory(modalId);
-        }
+    if (targetModal && !targetModal.classList.contains('hidden')) return;
+
+    if (openModal) {
+        closeModal(true, () => openModalWithoutHistory(modalId));
     } else {
-        // No hay hash, cerrar cualquier modal abierto
-        if (openModal) {
-            closeModal(true);
-        }
+        openModalWithoutHistory(modalId);
     }
 };
 
@@ -164,9 +153,7 @@ const openModalWithoutHistory = (id: string): void => {
     document.body.classList.add('overflow-hidden');
 
     const content = modal.querySelector('.modal-content') as HTMLElement;
-    if (content) {
-        animateModalOpen(content);
-    }
+    if (content) animateModalOpen(content);
 
     initTabsInModal(modal);
 };
