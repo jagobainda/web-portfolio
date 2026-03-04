@@ -116,7 +116,6 @@ const projectDetailsCollection = defineCollection({
         totalRequests1m: z.string().optional(),
         requestsGrowthRate: z.string().optional(),
         maxRequestsInADay: z.string().optional(),
-        lastUpdated: z.string().optional(),
         requests: z.string().optional(),
         // SkinHolder specific
         title: z.string().optional(),

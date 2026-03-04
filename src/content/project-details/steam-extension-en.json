@@ -9,6 +9,5 @@
   "totalRequests1m": "Total requests (1 month)",
   "requestsGrowthRate": "Monthly growth rate",
   "maxRequestsInADay": "Maximum in a day (3 months)",
-  "lastUpdated": "Last updated",
   "requests": "requests"
 }

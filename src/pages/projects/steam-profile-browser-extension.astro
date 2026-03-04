@@ -29,28 +29,6 @@ try {
 }
 
 
-const formatDate = (dateString: string | null | undefined): string => {
-    if (!dateString) return '—';
-
-    const dotIndex = dateString.indexOf('.');
-    if (dotIndex !== -1) {
-        const afterDot = dateString.slice(dotIndex + 1);
-        const tzIndex = afterDot.search(/[+-Z]/);
-        if (tzIndex > 3) dateString = dateString.slice(0, dotIndex + 4) + afterDot.slice(tzIndex);
-    }
-
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) return dateString;
-
-    return date.toLocaleString(lang, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZoneName: 'short'
-    });
-};
 ---
 
 <BaseLayout title={`${extensionProject?.name || 'Project'} - Jagoba Inda`} showContactButton={false}>
@@ -184,9 +162,6 @@ const formatDate = (dateString: string | null | undefined): string => {
                             <div class="text-3xl font-bold font-mono">{usageStats.maxRequestsInADay3m}</div>
                             <div class="text-xs opacity-60 mt-1">{t.requests}</div>
                         </div>
-                    </div>
-                    <div class="text-xs opacity-60 mt-6 text-center">
-                        {t.lastUpdated}: {formatDate(usageStats.lastUpdated)}
                     </div>
                 </section>
             )}

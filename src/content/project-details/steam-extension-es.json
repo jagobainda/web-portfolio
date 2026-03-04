@@ -9,6 +9,5 @@
   "totalRequests1m": "Total de peticiones (1 mes)",
   "requestsGrowthRate": "Tasa de crecimiento mensual",
   "maxRequestsInADay": "Máximo en un día (3 meses)",
-  "lastUpdated": "Última actualización",
   "requests": "peticiones"
 }
