@@ -31,10 +31,9 @@ try {
 
 const formatDate = (dateString: string | null | undefined): string => {
     if (!dateString) return '—';
-    const match = dateString.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}:\d{2}:\d{2})/);
+    const match = dateString.match(/T(\d{2}:\d{2}:\d{2})/);
     if (!match) return '—';
-    const [, , , , time] = match;
-    return `${time} CET`;
+    return `${match[1]} CET`;
 };
 ---
 
