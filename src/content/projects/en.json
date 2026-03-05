@@ -8,7 +8,7 @@
         {
             "name": "SkinHolder Desktop",
             "description": "Desktop application to track investments in Counter-Strike skins, developed for Windows and Linux.",
-            "tags": ["WPF", ".NET Core 8.0", "C#", "XAML", "MVVM", "Velopack"],
+            "tags": ["WPF", ".NET Core 10.0", "C#", "XAML", "MVVM", "Velopack"],
             "links": [
                 {
                     "text": "GitHub",
@@ -57,7 +57,7 @@
         {
             "name": "SkinHolder API",
             "description": "RESTful API for the SkinHolder app, acting as a bridge between different versions of SkinHolder and the database.",
-            "tags": ["ASP.NET Core 8.0", "Clean Architecture", "MySQL", "C#", "AutoMapper", "FluentValidation", "JWT"],
+            "tags": ["ASP.NET Core 10.0", "Clean Architecture", "MySQL", "C#", "AutoMapper", "FluentValidation", "JWT"],
             "links": [
                 {
                     "text": "GitHub",
