@@ -189,24 +189,24 @@ const t = contentEntry!.data;
                             'border-t-4 border-orange-500'
                         ]}>
                             <i class="bi bi-file-earmark-code text-3xl text-orange-500 mb-2"></i>
-                            <div class="font-mono font-bold">Astro Pages</div>
-                            <div class="text-sm opacity-70 mt-1">.astro components</div>
+                            <div class="font-mono font-bold">{t.archAstroPages}</div>
+                            <div class="text-sm opacity-70 mt-1">{t.archAstroPagesDesc}</div>
                         </div>
                         <div class:list={[
                             'bg-(--bg-primary) p-5 rounded-xl text-center',
                             'border-t-4 border-blue-500'
                         ]}>
                             <i class="bi bi-collection text-3xl text-blue-500 mb-2"></i>
-                            <div class="font-mono font-bold">Content Collections</div>
-                            <div class="text-sm opacity-70 mt-1">JSON + Zod schemas</div>
+                            <div class="font-mono font-bold">{t.archContentCollections}</div>
+                            <div class="text-sm opacity-70 mt-1">{t.archContentCollectionsDesc}</div>
                         </div>
                         <div class:list={[
                             'bg-(--bg-primary) p-5 rounded-xl text-center',
                             'border-t-4 border-cyan-500'
                         ]}>
                             <i class="bi bi-brush text-3xl text-cyan-500 mb-2"></i>
-                            <div class="font-mono font-bold">Tailwind Styles</div>
-                            <div class="text-sm opacity-70 mt-1">Utility-first CSS</div>
+                            <div class="font-mono font-bold">{t.archTailwindStyles}</div>
+                            <div class="text-sm opacity-70 mt-1">{t.archTailwindStylesDesc}</div>
                         </div>
                     </div>
 
@@ -225,8 +225,8 @@ const t = contentEntry!.data;
                             'border-t-4 border-purple-500'
                         ]}>
                             <i class="bi bi-lightning-charge text-3xl text-purple-500 mb-2"></i>
-                            <div class="font-mono font-bold">Hybrid Rendering</div>
-                            <div class="text-sm opacity-70 mt-1">Static pre-rendering + SSR per route</div>
+                            <div class="font-mono font-bold">{t.archHybridRendering}</div>
+                            <div class="text-sm opacity-70 mt-1">{t.archHybridRenderingDesc}</div>
                         </div>
                     </div>
 
@@ -245,8 +245,8 @@ const t = contentEntry!.data;
                             'border-t-4 border-orange-400'
                         ]}>
                             <i class="bi bi-shield-check text-3xl text-orange-400 mb-2"></i>
-                            <div class="font-mono font-bold">Cloudflare Defensive Deployment</div>
-                            <div class="text-sm opacity-70 mt-1">jagoba.dev</div>
+                            <div class="font-mono font-bold">{t.archCloudflare}</div>
+                            <div class="text-sm opacity-70 mt-1">{t.archCloudflareDesc}</div>
                         </div>
                     </div>
                 </div>
@@ -280,8 +280,8 @@ const t = contentEntry!.data;
                     ]}>
                         <i class="bi bi-bullseye text-3xl text-blue-500"></i>
                         <div>
-                            <div class="font-mono font-bold mb-1">Simplicidad</div>
-                            <div class="text-sm opacity-80">Sin elementos innecesarios que distraigan</div>
+                            <div class="font-mono font-bold mb-1">{t.designSimplicity}</div>
+                            <div class="text-sm opacity-80">{t.designSimplicityDesc}</div>
                         </div>
                     </div>
                     <div class:list={[
@@ -290,8 +290,8 @@ const t = contentEntry!.data;
                     ]}>
                         <i class="bi bi-lightning-charge text-3xl text-yellow-500"></i>
                         <div>
-                            <div class="font-mono font-bold mb-1">Acceso Inmediato</div>
-                            <div class="text-sm opacity-80">La información relevante siempre visible</div>
+                            <div class="font-mono font-bold mb-1">{t.designImmediateAccess}</div>
+                            <div class="text-sm opacity-80">{t.designImmediateAccessDesc}</div>
                         </div>
                     </div>
                 </div>
@@ -323,22 +323,22 @@ const t = contentEntry!.data;
                         'bg-(--bg-primary) p-5 rounded-xl text-center'
                     ]}>
                         <i class="bi bi-speedometer2 text-2xl text-orange-500 mb-2"></i>
-                        <div class="font-mono font-bold">Rendimiento</div>
-                        <div class="text-sm opacity-70 mt-1">Renderizado híbrido optimizado</div>
+                        <div class="font-mono font-bold">{t.stackPerformance}</div>
+                        <div class="text-sm opacity-70 mt-1">{t.stackPerformanceDesc}</div>
                     </div>
                     <div class:list={[
                         'bg-(--bg-primary) p-5 rounded-xl text-center'
                     ]}>
                         <i class="bi bi-code-slash text-2xl text-blue-500 mb-2"></i>
-                        <div class="font-mono font-bold">DX</div>
-                        <div class="text-sm opacity-70 mt-1">Desarrollo ágil con tipado</div>
+                        <div class="font-mono font-bold">{t.stackDX}</div>
+                        <div class="text-sm opacity-70 mt-1">{t.stackDXDesc}</div>
                     </div>
                     <div class:list={[
                         'bg-(--bg-primary) p-5 rounded-xl text-center'
                     ]}>
                         <i class="bi bi-brush text-2xl text-cyan-500 mb-2"></i>
-                        <div class="font-mono font-bold">Estilos</div>
-                        <div class="text-sm opacity-70 mt-1">CSS sin salir del código</div>
+                        <div class="font-mono font-bold">{t.stackStyles}</div>
+                        <div class="text-sm opacity-70 mt-1">{t.stackStylesDesc}</div>
                     </div>
                 </div>
             </section>
