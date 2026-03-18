@@ -21,7 +21,7 @@
                     "icon": "bi bi-download"
                 }
             ],
-            "detailsUrl": "/projects/skinholder"
+            "detailsUrl": "/en/projects/skinholder"
         },
         {
             "name": "SkinHolder Web",
@@ -39,7 +39,7 @@
                     "icon": "bi bi-globe"
                 }
             ],
-            "detailsUrl": "/projects/skinholder"
+            "detailsUrl": "/en/projects/skinholder"
         },
         {
             "name": "SkinHolder App",
@@ -52,7 +52,7 @@
                     "icon": "bi bi-github"
                 }
             ],
-            "detailsUrl": "/projects/skinholder"
+            "detailsUrl": "/en/projects/skinholder"
         },
         {
             "name": "SkinHolder API",
@@ -70,7 +70,7 @@
                     "icon": "bi bi-globe"
                 }
             ],
-            "detailsUrl": "/projects/skinholder"
+            "detailsUrl": "/en/projects/skinholder"
         },
         {
             "name": "Chrome Extension for CSWatch",
@@ -93,7 +93,7 @@
                     "icon": "bi bi-browser-firefox"
                 }
             ],
-            "detailsUrl": "/projects/steam-profile-browser-extension"
+            "detailsUrl": "/en/projects/steam-profile-browser-extension"
         },
         {
             "name": "Interactive Portfolio",
@@ -111,7 +111,7 @@
                     "icon": "bi bi-globe"
                 }
             ],
-            "detailsUrl": "/projects/web-portfolio"
+            "detailsUrl": "/en/projects/web-portfolio"
         }
     ],
     "work": [

@@ -1,11 +1,11 @@
 ---
 export const prerender = true;
 
-import WebPortfolioPage from '../../components/pages/WebPortfolioPage.astro';
+import SkinholderPage from '../../../components/pages/SkinholderPage.astro';
 
 const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
     ? Astro.currentLocale as 'en' | 'es'
-    : 'es';
+    : 'en';
 ---
 
-<WebPortfolioPage lang={lang} />
+<SkinholderPage lang={lang} />

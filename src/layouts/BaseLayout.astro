@@ -19,6 +19,7 @@ const { title, showContactButton = true } = Astro.props;
         <link rel="icon" href="/imgs/favicon/favicon.ico" sizes="any"/>
         <link rel="apple-touch-icon" href="/imgs/favicon/favicon.ico"/>
         <title>{title}</title>
+        <slot name="head" />
     </head>
 
     <body class="dark bg-(--bg-primary) text-(--text-color) transition-colors duration-300">
@@ -30,6 +31,25 @@ const { title, showContactButton = true } = Astro.props;
         </div>
 
         <slot/>
+
+        <script is:inline>
+            (function () {
+                if (sessionStorage.getItem('lang-redirected')) return;
+                sessionStorage.setItem('lang-redirected', '1');
+
+                const browserLang = (navigator.languages && navigator.languages[0]
+                    ? navigator.languages[0]
+                    : navigator.language || '').toLowerCase();
+
+                if (!browserLang.startsWith('en')) return;
+
+                const path = window.location.pathname;
+                if (path === '/en' || path.startsWith('/en/')) return;
+
+                const newPath = '/en' + (path === '/' ? '' : path);
+                window.location.replace(newPath);
+            })();
+        </script>
 
         <script>
             import '../scripts/main';
