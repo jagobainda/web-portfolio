@@ -1,8 +1,10 @@
-import { defineCollection, z } from 'astro:content';
+import { z } from 'astro/zod';
+import { glob } from 'astro/loaders';
+import { defineCollection } from "astro/content/config";
 
 const projectLinkSchema = z.object({
     text: z.string(),
-    url: z.string().url(),
+    url: z.url(),
     icon: z.string(),
 });
 
@@ -15,7 +17,7 @@ const projectSchema = z.object({
 });
 
 const projectsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: 'src/content/projects' }),
     schema: z.object({
         tabNames: z.object({
             personal: z.string(),
@@ -39,7 +41,7 @@ const experienceItemSchema = z.object({
 });
 
 const experienceCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: 'src/content/experience' }),
     schema: z.object({
         experiences: z.array(experienceItemSchema),
     }),
@@ -52,7 +54,7 @@ const aboutSectionSchema = z.object({
 });
 
 const aboutCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: 'src/content/about' }),
     schema: z.object({
         intro: z.string(),
         sections: z.array(aboutSectionSchema),
@@ -67,7 +69,7 @@ const techItemSchema = z.object({
 });
 
 const technologiesCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: 'src/content/technologies' }),
     schema: z.object({
         technologies: z.array(techItemSchema),
         programmingTools: z.array(techItemSchema),
@@ -76,7 +78,7 @@ const technologiesCollection = defineCollection({
 });
 
 const uiCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: 'src/content/ui' }),
     schema: z.object({
         contactTitle: z.string(),
         emailText: z.string(),
@@ -103,7 +105,7 @@ const uiCollection = defineCollection({
 });
 
 const projectDetailsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: 'src/content/project-details' }),
     schema: z.object({
         // Extension specific
         backButton: z.string(),
@@ -182,3 +184,4 @@ export const collections = {
     ui: uiCollection,
     'project-details': projectDetailsCollection,
 };
+
