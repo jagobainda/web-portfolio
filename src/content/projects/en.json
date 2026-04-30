@@ -81,6 +81,28 @@
                 }
             ],
             "detailsUrl": "/en/projects/steam-profile-browser-extension"
+        },
+        {
+            "name": "Contributor to Sharkord",
+            "description": "Contributions to Sharkord, a lightweight, self-hosted and open-source real-time communication platform that provides voice, video, text and screen sharing in a Discord-like experience while keeping full data ownership. My contributions consist of implementing features I was missing as a user and reporting & patching bugs found during real usage.",
+            "tags": ["TypeScript", "Bun", "React", "tRPC", "Mediasoup", "WebRTC", "Drizzle ORM", "Tailwind CSS", "Open Source"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/Sharkord/sharkord",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Fork",
+                    "url": "https://github.com/jagobainda/sharkord",
+                    "icon": "bi bi-git"
+                },
+                {
+                    "text": "Official website",
+                    "url": "https://sharkord.com",
+                    "icon": "bi bi-globe"
+                }
+            ]
         }
     ],
     "work": [
