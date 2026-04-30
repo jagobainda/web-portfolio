@@ -60,6 +60,24 @@
             "detailsUrl": "/en/projects/skinholder"
         },
         {
+            "name": "Benchmarks",
+            "description": "Index repository that groups comparative benchmarks of libraries and technologies. Includes benchmarks executed with BenchmarkDotNet and a dedicated frontend to visualize the results in a clean and interactive way.",
+            "tags": ["Benchmarking", "BenchmarkDotNet", ".NET 10", "C#", "Astro", "TypeScript", "Tailwind CSS"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/Benchmarks",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Live",
+                    "url": "https://benchmarks.jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ],
+            "detailsUrl": "/en/projects/benchmarks"
+        },
+        {
             "name": "Chrome Extension for CSWatch",
             "description": "Official Chrome extension built for CSWatch that displays the website's statistics directly on the Steam profile.",
             "tags": ["JavaScript", "CSS", "HTML", "Extension / Addon", "Shell"],

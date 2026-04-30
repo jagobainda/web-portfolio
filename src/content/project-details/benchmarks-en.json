@@ -1,0 +1,40 @@
+{
+  "backButton": "← Back to home",
+  "title": "Benchmarks",
+  "subtitle": "Index repository for all the benchmarks I develop",
+  "description": "Benchmarks is an umbrella repository that groups every benchmarking project I publish. Each subproject lives in its own independent repository, and this central repo acts as a navigable index to access them easily. The goal is to fairly and reproducibly compare popular libraries and technologies, running benchmarks with standard tooling (such as BenchmarkDotNet for .NET) and exposing the results through a clean, minimal frontend.",
+  "indexInfo": "This is an index repository: there is no production code here, just links and documentation pointing to each individual benchmark and its companion website.",
+  "howItWorks": "How it works",
+  "howItWorksDesc": "The flow is intentionally simple so every benchmark stays reproducible and the results remain auditable.",
+  "flowStep1": "Benchmark execution",
+  "flowStep1Desc": "Each subproject contains the benchmarks built with the standard tool of its ecosystem (for example, BenchmarkDotNet for .NET).",
+  "flowStep2": "Static results",
+  "flowStep2Desc": "Results are persisted as static JSON files versioned alongside the code, ensuring traceability.",
+  "flowStep3": "Companion website",
+  "flowStep3Desc": "A dedicated website consumes those JSON files and displays them visually and interactively at benchmarks.jagoba.dev.",
+  "subprojectsTitle": "Subprojects",
+  "madeBy": "Made by Jagoba Inda",
+  "liveDemo": "Live website",
+  "sourceCode": "Source code",
+  "benchmarkProjects": [
+    {
+      "name": "DotnetMappingBenchmarks",
+      "description": "Comparative benchmarks of major object mapping libraries for .NET, executed with BenchmarkDotNet on .NET 10. Results are persisted as static JSON files and served to the companion website.",
+      "url": "https://github.com/jagobainda/DotnetMappingBenchmarks",
+      "tags": ["C#", ".NET 10", "BenchmarkDotNet", "Shell"],
+      "icon": "bi bi-bar-chart-line",
+      "accent": "purple"
+    },
+    {
+      "name": "dotnet-mapping-benchmarks-web",
+      "description": "A clean, minimal frontend to visualize performance benchmarks of popular .NET object mapping libraries. Consumes the JSON files produced by DotnetMappingBenchmarks and renders them interactively.",
+      "url": "https://github.com/jagobainda/dotnet-mapping-benchmarks-web",
+      "liveUrl": "https://benchmarks.jagoba.dev/dotnet-mappers",
+      "liveLabel": "View live",
+      "tags": ["Astro", "TypeScript", "Tailwind CSS", "JavaScript"],
+      "icon": "bi bi-globe",
+      "accent": "cyan"
+    }
+  ]
+}
+

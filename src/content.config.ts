@@ -212,6 +212,27 @@ const projectDetailsCollection = defineCollection({
         cicdReleaseDesc: z.string().optional(),
         cicdDeploy: z.string().optional(),
         cicdDeployDesc: z.string().optional(),
+        // Benchmarks specific
+        indexInfo: z.string().optional(),
+        subprojectsTitle: z.string().optional(),
+        howItWorks: z.string().optional(),
+        howItWorksDesc: z.string().optional(),
+        flowStep1: z.string().optional(),
+        flowStep1Desc: z.string().optional(),
+        flowStep2: z.string().optional(),
+        flowStep2Desc: z.string().optional(),
+        flowStep3: z.string().optional(),
+        flowStep3Desc: z.string().optional(),
+        benchmarkProjects: z.array(z.object({
+            name: z.string(),
+            description: z.string(),
+            url: z.url(),
+            liveUrl: z.url().optional(),
+            liveLabel: z.string().optional(),
+            tags: z.array(z.string()),
+            icon: z.string(),
+            accent: z.string(),
+        })).optional(),
     }),
 });
 
