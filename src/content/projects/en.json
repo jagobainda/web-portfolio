@@ -6,67 +6,54 @@
     },
     "personal": [
         {
-            "name": "SkinHolder Desktop",
-            "description": "Desktop application to track investments in Counter-Strike skins, developed for Windows and Linux.",
-            "tags": ["WPF", ".NET Core 10.0", "C#", "XAML", "MVVM", "Velopack"],
+            "name": "LostieLauncher",
+            "description": "Game launcher for Windows built with WPF + .NET 10. Allows users to discover, download, install and manage games from a clean interface with a self-hosted server.",
+            "tags": ["WPF", ".NET 10", "C#", "XAML", "MVVM", "Velopack", "SharpCompress"],
             "links": [
                 {
                     "text": "GitHub",
-                    "url": "https://github.com/jagobainda/SkinHolderDesktop",
+                    "url": "https://github.com/jagobainda/LostieLauncher",
                     "icon": "bi bi-github"
                 },
                 {
                     "text": "Download installer",
-                    "url": "https://cdn.jagoba.dev/downloads/skinholder-desktop-latest/SkinHolderDesktop-win-Setup.exe",
+                    "url": "https://ericlostie-launcher.jagoba.dev/public/installer/LostieLauncher-win-Setup.exe",
                     "icon": "bi bi-download"
                 }
             ],
-            "detailsUrl": "/en/projects/skinholder"
+            "detailsUrl": "/en/projects/lostie-launcher"
         },
         {
-            "name": "SkinHolder Web",
-            "description": "Web application designed to track investments in Counter-Strike skins.",
-            "tags": ["React", "Tailwind", "TypeScript", "Clean architecture"],
+            "name": "Interactive Portfolio",
+            "description": "Personal portfolio website built with TypeScript and anime.js, featuring multilingual support and responsive design.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
             "links": [
                 {
                     "text": "GitHub",
-                    "url": "https://github.com/jagobainda/SkinHolderWeb",
+                    "url": "https://github.com/jagobainda/web-portfolio",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Live",
+                    "url": "https://jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ],
+            "detailsUrl": "/en/projects/web-portfolio"
+        },
+        {
+            "name": "SkinHolder",
+            "description": "Cross-platform suite to track investments in Counter-Strike skins. Includes desktop (Windows/Linux), web, mobile (Android) versions and a RESTful API as the shared backend.",
+            "tags": ["WPF", ".NET 10", "C#", "React", "TypeScript", "Kotlin", "ASP.NET Core", "MySQL", "Clean Architecture"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolder",
                     "icon": "bi bi-github"
                 },
                 {
                     "text": "Live",
                     "url": "https://skinholder.jagoba.dev",
-                    "icon": "bi bi-globe"
-                }
-            ],
-            "detailsUrl": "/en/projects/skinholder"
-        },
-        {
-            "name": "SkinHolder App",
-            "description": "Mobile app for Android to track investments in Counter-Strike skins, developed for Android devices.",
-            "tags": ["Android Studio", "Kotlin", "MVC", "SQLite"],
-            "links": [
-                {
-                    "text": "GitHub",
-                    "url": "https://github.com/jagobainda/SkinHolderApp",
-                    "icon": "bi bi-github"
-                }
-            ],
-            "detailsUrl": "/en/projects/skinholder"
-        },
-        {
-            "name": "SkinHolder API",
-            "description": "RESTful API for the SkinHolder app, acting as a bridge between different versions of SkinHolder and the database.",
-            "tags": ["ASP.NET Core 10.0", "Clean Architecture", "MySQL", "C#", "AutoMapper", "FluentValidation", "JWT"],
-            "links": [
-                {
-                    "text": "GitHub",
-                    "url": "https://github.com/jagobainda/SkinHolderAPI",
-                    "icon": "bi bi-github"
-                },
-                {
-                    "text": "Live",
-                    "url": "https://shapi.jagoba.dev",
                     "icon": "bi bi-globe"
                 }
             ],
@@ -94,24 +81,6 @@
                 }
             ],
             "detailsUrl": "/en/projects/steam-profile-browser-extension"
-        },
-        {
-            "name": "Interactive Portfolio",
-            "description": "Personal portfolio website built with TypeScript and anime.js, featuring multilingual support and responsive design.",
-            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
-            "links": [
-                {
-                    "text": "GitHub",
-                    "url": "https://github.com/jagobainda/web-portfolio",
-                    "icon": "bi bi-github"
-                },
-                {
-                    "text": "Live",
-                    "url": "https://jagoba.dev",
-                    "icon": "bi bi-globe"
-                }
-            ],
-            "detailsUrl": "/en/projects/web-portfolio"
         }
     ],
     "work": [
