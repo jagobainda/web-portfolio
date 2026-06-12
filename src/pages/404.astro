@@ -1,0 +1,11 @@
+---
+export const prerender = true;
+
+import NotFoundPage from '../components/pages/NotFoundPage.astro';
+
+const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
+    ? Astro.currentLocale as 'en' | 'es'
+    : 'es';
+---
+
+<NotFoundPage lang={lang} />

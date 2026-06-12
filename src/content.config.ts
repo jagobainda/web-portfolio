@@ -101,6 +101,13 @@ const uiCollection = defineCollection({
             aboutMe: z.string(),
         }),
         viewDetails: z.string(),
+        notFound: z.object({
+            command: z.string(),
+            error: z.string(),
+            title: z.string(),
+            message: z.string(),
+            backHome: z.string(),
+        }),
     }),
 });
 

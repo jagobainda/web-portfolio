@@ -19,6 +19,13 @@
     "experience": "Experiencia",
     "aboutMe": "Sobre mí"
   },
-  "viewDetails": "Ver detalles"
+  "viewDetails": "Ver detalles",
+  "notFound": {
+    "command": "cd /ruta/desconocida",
+    "error": "error: ruta no encontrada (404)",
+    "title": "Página no encontrada",
+    "message": "La ruta que buscas no existe o ha sido movida.",
+    "backHome": "Volver al inicio"
+  }
 }
 
