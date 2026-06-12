@@ -4,7 +4,12 @@ import { initTypewriter } from "./typewriter";
 import "devicon/devicon.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+let booted = false;
+
 const init = (): void => {
+    if (booted) return;
+    booted = true;
+
     initTheme();
     initModals();
     initTypewriter();
@@ -12,6 +17,7 @@ const init = (): void => {
 };
 
 const bindEvents = (): void => {
+    document.removeEventListener("keydown", handleKeydown);
     document.addEventListener("keydown", handleKeydown);
 
     bindButton("btn-projects", () => openModal("projects"));
@@ -58,5 +64,8 @@ const handleKeydown = (event: KeyboardEvent): void => {
 };
 
 document.addEventListener("DOMContentLoaded", init);
-
 document.addEventListener("astro:page-load", init);
+
+document.addEventListener("astro:after-swap", () => {
+    booted = false;
+});

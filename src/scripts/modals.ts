@@ -16,15 +16,14 @@ export const initModals = (): void => {
         });
     });
 
+    document.removeEventListener("keydown", trapFocus);
     document.addEventListener("keydown", trapFocus);
 
-    window.addEventListener("popstate", () => {
-        handleHashChange();
-    });
+    window.removeEventListener("popstate", handleHashChange);
+    window.addEventListener("popstate", handleHashChange);
 
-    window.addEventListener("hashchange", () => {
-        handleHashChange();
-    });
+    window.removeEventListener("hashchange", handleHashChange);
+    window.addEventListener("hashchange", handleHashChange);
 
     checkInitialHash();
 };
