@@ -1,4 +1,4 @@
-import { animate, remove } from 'animejs';
+import { animate, remove } from "animejs";
 
 export const animateModalOpen = (content: HTMLElement): void => {
     remove(content);
@@ -9,7 +9,7 @@ export const animateModalOpen = (content: HTMLElement): void => {
         opacity: [0, 1],
         rotate: [-2, 0],
         duration: 400,
-        easing: 'easeOutCubic',
+        easing: "easeOutCubic",
         delay: 100
     });
 };
@@ -23,7 +23,7 @@ export const animateModalClose = (content: HTMLElement, onComplete: () => void):
         opacity: [1, 0],
         rotate: [0, -1],
         duration: 250,
-        easing: 'easeInQuart',
+        easing: "easeInQuart",
         onComplete: onComplete
     });
 };
@@ -32,6 +32,6 @@ export const animateButtonHover = (button: HTMLElement, isEntering: boolean): vo
     animate(button, {
         translateY: isEntering ? -5 : 0,
         duration: 300,
-        easing: 'easeOutCubic'
+        easing: "easeOutCubic"
     });
 };

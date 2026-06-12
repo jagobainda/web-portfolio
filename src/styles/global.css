@@ -21,5 +21,12 @@ body.dark {
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
+    50% {
+        opacity: 0;
+    }
+}
+
+.typing-cursor::after {
+    content: "|";
+    animation: blink 1s step-start infinite;
 }
