@@ -20,6 +20,9 @@
     "aboutMe": "About Me"
   },
   "viewDetails": "View details",
+  "seo": {
+    "homeDescription": "Portfolio of Jagoba Inda, Full Stack Developer. Explore my projects, technologies, and professional experience."
+  },
   "notFound": {
     "command": "cd /unknown/path",
     "error": "error: path not found (404)",

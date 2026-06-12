@@ -4,21 +4,81 @@ import Button from "../components/ui/Button.astro";
 
 interface Props {
     title: string;
+    description: string;
     showContactButton?: boolean;
+    ogImage?: string;
+    ogType?: string;
+    noindex?: boolean;
 }
 
-const { title, showContactButton = true } = Astro.props;
+const {
+    title,
+    description,
+    showContactButton = true,
+    ogImage = '/imgs/favicon/og-image.png',
+    ogType = 'website',
+    noindex = false,
+} = Astro.props;
+
+const locale = Astro.currentLocale === 'en' ? 'en' : 'es';
+
+const stripEn = (path: string): string => {
+    if (path === '/en' || path === '/en/') return '/';
+    if (path.startsWith('/en/')) return path.slice(3);
+    return path;
+};
+
+const basePath = stripEn(Astro.url.pathname);
+const esPath = basePath;
+const enPath = basePath === '/' ? '/en' : `/en${basePath}`;
+
+const canonicalURL = new URL(locale === 'en' ? enPath : esPath, Astro.site);
+const esURL = new URL(esPath, Astro.site);
+const enURL = new URL(enPath, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+const ogLocale = locale === 'en' ? 'en_US' : 'es_ES';
+const ogLocaleAlternate = locale === 'en' ? 'es_ES' : 'en_US';
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale || 'es'}>
+<html lang={locale}>
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="icon" href="/imgs/favicon/favicon.svg" type="image/svg+xml"/>
         <link rel="icon" href="/imgs/favicon/favicon.ico" sizes="any"/>
-        <link rel="apple-touch-icon" href="/imgs/favicon/favicon.ico"/>
+        <link rel="icon" href="/imgs/favicon/favicon.png" type="image/png"/>
+        <link rel="apple-touch-icon" href="/imgs/favicon/favicon.png"/>
         <title>{title}</title>
+        <meta name="description" content={description}/>
+
+        {noindex
+            ? <meta name="robots" content="noindex"/>
+            : (
+                <Fragment>
+                    <link rel="canonical" href={canonicalURL}/>
+                    <link rel="alternate" hreflang="es" href={esURL}/>
+                    <link rel="alternate" hreflang="en" href={enURL}/>
+                    <link rel="alternate" hreflang="x-default" href={esURL}/>
+                </Fragment>
+            )
+        }
+
+        <meta property="og:type" content={ogType}/>
+        <meta property="og:title" content={title}/>
+        <meta property="og:description" content={description}/>
+        <meta property="og:url" content={canonicalURL}/>
+        <meta property="og:site_name" content="Jagoba Inda"/>
+        <meta property="og:locale" content={ogLocale}/>
+        <meta property="og:locale:alternate" content={ogLocaleAlternate}/>
+        <meta property="og:image" content={ogImageURL}/>
+        <meta property="og:image:alt" content={title}/>
+
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content={title}/>
+        <meta name="twitter:description" content={description}/>
+        <meta name="twitter:image" content={ogImageURL}/>
+
         <slot name="head" />
     </head>
 

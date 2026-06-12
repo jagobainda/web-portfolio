@@ -20,6 +20,9 @@
     "aboutMe": "Sobre mí"
   },
   "viewDetails": "Ver detalles",
+  "seo": {
+    "homeDescription": "Portfolio de Jagoba Inda, desarrollador Full Stack. Descubre mis proyectos, tecnologías y experiencia profesional."
+  },
   "notFound": {
     "command": "cd /ruta/desconocida",
     "error": "error: ruta no encontrada (404)",

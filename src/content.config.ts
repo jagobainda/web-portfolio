@@ -101,6 +101,9 @@ const uiCollection = defineCollection({
             aboutMe: z.string(),
         }),
         viewDetails: z.string(),
+        seo: z.object({
+            homeDescription: z.string(),
+        }),
         notFound: z.object({
             command: z.string(),
             error: z.string(),

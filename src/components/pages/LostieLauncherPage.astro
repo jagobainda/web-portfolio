@@ -13,7 +13,7 @@ const contentEntry = await getEntry('project-details', `lostie-launcher-${lang}`
 const t = contentEntry!.data;
 ---
 
-<BaseLayout title={`${t.title} - Jagoba Inda`} showContactButton={false}>
+<BaseLayout title={`${t.title} - Jagoba Inda`} description={t.description!} showContactButton={false}>
     <div class:list={[
         'bg-bg-primary min-h-screen w-full',
         'transition-colors duration-300',

@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import node from '@astrojs/node';
 
 export default defineConfig({
+  site: 'https://jagoba.dev',
   output: 'static',
   adapter: node({
     mode: 'standalone'

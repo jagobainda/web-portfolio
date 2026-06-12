@@ -51,7 +51,7 @@ const formatDate = (dateString: string | null | undefined): string => {
 };
 ---
 
-<BaseLayout title={`${extensionProject?.name || 'Project'} - Jagoba Inda`} showContactButton={false}>
+<BaseLayout title={`${extensionProject?.name || 'Project'} - Jagoba Inda`} description={extensionProject?.description || ''} showContactButton={false}>
     <div class:list={[
         'bg-bg-primary min-h-screen w-full',
         'transition-colors duration-300',

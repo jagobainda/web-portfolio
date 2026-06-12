@@ -18,7 +18,7 @@ const uiEntry = await getEntry('ui', lang);
 const ui = uiEntry!.data;
 ---
 
-<BaseLayout title="Jagoba Inda - Full Stack Developer">
+<BaseLayout title="Jagoba Inda - Full Stack Developer" description={ui.seo.homeDescription}>
     <div id="app" class:list={[
         'bg-bg-primary w-screen h-screen',
         'flex flex-col justify-center items-center gap-11',
