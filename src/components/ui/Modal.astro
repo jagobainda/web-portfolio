@@ -26,12 +26,17 @@ const maxWidthClass = {
         data-modal={id}
 >
     <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={`modal-${id}-title`}
+            tabindex="-1"
             class:list={[
                 'modal-content relative flex flex-col overflow-hidden',
                 'bg-(--bg-primary) text-text-color',
                 'p-8 rounded-lg w-[90%] max-h-[90vh]',
                 'shadow-[6px_6px_12px_var(--shadow-dark)]',
                 'transition-colors duration-300 ease-in-out',
+                'focus:outline-none',
                 maxWidthClass,
                 'max-md:w-[95%] max-md:p-5',
                 'max-sm:p-4 max-sm:max-w-[calc(100%-20px)] max-sm:max-h-[85vh]',
@@ -47,14 +52,17 @@ const maxWidthClass = {
                 ]}
                 aria-label="Close modal"
         >
-            &times;
+            <span aria-hidden="true">&times;</span>
         </button>
 
-        <h2 class:list={[
-            'text-center mt-0 mb-6',
-            'font-mono text-3xl',
-            'max-md:text-2xl max-md:mb-5'
-        ]}>
+        <h2
+                id={`modal-${id}-title`}
+                class:list={[
+                    'text-center mt-0 mb-6',
+                    'font-mono text-3xl',
+                    'max-md:text-2xl max-md:mb-5'
+                ]}
+        >
             {title}
         </h2>
 

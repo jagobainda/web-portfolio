@@ -28,7 +28,7 @@ const isMain = variant === 'main';
                 className
             ]}
     >
-        <i class:list={[
+        <i aria-hidden="true" class:list={[
             icon,
             'text-[3.5rem] z-1',
             'max-md:text-[2.5rem]',
@@ -59,6 +59,6 @@ const isMain = variant === 'main';
                 className
             ]}
     >
-        <i class={`${icon} text-xl`}></i>
+        <i aria-hidden="true" class={`${icon} text-xl`}></i>
     </button>
 )}

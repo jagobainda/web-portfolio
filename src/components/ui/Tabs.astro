@@ -14,14 +14,22 @@ const { tabs, name, class: className } = Astro.props;
 ---
 
 <div class:list={['tabs-container', className]} data-tabs={name}>
-    <div class:list={[
-        'tab-buttons flex justify-center flex-wrap',
-        'border-b border-(--bg-secondary) mb-6',
-        'max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:justify-start max-sm:gap-0 max-sm:pb-1 max-sm:mb-3'
-    ]}>
+    <div
+            role="tablist"
+            class:list={[
+                'tab-buttons flex justify-center flex-wrap',
+                'border-b border-(--bg-secondary) mb-6',
+                'max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:justify-start max-sm:gap-0 max-sm:pb-1 max-sm:mb-3'
+            ]}
+    >
         {tabs.map((tab, index) => (
                 <button
                         type="button"
+                        role="tab"
+                        id={`tab-${name}-${tab.id}`}
+                        aria-selected={index === 0 ? 'true' : 'false'}
+                        aria-controls={`${name}-${tab.id}`}
+                        tabindex={index === 0 ? 0 : -1}
                         class:list={[
                             'tab-btn bg-transparent border-none cursor-pointer',
                             'py-3 px-6 mx-2 font-mono text-base',
@@ -43,8 +51,11 @@ const { tabs, name, class: className } = Astro.props;
         {tabs.map(async (tab, index) => (
                 <div
                         id={`${name}-${tab.id}`}
+                        role="tabpanel"
+                        aria-labelledby={`tab-${name}-${tab.id}`}
+                        tabindex="0"
                         class:list={[
-                            'tab-panel',
+                            'tab-panel focus:outline-none',
                             index !== 0 && 'hidden'
                         ]}
                 >
