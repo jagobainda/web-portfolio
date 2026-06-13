@@ -33,10 +33,10 @@ const { tabs, name, class: className } = Astro.props;
                     tabindex={index === 0 ? 0 : -1}
                     class:list={[
                         "tab-btn cursor-pointer border-none bg-transparent",
-                        "mx-2 px-6 py-3 font-mono text-base",
+                        "mx-2 rounded-t-md px-6 py-3 font-mono text-base",
                         "text-text-color border-b-2 border-transparent",
                         "transition-all duration-300 ease-in-out",
-                        "hover:border-b-bg-secondary",
+                        "hover:border-b-bg-secondary hover:bg-(--bg-secondary)/30",
                         "max-md:px-4 max-md:py-2 max-md:text-sm",
                         "max-sm:mx-0.5 max-sm:px-2 max-sm:py-1.5 max-sm:text-xs max-sm:whitespace-nowrap",
                         index === 0 && "active",
@@ -68,8 +68,19 @@ const { tabs, name, class: className } = Astro.props;
 
 <style>
     .tab-btn.active {
+        background-color: var(--text-color);
+        color: var(--bg-primary);
         border-bottom-color: var(--text-color);
         font-weight: bold;
+    }
+
+    .tab-btn.active::before {
+        content: "> ";
+    }
+
+    .tab-btn.active:hover {
+        background-color: var(--text-color);
+        border-bottom-color: var(--text-color);
     }
 
     @media (max-width: 480px) {
