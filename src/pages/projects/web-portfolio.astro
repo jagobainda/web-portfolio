@@ -1,11 +1,9 @@
 ---
 export const prerender = true;
 
-import WebPortfolioPage from '../../components/pages/WebPortfolioPage.astro';
+import WebPortfolioPage from "../../components/pages/WebPortfolioPage.astro";
 
-const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
-    ? Astro.currentLocale as 'en' | 'es'
-    : 'es';
+const lang = Astro.currentLocale === "en" || Astro.currentLocale === "es" ? (Astro.currentLocale as "en" | "es") : "es";
 ---
 
 <WebPortfolioPage lang={lang} />

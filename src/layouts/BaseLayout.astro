@@ -15,108 +15,111 @@ const {
     title,
     description,
     showContactButton = true,
-    ogImage = '/imgs/favicon/og-image.png',
-    ogType = 'website',
+    ogImage = "/imgs/favicon/og-image.png",
+    ogType = "website",
     noindex = false,
 } = Astro.props;
 
-const locale = Astro.currentLocale === 'en' ? 'en' : 'es';
+const locale = Astro.currentLocale === "en" ? "en" : "es";
 
 const stripEn = (path: string): string => {
-    if (path === '/en' || path === '/en/') return '/';
-    if (path.startsWith('/en/')) return path.slice(3);
+    if (path === "/en" || path === "/en/") return "/";
+    if (path.startsWith("/en/")) return path.slice(3);
     return path;
 };
 
 const basePath = stripEn(Astro.url.pathname);
 const esPath = basePath;
-const enPath = basePath === '/' ? '/en' : `/en${basePath}`;
+const enPath = basePath === "/" ? "/en" : `/en${basePath}`;
 
-const canonicalURL = new URL(locale === 'en' ? enPath : esPath, Astro.site);
+const canonicalURL = new URL(locale === "en" ? enPath : esPath, Astro.site);
 const esURL = new URL(esPath, Astro.site);
 const enURL = new URL(enPath, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 
-const ogLocale = locale === 'en' ? 'en_US' : 'es_ES';
-const ogLocaleAlternate = locale === 'en' ? 'es_ES' : 'en_US';
+const ogLocale = locale === "en" ? "en_US" : "es_ES";
+const ogLocaleAlternate = locale === "en" ? "es_ES" : "en_US";
 ---
 
 <!doctype html>
 <html lang={locale}>
     <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="icon" href="/imgs/favicon/favicon.ico" sizes="any"/>
-        <link rel="icon" href="/imgs/favicon/favicon.png" type="image/png"/>
-        <link rel="apple-touch-icon" href="/imgs/favicon/favicon.png"/>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/imgs/favicon/favicon.ico" sizes="any" />
+        <link rel="icon" href="/imgs/favicon/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/imgs/favicon/favicon.png" />
         <title>{title}</title>
-        <meta name="description" content={description}/>
+        <meta name="description" content={description} />
 
-        {noindex
-            ? <meta name="robots" content="noindex"/>
-            : (
+        {
+            noindex ? (
+                <meta name="robots" content="noindex" />
+            ) : (
                 <Fragment>
-                    <link rel="canonical" href={canonicalURL}/>
-                    <link rel="alternate" hreflang="es" href={esURL}/>
-                    <link rel="alternate" hreflang="en" href={enURL}/>
-                    <link rel="alternate" hreflang="x-default" href={esURL}/>
+                    <link rel="canonical" href={canonicalURL} />
+                    <link rel="alternate" hreflang="es" href={esURL} />
+                    <link rel="alternate" hreflang="en" href={enURL} />
+                    <link rel="alternate" hreflang="x-default" href={esURL} />
                 </Fragment>
             )
         }
 
-        <meta property="og:type" content={ogType}/>
-        <meta property="og:title" content={title}/>
-        <meta property="og:description" content={description}/>
-        <meta property="og:url" content={canonicalURL}/>
-        <meta property="og:site_name" content="Jagoba Inda"/>
-        <meta property="og:locale" content={ogLocale}/>
-        <meta property="og:locale:alternate" content={ogLocaleAlternate}/>
-        <meta property="og:image" content={ogImageURL}/>
-        <meta property="og:image:alt" content={title}/>
+        <meta property="og:type" content={ogType} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:site_name" content="Jagoba Inda" />
+        <meta property="og:locale" content={ogLocale} />
+        <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta property="og:image:alt" content={title} />
 
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta name="twitter:title" content={title}/>
-        <meta name="twitter:description" content={description}/>
-        <meta name="twitter:image" content={ogImageURL}/>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageURL} />
 
         <slot name="head" />
     </head>
 
     <body class="dark bg-(--bg-primary) text-(--text-color) transition-colors duration-300">
-        <div class="fixed top-5 right-5 flex gap-5 items-center z-50 max-sm:top-2.5 max-sm:right-2.5">
-            {showContactButton && (
+        <div class="fixed top-5 right-5 z-50 flex items-center gap-5 max-sm:top-2.5 max-sm:right-2.5">
+            {
+                showContactButton && (
                     <Button id="contact-button" icon="bi bi-link-45deg" variant="control" ariaLabel="Contact links" />
-            )}
-            <ThemeToggle/>
+                )
+            }
+            <ThemeToggle />
         </div>
 
-        <slot/>
+        <slot />
 
         <script is:inline>
             (function () {
-                if (sessionStorage.getItem('lang-redirected')) return;
-                sessionStorage.setItem('lang-redirected', '1');
+                if (sessionStorage.getItem("lang-redirected")) return;
+                sessionStorage.setItem("lang-redirected", "1");
 
-                const browserLang = (navigator.languages && navigator.languages[0]
-                    ? navigator.languages[0]
-                    : navigator.language || '').toLowerCase();
+                const browserLang = (
+                    navigator.languages && navigator.languages[0] ? navigator.languages[0] : navigator.language || ""
+                ).toLowerCase();
 
-                if (!browserLang.startsWith('en')) return;
+                if (!browserLang.startsWith("en")) return;
 
                 const path = window.location.pathname;
-                if (path === '/en' || path.startsWith('/en/')) return;
+                if (path === "/en" || path.startsWith("/en/")) return;
 
-                const newPath = '/en' + (path === '/' ? '' : path);
+                const newPath = "/en" + (path === "/" ? "" : path);
                 window.location.replace(newPath);
             })();
         </script>
 
         <script>
-            import '../scripts/main';
+            import "../scripts/main";
         </script>
     </body>
 </html>
 
 <style is:global>
-    @import '../styles/global.css';
+    @import "../styles/global.css";
 </style>

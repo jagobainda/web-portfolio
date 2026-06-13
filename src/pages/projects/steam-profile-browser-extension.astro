@@ -1,13 +1,11 @@
 ---
 export const prerender = false;
 
-import SteamExtensionPage from '../../components/pages/SteamExtensionPage.astro';
+import SteamExtensionPage from "../../components/pages/SteamExtensionPage.astro";
 
-Astro.response.headers.set('Cache-Control', 'public, max-age=3600, must-revalidate');
+Astro.response.headers.set("Cache-Control", "public, max-age=3600, must-revalidate");
 
-const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
-    ? Astro.currentLocale as 'en' | 'es'
-    : 'es';
+const lang = Astro.currentLocale === "en" || Astro.currentLocale === "es" ? (Astro.currentLocale as "en" | "es") : "es";
 ---
 
 <SteamExtensionPage lang={lang} />

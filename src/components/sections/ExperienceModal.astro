@@ -1,48 +1,49 @@
 ---
-import Modal from '../ui/Modal.astro';
-import ExperienceCard from '../cards/ExperienceCard.astro';
-import { getEntry } from 'astro:content';
+import Modal from "../ui/Modal.astro";
+import ExperienceCard from "../cards/ExperienceCard.astro";
+import { getEntry } from "astro:content";
 
 interface Props {
     title: string;
     lang?: string;
 }
 
-const { title, lang = 'es' } = Astro.props;
+const { title, lang = "es" } = Astro.props;
 
-const experienceEntry = await getEntry('experience', lang);
+const experienceEntry = await getEntry("experience", lang);
 const experience = experienceEntry?.data;
 
 const labels = {
-    responsibilities: lang === 'es' ? 'Responsabilidades:' : 'Responsibilities:',
-    technologies: lang === 'es' ? 'Tecnologías:' : 'Technologies:',
+    responsibilities: lang === "es" ? "Responsabilidades:" : "Responsibilities:",
+    technologies: lang === "es" ? "Tecnologías:" : "Technologies:",
 };
 ---
 
 <Modal id="experience" title={title}>
-    {experience && experience.experiences ? (
+    {
+        experience && experience.experiences ? (
             <div class="flex flex-col gap-6 p-1">
                 {experience.experiences.map((exp, index) => (
-                        <>
-                            <ExperienceCard
-                                position={exp.position}
-                                company={exp.company}
-                                location={exp.location}
-                                period={exp.period}
-                                responsibilities={exp.responsibilities}
-                                technologies={exp.technologies}
-                                icon={exp.icon}
-                                responsibilitiesLabel={labels.responsibilities}
-                                technologiesLabel={labels.technologies}
-                            />
-                            {index < experience.experiences.length - 1 && (
-                                    <div class="w-0.5 h-5 bg-bg-secondary ml-6 max-[360px]:ml-5"></div>
-                            )}
-                        </>
+                    <>
+                        <ExperienceCard
+                            position={exp.position}
+                            company={exp.company}
+                            location={exp.location}
+                            period={exp.period}
+                            responsibilities={exp.responsibilities}
+                            technologies={exp.technologies}
+                            icon={exp.icon}
+                            responsibilitiesLabel={labels.responsibilities}
+                            technologiesLabel={labels.technologies}
+                        />
+                        {index < experience.experiences.length - 1 && (
+                            <div class="bg-bg-secondary ml-6 h-5 w-0.5 max-[360px]:ml-5" />
+                        )}
+                    </>
                 ))}
             </div>
-    ) : (
+        ) : (
             <p>No experience data found.</p>
-    )}
+        )
+    }
 </Modal>
-

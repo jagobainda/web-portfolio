@@ -10,7 +10,7 @@ export const animateModalOpen = (content: HTMLElement): void => {
         rotate: [-2, 0],
         duration: 400,
         easing: "easeOutCubic",
-        delay: 100
+        delay: 100,
     });
 };
 
@@ -24,7 +24,7 @@ export const animateModalClose = (content: HTMLElement, onComplete: () => void):
         rotate: [0, -1],
         duration: 250,
         easing: "easeInQuart",
-        onComplete: onComplete
+        onComplete: onComplete,
     });
 };
 
@@ -32,6 +32,6 @@ export const animateButtonHover = (button: HTMLElement, isEntering: boolean): vo
     animate(button, {
         translateY: isEntering ? -5 : 0,
         duration: 300,
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
     });
 };

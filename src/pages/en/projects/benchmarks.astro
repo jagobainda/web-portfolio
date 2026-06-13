@@ -1,12 +1,9 @@
 ---
 export const prerender = true;
 
-import BenchmarksPage from '../../../components/pages/BenchmarksPage.astro';
+import BenchmarksPage from "../../../components/pages/BenchmarksPage.astro";
 
-const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
-    ? Astro.currentLocale as 'en' | 'es'
-    : 'en';
+const lang = Astro.currentLocale === "en" || Astro.currentLocale === "es" ? (Astro.currentLocale as "en" | "es") : "en";
 ---
 
 <BenchmarksPage lang={lang} />
-

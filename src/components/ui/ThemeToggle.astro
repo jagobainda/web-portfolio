@@ -7,18 +7,18 @@ const { class: className } = Astro.props;
 ---
 
 <button
-        id="theme-toggle"
-        aria-label="Toggle theme"
-        class:list={[
-            'flex items-center justify-center',
-            'w-13.75 h-13.75 rounded-md border-none cursor-pointer',
-            'bg-(--bg-secondary) text-text-color',
-            'shadow-[4px_4px_6px_var(--shadow-light)]',
-            'transition-all duration-300 ease-in-out',
-            'hover:shadow-[6px_6px_8px_var(--shadow-dark)]',
-            'max-md:w-11.25 max-md:h-11.25',
-            className
-        ]}
+    id="theme-toggle"
+    aria-label="Toggle theme"
+    class:list={[
+        "flex items-center justify-center",
+        "h-13.75 w-13.75 cursor-pointer rounded-md border-none",
+        "text-text-color bg-(--bg-secondary)",
+        "shadow-[4px_4px_6px_var(--shadow-light)]",
+        "transition-all duration-300 ease-in-out",
+        "hover:shadow-[6px_6px_8px_var(--shadow-dark)]",
+        "max-md:h-11.25 max-md:w-11.25",
+        className,
+    ]}
 >
-    <i id="theme-icon" class="bi bi-lightbulb-off-fill text-xl text-text-color transition-colors duration-300"></i>
+    <i id="theme-icon" class="bi bi-lightbulb-off-fill text-text-color text-xl transition-colors duration-300"></i>
 </button>

@@ -3,7 +3,14 @@ import { animateModalOpen, animateModalClose } from "./animations";
 let isTransitioning = false;
 let lastFocused: HTMLElement | null = null;
 
-const FOCUSABLE_SELECTOR = ["a[href]", "button:not([disabled])", "textarea:not([disabled])", "input:not([disabled])", "select:not([disabled])", '[tabindex]:not([tabindex="-1"])'].join(",");
+const FOCUSABLE_SELECTOR = [
+    "a[href]",
+    "button:not([disabled])",
+    "textarea:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    '[tabindex]:not([tabindex="-1"])',
+].join(",");
 
 export const initModals = (): void => {
     document.querySelectorAll(".close-btn").forEach(btn => {
@@ -28,7 +35,10 @@ export const initModals = (): void => {
     checkInitialHash();
 };
 
-const getFocusableElements = (modal: Element): HTMLElement[] => Array.from(modal.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(el => el.offsetParent !== null || el === document.activeElement);
+const getFocusableElements = (modal: Element): HTMLElement[] =>
+    Array.from(modal.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
+        el => el.offsetParent !== null || el === document.activeElement,
+    );
 
 const trapFocus = (e: KeyboardEvent): void => {
     if (e.key !== "Tab") return;

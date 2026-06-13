@@ -1,11 +1,9 @@
 ---
 export const prerender = true;
 
-import LostieLauncherPage from '../../../components/pages/LostieLauncherPage.astro';
+import LostieLauncherPage from "../../../components/pages/LostieLauncherPage.astro";
 
-const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
-    ? Astro.currentLocale as 'en' | 'es'
-    : 'en';
+const lang = Astro.currentLocale === "en" || Astro.currentLocale === "es" ? (Astro.currentLocale as "en" | "es") : "en";
 ---
 
 <LostieLauncherPage lang={lang} />

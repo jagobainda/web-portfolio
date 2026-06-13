@@ -1,11 +1,9 @@
 ---
 export const prerender = true;
 
-import SkinholderPage from '../../../components/pages/SkinholderPage.astro';
+import SkinholderPage from "../../../components/pages/SkinholderPage.astro";
 
-const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
-    ? Astro.currentLocale as 'en' | 'es'
-    : 'en';
+const lang = Astro.currentLocale === "en" || Astro.currentLocale === "es" ? (Astro.currentLocale as "en" | "es") : "en";
 ---
 
 <SkinholderPage lang={lang} />

@@ -1,5 +1,5 @@
-import { z } from 'astro/zod';
-import { glob } from 'astro/loaders';
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 import { defineCollection } from "astro/content/config";
 
 const projectLinkSchema = z.object({
@@ -17,7 +17,7 @@ const projectSchema = z.object({
 });
 
 const projectsCollection = defineCollection({
-    loader: glob({ pattern: '*.json', base: 'src/content/projects' }),
+    loader: glob({ pattern: "*.json", base: "src/content/projects" }),
     schema: z.object({
         tabNames: z.object({
             personal: z.string(),
@@ -41,7 +41,7 @@ const experienceItemSchema = z.object({
 });
 
 const experienceCollection = defineCollection({
-    loader: glob({ pattern: '*.json', base: 'src/content/experience' }),
+    loader: glob({ pattern: "*.json", base: "src/content/experience" }),
     schema: z.object({
         experiences: z.array(experienceItemSchema),
     }),
@@ -54,7 +54,7 @@ const aboutSectionSchema = z.object({
 });
 
 const aboutCollection = defineCollection({
-    loader: glob({ pattern: '*.json', base: 'src/content/about' }),
+    loader: glob({ pattern: "*.json", base: "src/content/about" }),
     schema: z.object({
         intro: z.string(),
         sections: z.array(aboutSectionSchema),
@@ -69,7 +69,7 @@ const techItemSchema = z.object({
 });
 
 const technologiesCollection = defineCollection({
-    loader: glob({ pattern: '*.json', base: 'src/content/technologies' }),
+    loader: glob({ pattern: "*.json", base: "src/content/technologies" }),
     schema: z.object({
         technologies: z.array(techItemSchema),
         programmingTools: z.array(techItemSchema),
@@ -78,7 +78,7 @@ const technologiesCollection = defineCollection({
 });
 
 const uiCollection = defineCollection({
-    loader: glob({ pattern: '*.json', base: 'src/content/ui' }),
+    loader: glob({ pattern: "*.json", base: "src/content/ui" }),
     schema: z.object({
         contactTitle: z.string(),
         emailText: z.string(),
@@ -115,7 +115,7 @@ const uiCollection = defineCollection({
 });
 
 const projectDetailsCollection = defineCollection({
-    loader: glob({ pattern: '*.json', base: 'src/content/project-details' }),
+    loader: glob({ pattern: "*.json", base: "src/content/project-details" }),
     schema: z.object({
         // Extension specific
         backButton: z.string(),
@@ -233,16 +233,20 @@ const projectDetailsCollection = defineCollection({
         flowStep2Desc: z.string().optional(),
         flowStep3: z.string().optional(),
         flowStep3Desc: z.string().optional(),
-        benchmarkProjects: z.array(z.object({
-            name: z.string(),
-            description: z.string(),
-            url: z.url(),
-            liveUrl: z.url().optional(),
-            liveLabel: z.string().optional(),
-            tags: z.array(z.string()),
-            icon: z.string(),
-            accent: z.string(),
-        })).optional(),
+        benchmarkProjects: z
+            .array(
+                z.object({
+                    name: z.string(),
+                    description: z.string(),
+                    url: z.url(),
+                    liveUrl: z.url().optional(),
+                    liveLabel: z.string().optional(),
+                    tags: z.array(z.string()),
+                    icon: z.string(),
+                    accent: z.string(),
+                }),
+            )
+            .optional(),
     }),
 });
 
@@ -252,6 +256,5 @@ export const collections = {
     about: aboutCollection,
     technologies: technologiesCollection,
     ui: uiCollection,
-    'project-details': projectDetailsCollection,
+    "project-details": projectDetailsCollection,
 };
-

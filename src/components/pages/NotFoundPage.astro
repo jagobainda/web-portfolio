@@ -1,13 +1,13 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getEntry } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
 
 // Astro's node adapter serves a single root 404.html for every unmatched
 // route (including /en/*), so the language can't be resolved at build time.
 // We embed both locales and pick the right one on the client, mirroring the
 // language-detection approach already used in BaseLayout.
-const esEntry = await getEntry('ui', 'es');
-const enEntry = await getEntry('ui', 'en');
+const esEntry = await getEntry("ui", "es");
+const enEntry = await getEntry("ui", "en");
 
 const es = esEntry!.data.notFound;
 const en = enEntry!.data.notFound;
@@ -18,57 +18,53 @@ const translations = { es, en };
 ---
 
 <BaseLayout title={`404 - ${t.title} - Jagoba Inda`} description={t.message} showContactButton={false} noindex={true}>
-    <div class:list={[
-        'bg-bg-primary min-h-screen w-full',
-        'flex flex-col justify-center items-center',
-        'transition-colors duration-300',
-        'py-20 px-8',
-        'max-sm:py-16 max-sm:px-4'
-    ]}>
-        <div class:list={[
-            'bg-(--bg-secondary) rounded-2xl p-10 w-full max-w-2xl',
-            'shadow-[4px_4px_12px_var(--shadow-light)]',
-            'max-sm:p-6'
-        ]}>
+    <div
+        class:list={[
+            "bg-bg-primary min-h-screen w-full",
+            "flex flex-col items-center justify-center",
+            "transition-colors duration-300",
+            "px-8 py-20",
+            "max-sm:px-4 max-sm:py-16",
+        ]}
+    >
+        <div
+            class:list={[
+                "w-full max-w-2xl rounded-2xl bg-(--bg-secondary) p-10",
+                "shadow-[4px_4px_12px_var(--shadow-light)]",
+                "max-sm:p-6",
+            ]}
+        >
             <!-- Terminal command line -->
-            <p class:list={[
-                'font-mono text-lg mb-2',
-                'text-text-color opacity-70',
-                'break-all'
-            ]}>
-                <span class="opacity-60">~ $</span> <span data-i18n="command">{t.command}</span>
+            <p class:list={["mb-2 font-mono text-lg", "text-text-color opacity-70", "break-all"]}>
+                <span class="opacity-60">~ $</span>
+                <span data-i18n="command">{t.command}</span>
             </p>
-            <p class:list={[
-                'font-mono text-base mb-8',
-                'text-red-500'
-            ]} data-i18n="error">
+            <p class:list={["mb-8 font-mono text-base", "text-red-500"]} data-i18n="error">
                 {t.error}
             </p>
 
             <!-- Big 404 with blinking cursor -->
-            <h1 class:list={[
-                'after:content-["|"] after:animate-blink after:ml-1',
-                'font-mono font-bold text-text-color',
-                'text-[7rem] leading-none mb-6',
-                'transition-[color,text-shadow] duration-300 ease-in-out',
-                '[text-shadow:3px_3px_5px_var(--shadow-light)]',
-                'dark:[text-shadow:3px_3px_6px_var(--shadow-dark)]',
-                'max-sm:text-[4rem]'
-            ]}>
+            <h1
+                class:list={[
+                    'after:ml-1 after:animate-blink after:content-["|"]',
+                    "text-text-color font-mono font-bold",
+                    "mb-6 text-[7rem] leading-none",
+                    "transition-[color,text-shadow] duration-300 ease-in-out",
+                    "[text-shadow:3px_3px_5px_var(--shadow-light)]",
+                    "dark:[text-shadow:3px_3px_6px_var(--shadow-dark)]",
+                    "max-sm:text-[4rem]",
+                ]}
+            >
                 404
             </h1>
 
-            <h2 class:list={[
-                'font-mono font-bold text-3xl mb-3',
-                'text-text-color',
-                'max-sm:text-2xl'
-            ]} data-i18n="title">
+            <h2
+                class:list={["mb-3 font-mono text-3xl font-bold", "text-text-color", "max-sm:text-2xl"]}
+                data-i18n="title"
+            >
                 {t.title}
             </h2>
-            <p class:list={[
-                'text-lg leading-relaxed mb-8',
-                'text-text-color opacity-90'
-            ]} data-i18n="message">
+            <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]} data-i18n="message">
                 {t.message}
             </p>
 
@@ -77,11 +73,11 @@ const translations = { es, en };
                 href="/"
                 data-i18n-home
                 class:list={[
-                    'inline-flex items-center gap-2',
-                    'bg-(--bg-primary) px-5 py-3 rounded-lg',
-                    'text-text-color no-underline font-mono text-lg',
-                    'hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--shadow-dark)]',
-                    'transition-all duration-300'
+                    "inline-flex items-center gap-2",
+                    "rounded-lg bg-(--bg-primary) px-5 py-3",
+                    "text-text-color font-mono text-lg no-underline",
+                    "hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--shadow-dark)]",
+                    "transition-all duration-300",
                 ]}
             >
                 <i class="bi bi-arrow-left"></i>
@@ -93,25 +89,25 @@ const translations = { es, en };
     <script is:inline define:vars={{ translations }}>
         (function () {
             const path = window.location.pathname;
-            const browserLang = (navigator.languages && navigator.languages[0]
-                ? navigator.languages[0]
-                : navigator.language || '').toLowerCase();
+            const browserLang = (
+                navigator.languages && navigator.languages[0] ? navigator.languages[0] : navigator.language || ""
+            ).toLowerCase();
 
             // Locale from the URL prefix takes precedence over browser language.
-            const isEn = path === '/en' || path.startsWith('/en/') || browserLang.startsWith('en');
-            const lang = isEn ? 'en' : 'es';
+            const isEn = path === "/en" || path.startsWith("/en/") || browserLang.startsWith("en");
+            const lang = isEn ? "en" : "es";
             const t = translations[lang];
 
             document.documentElement.lang = lang;
             document.title = `404 - ${t.title} - Jagoba Inda`;
 
-            document.querySelectorAll('[data-i18n]').forEach((el) => {
-                const key = el.getAttribute('data-i18n');
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
                 if (t[key]) el.textContent = t[key];
             });
 
-            const home = document.querySelector('[data-i18n-home]');
-            if (home) home.setAttribute('href', lang === 'en' ? '/en' : '/');
+            const home = document.querySelector("[data-i18n-home]");
+            if (home) home.setAttribute("href", lang === "en" ? "/en" : "/");
         })();
     </script>
 </BaseLayout>

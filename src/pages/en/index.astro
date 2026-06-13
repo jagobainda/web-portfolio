@@ -1,11 +1,9 @@
 ---
 export const prerender = true;
 
-import IndexPage from '../../components/pages/IndexPage.astro';
+import IndexPage from "../../components/pages/IndexPage.astro";
 
-const lang = (Astro.currentLocale === 'en' || Astro.currentLocale === 'es')
-    ? Astro.currentLocale as 'en' | 'es'
-    : 'en';
+const lang = Astro.currentLocale === "en" || Astro.currentLocale === "es" ? (Astro.currentLocale as "en" | "es") : "en";
 ---
 
 <IndexPage lang={lang} />

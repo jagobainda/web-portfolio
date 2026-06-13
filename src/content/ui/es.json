@@ -1,34 +1,33 @@
 {
-  "contactTitle": "Contacto",
-  "emailText": "contact@jagoba.dev",
-  "linkedinText": "LinkedIn",
-  "githubText": "GitHub",
-  "resumeText": "Descargar CV",
-  "projectsTitle": "Proyectos",
-  "technologiesTitle": "Tecnologías",
-  "experienceTitle": "Experiencia",
-  "aboutMeTitle": "Sobre mí",
-  "techTabs": {
-    "technologies": "Tecnologías",
-    "programs": "Programas",
-    "os": "SO & Servicios"
-  },
-  "buttons": {
-    "projects": "Proyectos",
-    "technologies": "Tecnologías",
-    "experience": "Experiencia",
-    "aboutMe": "Sobre mí"
-  },
-  "viewDetails": "Ver detalles",
-  "seo": {
-    "homeDescription": "Portfolio de Jagoba Inda, desarrollador Full Stack. Descubre mis proyectos, tecnologías y experiencia profesional."
-  },
-  "notFound": {
-    "command": "cd /ruta/desconocida",
-    "error": "error: ruta no encontrada (404)",
-    "title": "Página no encontrada",
-    "message": "La ruta que buscas no existe o ha sido movida.",
-    "backHome": "Volver al inicio"
-  }
+    "contactTitle": "Contacto",
+    "emailText": "contact@jagoba.dev",
+    "linkedinText": "LinkedIn",
+    "githubText": "GitHub",
+    "resumeText": "Descargar CV",
+    "projectsTitle": "Proyectos",
+    "technologiesTitle": "Tecnologías",
+    "experienceTitle": "Experiencia",
+    "aboutMeTitle": "Sobre mí",
+    "techTabs": {
+        "technologies": "Tecnologías",
+        "programs": "Programas",
+        "os": "SO & Servicios"
+    },
+    "buttons": {
+        "projects": "Proyectos",
+        "technologies": "Tecnologías",
+        "experience": "Experiencia",
+        "aboutMe": "Sobre mí"
+    },
+    "viewDetails": "Ver detalles",
+    "seo": {
+        "homeDescription": "Portfolio de Jagoba Inda, desarrollador Full Stack. Descubre mis proyectos, tecnologías y experiencia profesional."
+    },
+    "notFound": {
+        "command": "cd /ruta/desconocida",
+        "error": "error: ruta no encontrada (404)",
+        "title": "Página no encontrada",
+        "message": "La ruta que buscas no existe o ha sido movida.",
+        "backHome": "Volver al inicio"
+    }
 }
-

@@ -14,70 +14,75 @@ interface Props {
     viewDetailsText?: string;
 }
 
-const { name, description, tags, links, detailsUrl, viewDetailsText = 'Ver detalles' } = Astro.props;
+const { name, description, tags, links, detailsUrl, viewDetailsText = "Ver detalles" } = Astro.props;
 ---
 
-<div class:list={[
-    'bg-(--bg-secondary) rounded-lg overflow-hidden',
-    'flex flex-col',
-    'shadow-[0_4px_6px_var(--shadow-light)]',
-    'transition-all duration-300',
-    'hover:-translate-y-0.5 hover:shadow-[0_6px_12px_var(--shadow-dark)]'
-]}>
-    <div class="p-5 grow flex flex-col">
-        <h3 class="font-mono text-xl font-bold my-2">{name}</h3>
-        <p class="text-sm mb-4 grow leading-relaxed">{description}</p>
+<div
+    class:list={[
+        "overflow-hidden rounded-lg bg-(--bg-secondary)",
+        "flex flex-col",
+        "shadow-[0_4px_6px_var(--shadow-light)]",
+        "transition-all duration-300",
+        "hover:-translate-y-0.5 hover:shadow-[0_6px_12px_var(--shadow-dark)]",
+    ]}
+>
+    <div class="flex grow flex-col p-5">
+        <h3 class="my-2 font-mono text-xl font-bold">{name}</h3>
+        <p class="mb-4 grow text-sm leading-relaxed">{description}</p>
 
-        <div class="flex flex-wrap gap-2 mt-auto mb-3">
-            {tags.map(tag => (
-                    <span class:list={[
-                        'bg-(--bg-primary) px-3 py-1.5 rounded-full text-sm',
-                        'flex items-center'
-                    ]}>
-          <i class="bi bi-check-circle-fill text-xs mr-1.5 text-green-500"></i>
+        <div class="mt-auto mb-3 flex flex-wrap gap-2">
+            {
+                tags.map(tag => (
+                    <span class:list={["rounded-full bg-(--bg-primary) px-3 py-1.5 text-sm", "flex items-center"]}>
+                        <i class="bi bi-check-circle-fill mr-1.5 text-xs text-green-500" />
                         {tag}
-        </span>
-            ))}
+                    </span>
+                ))
+            }
         </div>
 
-        {links.length > 0 && (
-                <div class="flex gap-4 mt-auto ml-1">
+        {
+            links.length > 0 && (
+                <div class="mt-auto ml-1 flex gap-4">
                     {links.map(link => (
-                            <a
-                                    href={link.url}
-                                    target={link.url.startsWith('http') ? '_blank' : undefined}
-                                    rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                    class:list={[
-                                        'text-text-color no-underline',
-                                        'flex items-center gap-1 text-sm',
-                                        'transition-opacity duration-200',
-                                        'hover:opacity-70'
-                                    ]}
-                            >
-                                <i class={link.icon}></i>
-                                {link.text}
-                            </a>
+                        <a
+                            href={link.url}
+                            target={link.url.startsWith("http") ? "_blank" : undefined}
+                            rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                            class:list={[
+                                "text-text-color no-underline",
+                                "flex items-center gap-1 text-sm",
+                                "transition-opacity duration-200",
+                                "hover:opacity-70",
+                            ]}
+                        >
+                            <i class={link.icon} />
+                            {link.text}
+                        </a>
                     ))}
                 </div>
-        )}
+            )
+        }
 
-        {detailsUrl && (
+        {
+            detailsUrl && (
                 <div class="mt-4 pt-4">
                     <a
-                            href={detailsUrl}
-                            class:list={[
-                                'text-text-color no-underline',
-                                'flex items-center justify-center gap-2 text-sm font-medium',
-                                'px-4 py-2 rounded-md',
-                                'bg-(--bg-primary)',
-                                'transition-all duration-200',
-                                'hover:opacity-80'
-                            ]}
+                        href={detailsUrl}
+                        class:list={[
+                            "text-text-color no-underline",
+                            "flex items-center justify-center gap-2 text-sm font-medium",
+                            "rounded-md px-4 py-2",
+                            "bg-(--bg-primary)",
+                            "transition-all duration-200",
+                            "hover:opacity-80",
+                        ]}
                     >
                         <span>{viewDetailsText}</span>
-                        <i class="bi bi-arrow-right"></i>
+                        <i class="bi bi-arrow-right" />
                     </a>
                 </div>
-        )}
+            )
+        }
     </div>
 </div>

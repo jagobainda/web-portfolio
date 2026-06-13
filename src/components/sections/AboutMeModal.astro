@@ -1,15 +1,15 @@
 ---
-import Modal from '../ui/Modal.astro';
-import { getEntry } from 'astro:content';
+import Modal from "../ui/Modal.astro";
+import { getEntry } from "astro:content";
 
 interface Props {
     title: string;
     lang?: string;
 }
 
-const { title, lang = 'es' } = Astro.props;
+const { title, lang = "es" } = Astro.props;
 
-const aboutEntry = await getEntry('about', lang);
+const aboutEntry = await getEntry("about", lang);
 const about = aboutEntry?.data;
 
 let age = 0;
@@ -21,50 +21,51 @@ if (about?.date) {
     if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
 }
 
-const intro = about?.intro.replace('--AGE-PLACEHOLDER--', age.toString()) || '';
+const intro = about?.intro.replace("--AGE-PLACEHOLDER--", age.toString()) || "";
 ---
 
 <Modal id="about-me" title={title}>
-    {about ? (
+    {
+        about ? (
             <div>
-                <!-- Intro -->
-                <div class:list={[
-                    'text-lg leading-relaxed mb-8',
-                    'border-l-4 border-(--bg-secondary) pl-4',
-                    'max-md:text-base'
-                ]}>
+                <div
+                    class:list={[
+                        "mb-8 text-lg leading-relaxed",
+                        "border-l-4 border-(--bg-secondary) pl-4",
+                        "max-md:text-base",
+                    ]}
+                >
                     <p>{intro}</p>
                 </div>
 
-                <!-- Sections -->
                 <div class="space-y-8 max-md:space-y-2">
                     {about.sections.map(section => (
-                            <div class="mb-8 max-md:mb-2">
-                                <div class="flex items-center mb-2">
-                                    <i class={`${section.icon} text-xl mr-3 text-text-color`}></i>
-                                    <h3 class="m-0 text-xl font-mono max-md:text-lg">{section.title}</h3>
-                                </div>
-                                <div class="mt-2 max-md:text-sm">
-                                    <p class="leading-relaxed">{section.content}</p>
-                                </div>
+                        <div class="mb-8 max-md:mb-2">
+                            <div class="mb-2 flex items-center">
+                                <i class={`${section.icon} text-text-color mr-3 text-xl`} />
+                                <h3 class="m-0 font-mono text-xl max-md:text-lg">{section.title}</h3>
                             </div>
+                            <div class="mt-2 max-md:text-sm">
+                                <p class="leading-relaxed">{section.content}</p>
+                            </div>
+                        </div>
                     ))}
                 </div>
 
-                <!-- Quote -->
                 {about.quote && (
-                        <div class:list={[
-                            'italic text-center mt-6 p-4',
-                            'border-t border-b border-(--bg-secondary)',
-                            'max-md:text-sm'
-                        ]}>
-                            <blockquote class="m-0 text-lg text-text-color max-md:text-sm">
-                                {about.quote}
-                            </blockquote>
-                        </div>
+                    <div
+                        class:list={[
+                            "mt-6 p-4 text-center italic",
+                            "border-t border-b border-(--bg-secondary)",
+                            "max-md:text-sm",
+                        ]}
+                    >
+                        <blockquote class="text-text-color m-0 text-lg max-md:text-sm">{about.quote}</blockquote>
+                    </div>
                 )}
             </div>
-    ) : (
+        ) : (
             <p>No about me data found.</p>
-    )}
+        )
+    }
 </Modal>

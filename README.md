@@ -8,15 +8,15 @@ Personal portfolio website built from scratch with modern technologies, designed
 
 ## 🚀 Tech Stack
 
-| Technology | Role |
-|---|---|
-| **Astro** | Main framework for hybrid rendering: static pre-rendering and server-side rendering depending on each route's needs |
-| **TypeScript** | Static typing for more robust and maintainable code |
-| **Tailwind CSS** | Utility-first CSS framework for fast and consistent styling |
-| **anime.js** | Lightweight and powerful JavaScript animation library |
-| **Zod** | Schema validation for the content system |
-| **Bootstrap Icons** | Icon library |
-| **Devicon** | Developer-focused icon set for tech logos |
+| Technology          | Role                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Astro**           | Main framework for hybrid rendering: static pre-rendering and server-side rendering depending on each route's needs |
+| **TypeScript**      | Static typing for more robust and maintainable code                                                                 |
+| **Tailwind CSS**    | Utility-first CSS framework for fast and consistent styling                                                         |
+| **anime.js**        | Lightweight and powerful JavaScript animation library                                                               |
+| **Zod**             | Schema validation for the content system                                                                            |
+| **Bootstrap Icons** | Icon library                                                                                                        |
+| **Devicon**         | Developer-focused icon set for tech logos                                                                           |
 
 ---
 
@@ -134,4 +134,3 @@ See [LICENSE.txt](./LICENSE.txt) for details.
 ## 📬 Contact
 
 [contact@jagoba.dev](mailto:contact@jagoba.dev)
-
