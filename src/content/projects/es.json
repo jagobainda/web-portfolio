@@ -112,7 +112,7 @@
         },
         {
             "name": "Contributor a Sharkord",
-            "description": "Contribuciones a Sharkord, una plataforma de comunicación en tiempo real self-hosted y open-source que ofrece voz, vídeo, texto y compartición de pantalla al estilo Discord pero con control total sobre los datos. Mis aportaciones consisten en implementar features que echaba en falta y reportar y parchear bugs detectados durante el uso.",
+            "description": "Contribuciones a Sharkord, una plataforma de comunicación en tiempo real self-hosted y open-source que ofrece voz, vídeo, texto y compartición de pantalla al estilo Discord pero con control total sobre los datos. Mis aportaciones consisten en implementar features que echo en falta, parchear bugs y hacer pentesting sobre el proyecto para buscar, detectar y parchear vulnerabilidades.",
             "tags": [
                 "TypeScript",
                 "Bun",

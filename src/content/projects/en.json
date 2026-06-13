@@ -112,7 +112,7 @@
         },
         {
             "name": "Contributor to Sharkord",
-            "description": "Contributions to Sharkord, a lightweight, self-hosted and open-source real-time communication platform that provides voice, video, text and screen sharing in a Discord-like experience while keeping full data ownership. My contributions consist of implementing features I was missing as a user and reporting & patching bugs found during real usage.",
+            "description": "Contributions to Sharkord, a lightweight, self-hosted and open-source real-time communication platform that provides voice, video, text and screen sharing in a Discord-like experience while keeping full data ownership. My contributions consist of implementing features I miss as a user, patching bugs and doing pentesting on the project to search for, detect and patch vulnerabilities.",
             "tags": [
                 "TypeScript",
                 "Bun",
