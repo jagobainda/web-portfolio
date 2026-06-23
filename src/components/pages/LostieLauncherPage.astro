@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
 import { projectStructuredData } from "../../lib/seo";
@@ -60,7 +61,7 @@ const jsonLd = projectStructuredData({
                             "shadow-lg",
                         ]}
                     >
-                        <i class="bi bi-controller text-3xl text-white"></i>
+                        <Icon name="bi:controller" class="text-3xl text-white" />
                     </div>
                     <div>
                         <h1
@@ -93,7 +94,7 @@ const jsonLd = projectStructuredData({
                             "transition-all duration-300",
                         ]}
                     >
-                        <i class="bi bi-github"></i>
+                        <Icon name="bi:github" />
                         GitHub
                     </a>
                     <a
@@ -108,7 +109,7 @@ const jsonLd = projectStructuredData({
                             "transition-all duration-300",
                         ]}
                     >
-                        <i class="bi bi-download"></i>
+                        <Icon name="bi:download" />
                         {lang === "es" ? "Descargar instalador" : "Download installer"}
                     </a>
                 </div>
@@ -129,48 +130,48 @@ const jsonLd = projectStructuredData({
                         "flex items-center gap-3",
                     ]}
                 >
-                    <i class="bi bi-stack text-2xl text-blue-500"></i>
+                    <Icon name="bi:stack" class="text-2xl text-blue-500" />
                     {t.techStack}
                 </h2>
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-t-4 border-purple-500"]}>
                         <div class="mb-2 flex items-center gap-3">
-                            <i class="bi bi-pc-display text-2xl text-purple-500"></i>
+                            <Icon name="bi:pc-display" class="text-2xl text-purple-500" />
                             <span class="font-mono text-lg font-bold">WPF + .NET 10</span>
                         </div>
                         <p class="text-sm opacity-80">{t.techWpf}</p>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-t-4 border-blue-500"]}>
                         <div class="mb-2 flex items-center gap-3">
-                            <i class="bi bi-diagram-3 text-2xl text-blue-500"></i>
+                            <Icon name="bi:diagram-3" class="text-2xl text-blue-500" />
                             <span class="font-mono text-lg font-bold">MVVM</span>
                         </div>
                         <p class="text-sm opacity-80">{t.techMvvm}</p>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-t-4 border-green-500"]}>
                         <div class="mb-2 flex items-center gap-3">
-                            <i class="bi bi-box-seam text-2xl text-green-500"></i>
+                            <Icon name="bi:box-seam" class="text-2xl text-green-500" />
                             <span class="font-mono text-lg font-bold">DI Container</span>
                         </div>
                         <p class="text-sm opacity-80">{t.techDI}</p>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-t-4 border-orange-500"]}>
                         <div class="mb-2 flex items-center gap-3">
-                            <i class="bi bi-file-earmark-zip text-2xl text-orange-500"></i>
+                            <Icon name="bi:file-earmark-zip" class="text-2xl text-orange-500" />
                             <span class="font-mono text-lg font-bold">SharpCompress</span>
                         </div>
                         <p class="text-sm opacity-80">{t.techSharpCompress}</p>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-t-4 border-cyan-500"]}>
                         <div class="mb-2 flex items-center gap-3">
-                            <i class="bi bi-arrow-repeat text-2xl text-cyan-500"></i>
+                            <Icon name="bi:arrow-repeat" class="text-2xl text-cyan-500" />
                             <span class="font-mono text-lg font-bold">Velopack</span>
                         </div>
                         <p class="text-sm opacity-80">{t.techVelopack}</p>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-t-4 border-pink-500"]}>
                         <div class="mb-2 flex items-center gap-3">
-                            <i class="bi bi-brush text-2xl text-pink-500"></i>
+                            <Icon name="bi:brush" class="text-2xl text-pink-500" />
                             <span class="font-mono text-lg font-bold">IconPacks</span>
                         </div>
                         <p class="text-sm opacity-80">{t.techIconPacks}</p>
@@ -193,7 +194,7 @@ const jsonLd = projectStructuredData({
                         "flex items-center gap-3",
                     ]}
                 >
-                    <i class="bi bi-hdd-stack text-2xl text-orange-500"></i>
+                    <Icon name="bi:hdd-stack" class="text-2xl text-orange-500" />
                     {t.infrastructure}
                 </h2>
                 <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>
@@ -203,28 +204,28 @@ const jsonLd = projectStructuredData({
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-l-4 border-yellow-500"]}>
                         <div class="mb-1 flex items-center gap-3">
-                            <i class="bi bi-list-ul text-xl text-yellow-500"></i>
+                            <Icon name="bi:list-ul" class="text-xl text-yellow-500" />
                             <span class="font-mono font-bold">{t.infraCatalog}</span>
                         </div>
                         <div class="text-sm opacity-70">{t.infraCatalogDesc}</div>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-l-4 border-blue-500"]}>
                         <div class="mb-1 flex items-center gap-3">
-                            <i class="bi bi-bell text-xl text-blue-500"></i>
+                            <Icon name="bi:bell" class="text-xl text-blue-500" />
                             <span class="font-mono font-bold">{t.infraNotifications}</span>
                         </div>
                         <div class="text-sm opacity-70">{t.infraNotificationsDesc}</div>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-l-4 border-green-500"]}>
                         <div class="mb-1 flex items-center gap-3">
-                            <i class="bi bi-download text-xl text-green-500"></i>
+                            <Icon name="bi:download" class="text-xl text-green-500" />
                             <span class="font-mono font-bold">{t.infraInstaller}</span>
                         </div>
                         <div class="text-sm opacity-70">{t.infraInstallerDesc}</div>
                     </div>
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-l-4 border-purple-500"]}>
                         <div class="mb-1 flex items-center gap-3">
-                            <i class="bi bi-arrow-repeat text-xl text-purple-500"></i>
+                            <Icon name="bi:arrow-repeat" class="text-xl text-purple-500" />
                             <span class="font-mono font-bold">{t.infraUpdates}</span>
                         </div>
                         <div class="text-sm opacity-70">{t.infraUpdatesDesc}</div>
@@ -247,7 +248,7 @@ const jsonLd = projectStructuredData({
                         "flex items-center gap-3",
                     ]}
                 >
-                    <i class="bi bi-gear text-2xl text-green-500"></i>
+                    <Icon name="bi:gear" class="text-2xl text-green-500" />
                     {t.cicd}
                 </h2>
                 <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>
@@ -259,7 +260,7 @@ const jsonLd = projectStructuredData({
                         <div
                             class:list={["rounded-xl bg-(--bg-primary) p-5 text-center", "border-t-4 border-blue-500"]}
                         >
-                            <i class="bi bi-hammer mb-2 text-3xl text-blue-500"></i>
+                            <Icon name="bi:hammer" class="mb-2 text-3xl text-blue-500" />
                             <div class="font-mono font-bold">{t.cicdBuild}</div>
                             <div class="mt-1 text-sm opacity-70">{t.cicdBuildDesc}</div>
                         </div>
@@ -269,7 +270,7 @@ const jsonLd = projectStructuredData({
                                 "border-t-4 border-yellow-500",
                             ]}
                         >
-                            <i class="bi bi-shield-lock mb-2 text-3xl text-yellow-500"></i>
+                            <Icon name="bi:shield-lock" class="mb-2 text-3xl text-yellow-500" />
                             <div class="font-mono font-bold">{t.cicdSign}</div>
                             <div class="mt-1 text-sm opacity-70">{t.cicdSignDesc}</div>
                         </div>
@@ -279,7 +280,7 @@ const jsonLd = projectStructuredData({
                                 "border-t-4 border-purple-500",
                             ]}
                         >
-                            <i class="bi bi-box-seam mb-2 text-3xl text-purple-500"></i>
+                            <Icon name="bi:box-seam" class="mb-2 text-3xl text-purple-500" />
                             <div class="font-mono font-bold">{t.cicdPackage}</div>
                             <div class="mt-1 text-sm opacity-70">{t.cicdPackageDesc}</div>
                         </div>
@@ -287,7 +288,7 @@ const jsonLd = projectStructuredData({
 
                     <div class="flex justify-center py-2">
                         <div class:list={["flex flex-col items-center", "text-text-color opacity-70"]}>
-                            <i class="bi bi-arrow-down text-3xl"></i>
+                            <Icon name="bi:arrow-down" class="text-3xl" />
                         </div>
                     </div>
 
@@ -295,7 +296,7 @@ const jsonLd = projectStructuredData({
                         <div
                             class:list={["rounded-xl bg-(--bg-primary) p-5 text-center", "border-t-4 border-green-500"]}
                         >
-                            <i class="bi bi-github mb-2 text-3xl text-green-500"></i>
+                            <Icon name="bi:github" class="mb-2 text-3xl text-green-500" />
                             <div class="font-mono font-bold">{t.cicdRelease}</div>
                             <div class="mt-1 text-sm opacity-70">{t.cicdReleaseDesc}</div>
                         </div>
@@ -305,7 +306,7 @@ const jsonLd = projectStructuredData({
                                 "border-t-4 border-orange-500",
                             ]}
                         >
-                            <i class="bi bi-cloud-upload mb-2 text-3xl text-orange-500"></i>
+                            <Icon name="bi:cloud-upload" class="mb-2 text-3xl text-orange-500" />
                             <div class="font-mono font-bold">{t.cicdDeploy}</div>
                             <div class="mt-1 text-sm opacity-70">{t.cicdDeployDesc}</div>
                         </div>
@@ -328,22 +329,22 @@ const jsonLd = projectStructuredData({
                         "flex items-center gap-3",
                     ]}
                 >
-                    <i class="bi bi-star text-2xl text-yellow-500"></i>
+                    <Icon name="bi:star" class="text-2xl text-yellow-500" />
                     {t.features}
                 </h2>
                 <ul class="space-y-4">
                     {
                         [
-                            { icon: "bi-collection", text: t.featureLibrary },
-                            { icon: "bi-cloud-arrow-down", text: t.featureDownloads },
-                            { icon: "bi-key", text: t.featureKeys },
-                            { icon: "bi-joystick", text: t.featureMyGames },
-                            { icon: "bi-arrow-repeat", text: t.featureUpdates },
-                            { icon: "bi-megaphone", text: t.featureNews },
-                            { icon: "bi-palette", text: t.featureThemes },
-                            { icon: "bi-translate", text: t.featureLanguages },
-                            { icon: "bi-window-desktop", text: t.featureTray },
-                            { icon: "bi-power", text: t.featureStartup },
+                            { icon: "bi:collection", text: t.featureLibrary },
+                            { icon: "bi:cloud-arrow-down", text: t.featureDownloads },
+                            { icon: "bi:key", text: t.featureKeys },
+                            { icon: "bi:joystick", text: t.featureMyGames },
+                            { icon: "bi:arrow-repeat", text: t.featureUpdates },
+                            { icon: "bi:megaphone", text: t.featureNews },
+                            { icon: "bi:palette", text: t.featureThemes },
+                            { icon: "bi:translate", text: t.featureLanguages },
+                            { icon: "bi:window-desktop", text: t.featureTray },
+                            { icon: "bi:power", text: t.featureStartup },
                         ].map(feat => (
                             <li
                                 class:list={[
@@ -352,7 +353,7 @@ const jsonLd = projectStructuredData({
                                     "text-text-color",
                                 ]}
                             >
-                                <i class={`bi ${feat.icon} text-xl text-green-500`} />
+                                <Icon name={feat.icon} class="text-xl text-green-500" />
                                 <span class="text-lg">{feat.text}</span>
                             </li>
                         ))

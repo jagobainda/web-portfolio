@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 interface Props {
     position: string;
     company: string;
@@ -41,7 +42,7 @@ const {
                 "max-md:h-10 max-md:w-10",
             ]}
         >
-            <i class={`${icon} text-2xl text-text-color max-md:text-xl`}></i>
+            <Icon name={icon} class="text-text-color text-2xl max-md:text-xl" />
         </div>
 
         <div class="flex-1">
@@ -80,7 +81,7 @@ const {
                                 "max-md:px-2.5 max-md:py-1 max-md:text-xs",
                             ]}
                         >
-                            <i class="bi bi-check-circle-fill mr-1.5 text-xs text-green-500" />
+                            <Icon name="bi:check-circle-fill" class="mr-1.5 text-xs text-green-500" />
                             {tech}
                         </span>
                     ))}

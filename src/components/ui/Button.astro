@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 interface Props {
     id?: string;
     icon: string;
@@ -29,9 +30,10 @@ const isMain = variant === "main";
                 className,
             ]}
         >
-            <i
+            <Icon
+                name={icon}
                 aria-hidden="true"
-                class:list={[icon, "z-1 text-[3.5rem]", "max-md:text-[2.5rem]", "max-sm:mr-4 max-sm:text-[1.8rem]"]}
+                class:list={["z-1 text-[3.5rem]", "max-md:text-[2.5rem]", "max-sm:mr-4 max-sm:text-[1.8rem]"]}
             />
             {text && (
                 <span class:list={["z-1 font-mono text-2xl font-bold", "max-md:text-xl", "max-sm:text-lg"]}>
@@ -54,7 +56,7 @@ const isMain = variant === "main";
                 className,
             ]}
         >
-            <i aria-hidden="true" class={`${icon} text-xl`} />
+            <Icon name={icon} aria-hidden="true" class="text-xl" />
         </button>
     )
 }

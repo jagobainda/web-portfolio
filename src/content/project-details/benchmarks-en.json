@@ -22,7 +22,7 @@
             "description": "Comparative benchmarks of major object mapping libraries for .NET, executed with BenchmarkDotNet on .NET 10. Results are persisted as static JSON files and served to the companion website.",
             "url": "https://github.com/jagobainda/DotnetMappingBenchmarks",
             "tags": ["C#", ".NET 10", "BenchmarkDotNet", "Shell"],
-            "icon": "bi bi-bar-chart-line",
+            "icon": "bi:bar-chart-line",
             "accent": "purple"
         },
         {
@@ -32,7 +32,7 @@
             "liveUrl": "https://benchmarks.jagoba.dev/dotnet-mappers",
             "liveLabel": "View live",
             "tags": ["Astro", "TypeScript", "Tailwind CSS", "JavaScript"],
-            "icon": "bi bi-globe",
+            "icon": "bi:globe",
             "accent": "cyan"
         }
     ]

@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 interface Props {
     icon: string;
     name: string;
@@ -18,15 +19,16 @@ const { icon, name } = Astro.props;
         "max-[360px]:flex-row max-[360px]:justify-between max-[360px]:text-left",
     ]}
 >
-    <i
+    <Icon
+        name={icon}
         aria-hidden="true"
         class:list={[
-            `${icon} colored`,
             "mb-3 text-[2.5rem]",
             "max-md:text-[2rem]",
             "max-sm:mb-1.5 max-sm:text-[1.5rem]",
             "max-[360px]:mr-2 max-[360px]:mb-0",
-        ]}></i>
+        ]}
+    />
     <span
         class:list={[
             "text-center font-mono font-bold",

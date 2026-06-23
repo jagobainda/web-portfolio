@@ -1,8 +1,6 @@
 import { initTheme, toggleTheme } from "./theme";
 import { initModals, openModal, closeModal, handleModalShortcut } from "./modals";
 import { initTypewriter } from "./typewriter";
-import "devicon/devicon.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 let booted = false;
 

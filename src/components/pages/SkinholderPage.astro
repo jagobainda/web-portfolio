@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
 import { projectStructuredData } from "../../lib/seo";
@@ -92,20 +93,20 @@ const jsonLd = projectStructuredData({
                         "flex items-center gap-3",
                     ]}
                 >
-                    <i class="bi bi-star text-2xl"></i>
+                    <Icon name="bi:star" class="text-2xl" />
                     {t.features}
                 </h2>
                 <ul class="space-y-4">
                     <li class:list={["flex items-center gap-3", "rounded-xl bg-(--bg-primary) p-4", "text-text-color"]}>
-                        <i class="bi bi-check-circle text-xl text-green-500"></i>
+                        <Icon name="bi:check-circle" class="text-xl text-green-500" />
                         <span class="text-lg">{t.feature1}</span>
                     </li>
                     <li class:list={["flex items-center gap-3", "rounded-xl bg-(--bg-primary) p-4", "text-text-color"]}>
-                        <i class="bi bi-check-circle text-xl text-green-500"></i>
+                        <Icon name="bi:check-circle" class="text-xl text-green-500" />
                         <span class="text-lg">{t.feature3}</span>
                     </li>
                     <li class:list={["flex items-center gap-3", "rounded-xl bg-(--bg-primary) p-4", "text-text-color"]}>
-                        <i class="bi bi-check-circle text-xl text-green-500"></i>
+                        <Icon name="bi:check-circle" class="text-xl text-green-500" />
                         <span class="text-lg">{t.feature5}</span>
                     </li>
                 </ul>
@@ -127,7 +128,7 @@ const jsonLd = projectStructuredData({
                         "flex items-center gap-3",
                     ]}
                 >
-                    <i class="bi bi-diagram-3 text-2xl"></i>
+                    <Icon name="bi:diagram-3" class="text-2xl" />
                     {t.architecture}
                 </h2>
                 <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>
@@ -142,26 +143,26 @@ const jsonLd = projectStructuredData({
                                 "border-t-4 border-yellow-500",
                             ]}
                         >
-                            <i class="bi bi-steam mb-2 text-3xl text-yellow-500"></i>
+                            <Icon name="bi:steam" class="mb-2 text-3xl text-yellow-500" />
                             <div class="font-mono font-bold">Steam API</div>
                         </div>
                         <div
                             class:list={["rounded-xl bg-(--bg-primary) p-5 text-center", "border-t-4 border-pink-500"]}
                         >
-                            <i class="bi bi-currency-exchange mb-2 text-3xl text-pink-500"></i>
+                            <Icon name="bi:currency-exchange" class="mb-2 text-3xl text-pink-500" />
                             <div class="font-mono font-bold">GamerPay API</div>
                         </div>
                         <div
                             class:list={["rounded-xl bg-(--bg-primary) p-5 text-center", "border-t-4 border-cyan-500"]}
                         >
-                            <i class="bi bi-shop mb-2 text-3xl text-cyan-500"></i>
+                            <Icon name="bi:shop" class="mb-2 text-3xl text-cyan-500" />
                             <div class="font-mono font-bold">CSFloat API</div>
                         </div>
                     </div>
 
                     <div class="flex justify-center py-2">
                         <div class:list={["flex flex-col items-center", "text-text-color opacity-70"]}>
-                            <i class="bi bi-arrow-down text-3xl"></i>
+                            <Icon name="bi:arrow-down" class="text-3xl" />
                         </div>
                     </div>
 
@@ -169,7 +170,7 @@ const jsonLd = projectStructuredData({
                         <div
                             class:list={["rounded-xl bg-(--bg-primary) p-5 text-center", "border-t-4 border-blue-500"]}
                         >
-                            <i class="bi bi-globe mb-2 text-3xl text-blue-500"></i>
+                            <Icon name="bi:globe" class="mb-2 text-3xl text-blue-500" />
                             <div class="font-mono font-bold">{t.platformWeb}</div>
                             <div class="mt-1 text-sm opacity-70">React 19 - TS - Tailwind 4</div>
                         </div>
@@ -179,14 +180,14 @@ const jsonLd = projectStructuredData({
                                 "border-t-4 border-purple-500",
                             ]}
                         >
-                            <i class="bi bi-pc-display mb-2 text-3xl text-purple-500"></i>
+                            <Icon name="bi:pc-display" class="mb-2 text-3xl text-purple-500" />
                             <div class="font-mono font-bold">{t.platformDesktop}</div>
                             <div class="mt-1 text-sm opacity-70">WPF + .NET 10</div>
                         </div>
                         <div
                             class:list={["rounded-xl bg-(--bg-primary) p-5 text-center", "border-t-4 border-green-500"]}
                         >
-                            <i class="bi bi-phone mb-2 text-3xl text-green-500"></i>
+                            <Icon name="bi:phone" class="mb-2 text-3xl text-green-500" />
                             <div class="font-mono font-bold">{t.platformMobile}</div>
                             <div class="mt-1 text-sm opacity-70">Kotlin - Android</div>
                         </div>
@@ -194,7 +195,7 @@ const jsonLd = projectStructuredData({
 
                     <div class="flex justify-center py-2">
                         <div class:list={["flex flex-col items-center", "text-text-color opacity-70"]}>
-                            <i class="bi bi-arrow-down-up text-3xl"></i>
+                            <Icon name="bi:arrow-down-up" class="text-3xl" />
                         </div>
                     </div>
 
@@ -205,7 +206,7 @@ const jsonLd = projectStructuredData({
                                 "border-t-4 border-orange-500",
                             ]}
                         >
-                            <i class="bi bi-hdd-stack mb-2 text-3xl text-orange-500"></i>
+                            <Icon name="bi:hdd-stack" class="mb-2 text-3xl text-orange-500" />
                             <div class="font-mono font-bold">SkinHolder API</div>
                             <div class="mt-1 text-sm opacity-70">ASP.NET Core 10</div>
                         </div>
@@ -213,7 +214,7 @@ const jsonLd = projectStructuredData({
 
                     <div class="flex justify-center py-2">
                         <div class:list={["flex flex-col items-center", "text-text-color opacity-70"]}>
-                            <i class="bi bi-arrow-down-up text-3xl"></i>
+                            <Icon name="bi:arrow-down-up" class="text-3xl" />
                         </div>
                     </div>
 
@@ -224,7 +225,7 @@ const jsonLd = projectStructuredData({
                                 "border-t-4 border-red-500",
                             ]}
                         >
-                            <i class="bi bi-database mb-2 text-3xl text-red-500"></i>
+                            <Icon name="bi:database" class="mb-2 text-3xl text-red-500" />
                             <div class="font-mono font-bold">Database</div>
                             <div class="mt-1 text-sm opacity-70">MySQL 8</div>
                         </div>
@@ -247,7 +248,7 @@ const jsonLd = projectStructuredData({
                         "flex items-center gap-3",
                     ]}
                 >
-                    <i class="bi bi-collection text-2xl"></i>
+                    <Icon name="bi:collection" class="text-2xl" />
                     {t.platforms}
                 </h2>
                 <div class="space-y-4">
@@ -282,7 +283,7 @@ const jsonLd = projectStructuredData({
                                                 "transition-all duration-300",
                                             ]}
                                         >
-                                            <i class={link.icon} />
+                                            <Icon name={link.icon} />
                                             {link.text}
                                         </a>
                                     ))}

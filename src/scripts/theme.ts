@@ -2,9 +2,8 @@ const THEME_KEY = "jidev_theme";
 
 export const initTheme = (): void => {
     const toggle = document.getElementById("theme-toggle");
-    const icon = document.getElementById("theme-icon");
 
-    if (!toggle || !icon) return;
+    if (!toggle) return;
 
     const savedTheme = localStorage.getItem(THEME_KEY) || "dark";
     applyTheme(savedTheme);
@@ -20,16 +19,10 @@ export const toggleTheme = (): void => {
 };
 
 export const applyTheme = (theme: string): void => {
-    const icon = document.getElementById("theme-icon");
-    if (!icon) return;
-
+    // The toggle icon is swapped purely via CSS based on the `dark` class.
     if (theme === "dark") {
         document.body.classList.add("dark");
-        icon.classList.remove("bi-lightbulb-fill");
-        icon.classList.add("bi-lightbulb-off-fill");
     } else {
         document.body.classList.remove("dark");
-        icon.classList.remove("bi-lightbulb-off-fill");
-        icon.classList.add("bi-lightbulb-fill");
     }
 };

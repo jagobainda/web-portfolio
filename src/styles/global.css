@@ -16,6 +16,11 @@ body.dark {
     --shadow-dark: rgba(0, 0, 0, 0.5);
 }
 
+svg[data-icon] {
+    display: inline-block;
+    vertical-align: -0.125em;
+}
+
 @theme {
     --animate-blink: blink 1s step-start infinite;
 }

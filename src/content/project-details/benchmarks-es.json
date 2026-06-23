@@ -22,7 +22,7 @@
             "description": "Benchmarks comparativos de las principales librerías de mapeo de objetos para .NET, ejecutados con BenchmarkDotNet sobre .NET 10. Los resultados se persisten como ficheros JSON estáticos y se sirven a la web compañera.",
             "url": "https://github.com/jagobainda/DotnetMappingBenchmarks",
             "tags": ["C#", ".NET 10", "BenchmarkDotNet", "Shell"],
-            "icon": "bi bi-bar-chart-line",
+            "icon": "bi:bar-chart-line",
             "accent": "purple"
         },
         {
@@ -32,7 +32,7 @@
             "liveUrl": "https://benchmarks.jagoba.dev/dotnet-mappers",
             "liveLabel": "Ver en vivo",
             "tags": ["Astro", "TypeScript", "Tailwind CSS", "JavaScript"],
-            "icon": "bi bi-globe",
+            "icon": "bi:globe",
             "accent": "cyan"
         }
     ]

@@ -13,12 +13,12 @@
                 {
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/LostieLauncher",
-                    "icon": "bi bi-github"
+                    "icon": "bi:github"
                 },
                 {
                     "text": "Download installer",
                     "url": "https://ericlostie-launcher.jagoba.dev/public/installer/LostieLauncher-win-Setup.exe",
-                    "icon": "bi bi-download"
+                    "icon": "bi:download"
                 }
             ],
             "detailsUrl": "/en/projects/lostie-launcher"
@@ -31,12 +31,12 @@
                 {
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/web-portfolio",
-                    "icon": "bi bi-github"
+                    "icon": "bi:github"
                 },
                 {
                     "text": "Live",
                     "url": "https://jagoba.dev",
-                    "icon": "bi bi-globe"
+                    "icon": "bi:globe"
                 }
             ],
             "detailsUrl": "/en/projects/web-portfolio"
@@ -59,12 +59,12 @@
                 {
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/SkinHolder",
-                    "icon": "bi bi-github"
+                    "icon": "bi:github"
                 },
                 {
                     "text": "Live",
                     "url": "https://skinholder.jagoba.dev",
-                    "icon": "bi bi-globe"
+                    "icon": "bi:globe"
                 }
             ],
             "detailsUrl": "/en/projects/skinholder"
@@ -77,12 +77,12 @@
                 {
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/Benchmarks",
-                    "icon": "bi bi-github"
+                    "icon": "bi:github"
                 },
                 {
                     "text": "Live",
                     "url": "https://benchmarks.jagoba.dev",
-                    "icon": "bi bi-globe"
+                    "icon": "bi:globe"
                 }
             ],
             "detailsUrl": "/en/projects/benchmarks"
@@ -95,17 +95,17 @@
                 {
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/CSWatchChromeExtension",
-                    "icon": "bi bi-github"
+                    "icon": "bi:github"
                 },
                 {
                     "text": "Chrome",
                     "url": "https://chromewebstore.google.com/detail/cswatch-stats-viewer/nklafihgaifhoahbfcfiaemfmpoplkch",
-                    "icon": "bi bi-browser-chrome"
+                    "icon": "bi:browser-chrome"
                 },
                 {
                     "text": "Firefox",
                     "url": "https://addons.mozilla.org/en-US/firefox/addon/cswatch/",
-                    "icon": "bi bi-browser-firefox"
+                    "icon": "bi:browser-firefox"
                 }
             ],
             "detailsUrl": "/en/projects/steam-profile-browser-extension"
@@ -128,17 +128,17 @@
                 {
                     "text": "GitHub",
                     "url": "https://github.com/Sharkord/sharkord",
-                    "icon": "bi bi-github"
+                    "icon": "bi:github"
                 },
                 {
                     "text": "Fork",
                     "url": "https://github.com/jagobainda/sharkord",
-                    "icon": "bi bi-git"
+                    "icon": "bi:git"
                 },
                 {
                     "text": "Official website",
                     "url": "https://sharkord.com",
-                    "icon": "bi bi-globe"
+                    "icon": "bi:globe"
                 }
             ]
         }
@@ -202,7 +202,7 @@
                 {
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/SkinHolderJava",
-                    "icon": "bi bi-github"
+                    "icon": "bi:github"
                 }
             ]
         }

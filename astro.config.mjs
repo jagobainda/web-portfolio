@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import node from "@astrojs/node";
 import sitemap from "@astrojs/sitemap";
+import icon from "astro-icon";
 
 export default defineConfig({
     site: "https://jagoba.dev",
@@ -10,6 +11,7 @@ export default defineConfig({
         mode: "standalone",
     }),
     integrations: [
+        icon(),
         sitemap({
             i18n: {
                 defaultLocale: "es",

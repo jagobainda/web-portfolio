@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
     class?: string;
 }
@@ -20,5 +22,30 @@ const { class: className } = Astro.props;
         className,
     ]}
 >
-    <i id="theme-icon" class="bi bi-lightbulb-off-fill text-text-color text-xl transition-colors duration-300"></i>
+    <Icon
+        name="bi:lightbulb-off-fill"
+        id="theme-icon-dark"
+        class="text-text-color text-xl transition-colors duration-300"
+    />
+    <Icon
+        name="bi:lightbulb-fill"
+        id="theme-icon-light"
+        class="text-text-color text-xl transition-colors duration-300"
+    />
 </button>
+
+<style is:global>
+    /* Default theme is dark, so the dark-state icon is visible by default. */
+    #theme-icon-light {
+        display: none;
+    }
+    #theme-icon-dark {
+        display: inline-block;
+    }
+    body:not(.dark) #theme-icon-dark {
+        display: none;
+    }
+    body:not(.dark) #theme-icon-light {
+        display: inline-block;
+    }
+</style>
