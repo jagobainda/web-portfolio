@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+import { projectStructuredData } from "../../lib/seo";
 
 interface Props {
     lang: "en" | "es";
@@ -15,9 +16,21 @@ const skinholderProjects = projects.personal.filter(p => p.name.includes("SkinHo
 
 const contentEntry = await getEntry("project-details", `skinholder-${lang}`);
 const t = contentEntry!.data;
+
+const jsonLd = projectStructuredData({
+    lang,
+    slug: "skinholder",
+    name: t.title,
+    description: t.whatIsDescription!,
+});
 ---
 
-<BaseLayout title={`${t.title} - Jagoba Inda`} description={t.whatIsDescription!} showContactButton={false}>
+<BaseLayout
+    title={`${t.title} - Jagoba Inda`}
+    description={t.whatIsDescription!}
+    showContactButton={false}
+    jsonLd={jsonLd}
+>
     <div
         class:list={[
             "bg-bg-primary min-h-screen w-full",

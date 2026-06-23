@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+import { projectStructuredData } from "../../lib/seo";
 
 interface Props {
     lang: "en" | "es";
@@ -17,9 +18,17 @@ const portfolioProject = projects.personal.find(
 
 const contentEntry = await getEntry("project-details", `web-portfolio-${lang}`);
 const t = contentEntry!.data;
+
+const jsonLd = projectStructuredData({
+    lang,
+    slug: "web-portfolio",
+    name: t.title,
+    description: t.description!,
+    sourceUrl: "https://github.com/jagobainda/web-portfolio",
+});
 ---
 
-<BaseLayout title={`${t.title} - Jagoba Inda`} description={t.description!} showContactButton={false}>
+<BaseLayout title={`${t.title} - Jagoba Inda`} description={t.description!} showContactButton={false} jsonLd={jsonLd}>
     <div
         class:list={[
             "bg-bg-primary min-h-screen w-full",

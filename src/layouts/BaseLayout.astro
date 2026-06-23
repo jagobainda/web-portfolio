@@ -9,6 +9,7 @@ interface Props {
     ogImage?: string;
     ogType?: string;
     noindex?: boolean;
+    jsonLd?: object | object[];
 }
 
 const {
@@ -18,7 +19,10 @@ const {
     ogImage = "/imgs/favicon/og-image.png",
     ogType = "website",
     noindex = false,
+    jsonLd,
 } = Astro.props;
+
+const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
 const locale = Astro.currentLocale === "en" ? "en" : "es";
 
@@ -80,6 +84,8 @@ const ogLocaleAlternate = locale === "en" ? "es_ES" : "en_US";
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImageURL} />
 
+        {jsonLdItems.map(item => <script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />)}
+
         <slot name="head" />
     </head>
 
@@ -97,8 +103,13 @@ const ogLocaleAlternate = locale === "en" ? "es_ES" : "en_US";
 
         <script is:inline>
             (function () {
-                if (sessionStorage.getItem("lang-redirected")) return;
-                sessionStorage.setItem("lang-redirected", "1");
+                // Skip crawlers/automation: hreflang tags handle language selection for
+                // search engines, so we must not redirect them away from the URL they crawl.
+                if (navigator.webdriver || /bot|crawl|spider|slurp|bingpreview/i.test(navigator.userAgent)) return;
+
+                // Persist across sessions so a user's implicit choice isn't re-triggered.
+                if (localStorage.getItem("lang-redirected")) return;
+                localStorage.setItem("lang-redirected", "1");
 
                 const browserLang = (
                     navigator.languages && navigator.languages[0] ? navigator.languages[0] : navigator.language || ""

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+import { projectStructuredData } from "../../lib/seo";
 
 interface Props {
     lang: "en" | "es";
@@ -11,9 +12,17 @@ const homeUrl = lang === "en" ? "/en" : "/";
 
 const contentEntry = await getEntry("project-details", `lostie-launcher-${lang}`);
 const t = contentEntry!.data;
+
+const jsonLd = projectStructuredData({
+    lang,
+    slug: "lostie-launcher",
+    name: t.title,
+    description: t.description!,
+    sourceUrl: "https://github.com/jagobainda/LostieLauncher",
+});
 ---
 
-<BaseLayout title={`${t.title} - Jagoba Inda`} description={t.description!} showContactButton={false}>
+<BaseLayout title={`${t.title} - Jagoba Inda`} description={t.description!} showContactButton={false} jsonLd={jsonLd}>
     <div
         class:list={[
             "bg-bg-primary min-h-screen w-full",

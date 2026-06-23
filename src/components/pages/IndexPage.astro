@@ -7,6 +7,7 @@ import TechnologiesModal from "../sections/TechnologiesModal.astro";
 import ExperienceModal from "../sections/ExperienceModal.astro";
 import AboutMeModal from "../sections/AboutMeModal.astro";
 import { getEntry } from "astro:content";
+import { homeStructuredData } from "../../lib/seo";
 
 interface Props {
     lang: "en" | "es";
@@ -16,9 +17,11 @@ const { lang } = Astro.props;
 
 const uiEntry = await getEntry("ui", lang);
 const ui = uiEntry!.data;
+
+const jsonLd = homeStructuredData({ lang, description: ui.seo.homeDescription });
 ---
 
-<BaseLayout title="Jagoba Inda - Full Stack Developer" description={ui.seo.homeDescription}>
+<BaseLayout title="Jagoba Inda - Full Stack Developer" description={ui.seo.homeDescription} jsonLd={jsonLd}>
     <main
         id="app"
         class:list={[

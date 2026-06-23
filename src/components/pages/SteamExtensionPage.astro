@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+import { projectStructuredData } from "../../lib/seo";
 
 interface Props {
     lang: "en" | "es";
@@ -17,6 +18,13 @@ const extensionProject = projects.personal.find(
 
 const contentEntry = await getEntry("project-details", `steam-extension-${lang}`);
 const t = contentEntry!.data;
+
+const jsonLd = projectStructuredData({
+    lang,
+    slug: "steam-profile-browser-extension",
+    name: extensionProject?.name || t.title,
+    description: extensionProject?.description || "",
+});
 
 let usageStats = null;
 try {
@@ -54,6 +62,7 @@ const formatDate = (dateString: string | null | undefined): string => {
     title={`${extensionProject?.name || "Project"} - Jagoba Inda`}
     description={extensionProject?.description || ""}
     showContactButton={false}
+    jsonLd={jsonLd}
 >
     <div
         class:list={[
