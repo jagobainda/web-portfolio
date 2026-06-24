@@ -28,6 +28,18 @@ export const animateModalClose = (content: HTMLElement, onComplete: () => void):
     });
 };
 
+export const animateThemeIcon = (icon: HTMLElement): void => {
+    remove(icon);
+
+    animate(icon, {
+        rotate: [-120, 0],
+        scale: [0.5, 1],
+        opacity: [0, 1],
+        duration: 450,
+        easing: "easeOutCubic",
+    });
+};
+
 export const animateButtonHover = (button: HTMLElement, isEntering: boolean): void => {
     animate(button, {
         translateY: isEntering ? -5 : 0,

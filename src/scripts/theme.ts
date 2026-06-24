@@ -1,3 +1,5 @@
+import { animateThemeIcon } from "./animations";
+
 const THEME_KEY = "jidev_theme";
 
 export const initTheme = (): void => {
@@ -16,6 +18,10 @@ export const toggleTheme = (): void => {
     const newTheme = isDark ? "light" : "dark";
     applyTheme(newTheme);
     localStorage.setItem(THEME_KEY, newTheme);
+
+    const visibleIconId = newTheme === "dark" ? "theme-icon-dark" : "theme-icon-light";
+    const icon = document.getElementById(visibleIconId);
+    if (icon) animateThemeIcon(icon);
 };
 
 export const applyTheme = (theme: string): void => {
