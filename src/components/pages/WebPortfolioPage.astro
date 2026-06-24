@@ -58,31 +58,21 @@ const jsonLd = projectStructuredData({
                     "max-sm:p-6",
                 ]}
             >
-                <div class="mb-4 flex items-center gap-4">
-                    <div
-                        class:list={[
-                            "h-16 w-16 rounded-xl",
-                            "bg-linear-to-br from-purple-500 to-pink-500",
-                            "flex items-center justify-center",
-                            "shadow-lg",
-                        ]}
-                    >
-                        <Icon name="bi:code-slash" class="text-3xl text-white" />
-                    </div>
-                    <div>
-                        <h1
-                            class:list={[
-                                "font-mono text-4xl font-bold",
-                                "text-text-color",
-                                "transition-colors duration-300",
-                                "max-sm:text-2xl",
-                            ]}
-                        >
-                            {t.title}
-                        </h1>
-                        <p class="font-mono text-lg opacity-70">{t.subtitle}</p>
-                    </div>
-                </div>
+                <h1
+                    class:list={[
+                        "mb-2 font-mono text-5xl font-bold",
+                        "text-text-color",
+                        "transition-colors duration-300",
+                        "max-sm:text-3xl",
+                        "flex items-center gap-3",
+                    ]}
+                >
+                    <Icon name="bi:code-slash" />
+                    {t.title}
+                </h1>
+                <p class:list={["mb-6 font-mono text-lg opacity-80", "text-text-color"]}>
+                    {t.subtitle}
+                </p>
                 <p class:list={["mt-6 text-lg leading-relaxed", "text-text-color opacity-90"]}>
                     {t.description}
                 </p>

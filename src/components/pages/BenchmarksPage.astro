@@ -80,6 +80,24 @@ const accentMap: Record<string, string> = {
                 <p class:list={["mb-4 text-lg leading-relaxed", "text-text-color opacity-90"]}>
                     {t.description}
                 </p>
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <a
+                        href="https://github.com/jagobainda/Benchmarks"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class:list={[
+                            "inline-flex items-center gap-2",
+                            "rounded-lg bg-(--bg-primary) px-5 py-3",
+                            "text-text-color font-mono no-underline",
+                            "hover:-translate-y-1 hover:shadow-[0_6px_12px_var(--shadow-dark)]",
+                            "transition-all duration-300",
+                        ]}
+                    >
+                        <Icon name="bi:github" />
+                        {t.sourceCode}
+                    </a>
+
+                </div>
                 <div
                     class:list={[
                         "mt-4 rounded-xl p-4",
@@ -224,35 +242,7 @@ const accentMap: Record<string, string> = {
                 </div>
             </section>
 
-            <div class="mt-12 space-y-6 text-center">
-                <div class="flex justify-center gap-8 text-sm">
-                    <a
-                        href="https://github.com/jagobainda/Benchmarks"
-                        class:list={[
-                            "text-text-color opacity-70",
-                            "transition-opacity hover:opacity-100",
-                            "inline-flex items-center gap-2 no-underline",
-                        ]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Icon name="bi:github" />
-                        github.com/jagobainda/Benchmarks
-                    </a>
-                    <a
-                        href="https://benchmarks.jagoba.dev"
-                        class:list={[
-                            "text-text-color opacity-70",
-                            "transition-opacity hover:opacity-100",
-                            "inline-flex items-center gap-2 no-underline",
-                        ]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Icon name="bi:globe" />
-                        benchmarks.jagoba.dev
-                    </a>
-                </div>
+            <div class="mt-12 text-center">
                 <div class="text-text-color text-sm opacity-50">
                     {t.madeBy}
                 </div>
