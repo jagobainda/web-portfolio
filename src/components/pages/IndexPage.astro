@@ -18,10 +18,21 @@ const { lang } = Astro.props;
 const uiEntry = await getEntry("ui", lang);
 const ui = uiEntry!.data;
 
+const titleText = " Jagoba Inda ~$ Full Stack Developer";
+
 const jsonLd = homeStructuredData({ lang, description: ui.seo.homeDescription });
 ---
 
 <BaseLayout title="Jagoba Inda - Full Stack Developer" description={ui.seo.homeDescription} jsonLd={jsonLd}>
+    <Fragment slot="head">
+        <noscript
+            ><style>
+                #welcome-title {
+                    visibility: visible;
+                }
+            </style></noscript
+        >
+    </Fragment>
     <main
         id="app"
         class:list={[
@@ -36,6 +47,7 @@ const jsonLd = homeStructuredData({ lang, description: ui.seo.homeDescription })
         <h1
             id="welcome-title"
             class:list={[
+                "invisible",
                 "m-0 text-center font-mono font-bold",
                 "text-text-color text-[5rem]",
                 "transition-[color,text-shadow] duration-300 ease-in-out",
@@ -48,6 +60,7 @@ const jsonLd = homeStructuredData({ lang, description: ui.seo.homeDescription })
                 "landscape:max-h-[480px]:text-[2.2rem] landscape:max-h-[480px]:mb-2.5 landscape:max-h-[480px]:mt-0",
             ]}
         >
+            {titleText}
         </h1>
 
         <div

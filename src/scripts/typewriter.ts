@@ -4,14 +4,10 @@ export const initTypewriter = (): void => {
     const el = document.getElementById("welcome-title");
     if (!el) return;
 
-    const baseText = " Jagoba Inda ~$ ";
-    const mainText = "Full Stack Developer";
-    const fullText = baseText + mainText;
+    const fullText = el.textContent || " Jagoba Inda ~$ Full Stack Developer";
 
-    // Reservamos el layout final (altura + saltos de línea) antes de animar:
-    // "typed" contiene lo ya escrito y "rest" el texto restante invisible pero
-    // todavía en el flujo. Así la caja del <h1> tiene su tamaño definitivo desde
-    // el primer frame y la animación no provoca layout shift (CLS).
+    el.classList.remove("invisible");
+
     const typed = document.createElement("span");
     typed.className = "typing-cursor";
 

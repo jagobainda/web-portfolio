@@ -19,10 +19,5 @@ export const toggleTheme = (): void => {
 };
 
 export const applyTheme = (theme: string): void => {
-    // The toggle icon is swapped purely via CSS based on the `dark` class.
-    if (theme === "dark") {
-        document.body.classList.add("dark");
-    } else {
-        document.body.classList.remove("dark");
-    }
+    document.body.classList.toggle("dark", theme === "dark");
 };
