@@ -16,15 +16,15 @@
         "@iconify-json/bi": "^1.2.7",
         "@iconify-json/devicon": "^1.2.62",
         "@iconify-json/devicon-plain": "^1.2.57",
-        "@tailwindcss/vite": "^4.3.1",
-        "animejs": "^4.4.1",
+        "@tailwindcss/vite": "^4.3.2",
+        "animejs": "^4.5.0",
         "astro": "^6.4.8",
         "astro-icon": "^1.1.5",
         "tailwindcss": "^4.2.2"
     },
     "devDependencies": {
         "@types/animejs": "^3.1.13",
-        "prettier": "^3.8.4",
+        "prettier": "^3.9.4",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.8.0"
     },
