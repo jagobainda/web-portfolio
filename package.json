@@ -11,14 +11,14 @@
         "format:check": "prettier --check ."
     },
     "dependencies": {
-        "@astrojs/node": "^11.0.3",
+        "@astrojs/node": "^11.1.1",
         "@astrojs/sitemap": "^3.7.3",
         "@iconify-json/bi": "^1.2.7",
         "@iconify-json/devicon": "^1.2.62",
         "@iconify-json/devicon-plain": "^1.2.57",
         "@tailwindcss/vite": "^4.3.3",
         "animejs": "^4.5.0",
-        "astro": "^7.1.6",
+        "astro": "^7.2.1",
         "astro-icon": "^1.1.5",
         "tailwindcss": "^4.3.3"
     },
@@ -30,12 +30,11 @@
     },
     "overrides": {
         "esbuild": "^0.28.1",
-        "js-yaml": "^4.3.0",
+        "js-yaml": "^4.3.1",
+        "nanoid": "^3.3.18",
         "sharp": "^0.35.3",
         "tar": "^7.5.21",
         "svgo": "^4.0.2",
-        "@iconify/tools": {
-            "svgo": "^3.3.4"
-        }
+        "@iconify/tools": "^5.0.12"
     }
 }
