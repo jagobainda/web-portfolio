@@ -32,58 +32,52 @@ const { name, description, tags, links, detailsUrl, viewDetailsText = "Ver detal
         <p class="mb-4 grow text-sm leading-relaxed">{description}</p>
 
         <div class="mt-auto mb-3 flex flex-wrap gap-2">
-            {
-                tags.map(tag => (
-                    <span class:list={["rounded-full bg-(--bg-primary) px-3 py-1.5 text-sm", "flex items-center"]}>
-                        <Icon name="bi:check-circle-fill" class="mr-1.5 text-xs text-green-500" />
-                        {tag}
-                    </span>
-                ))
-            }
+            {tags.map(tag => (
+                <span class:list={["rounded-full bg-(--bg-primary) px-3 py-1.5 text-sm", "flex items-center"]}>
+                    <Icon name="bi:check-circle-fill" class="mr-1.5 text-xs text-green-500" />
+                    {tag}
+                </span>
+            ))}
         </div>
 
-        {
-            links.length > 0 && (
-                <div class="mt-auto ml-1 flex gap-4">
-                    {links.map(link => (
-                        <a
-                            href={link.url}
-                            target={link.url.startsWith("http") ? "_blank" : undefined}
-                            rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
-                            class:list={[
-                                "text-text-color no-underline",
-                                "flex items-center gap-1 text-sm",
-                                "transition-opacity duration-200",
-                                "hover:opacity-70",
-                            ]}
-                        >
-                            <Icon name={link.icon} />
-                            {link.text}
-                        </a>
-                    ))}
-                </div>
-            )
-        }
-
-        {
-            detailsUrl && (
-                <div class="mt-4 pt-4">
+        {links.length > 0 && (
+            <div class="mt-auto ml-1 flex gap-4">
+                {links.map(link => (
                     <a
-                        href={detailsUrl}
+                        href={link.url}
+                        target={link.url.startsWith("http") ? "_blank" : undefined}
+                        rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
                         class:list={[
                             "text-text-color no-underline",
-                            "flex items-center justify-center gap-2 text-sm font-medium",
-                            "rounded-md px-4 py-2",
-                            "bg-(--bg-primary)",
-                            "transition-all duration-200",
-                            "hover:opacity-80",
+                            "flex items-center gap-1 text-sm",
+                            "transition-opacity duration-200",
+                            "hover:opacity-70",
                         ]}
                     >
-                        <span>{viewDetailsText}</span>
-                        <Icon name="bi:arrow-right" />
+                        <Icon name={link.icon} />
+                        {link.text}
                     </a>
-                </div>
-            )
-        }
+                ))}
+            </div>
+        )}
+
+        {detailsUrl && (
+            <div class="mt-4 pt-4">
+                <a
+                    href={detailsUrl}
+                    class:list={[
+                        "text-text-color no-underline",
+                        "flex items-center justify-center gap-2 text-sm font-medium",
+                        "rounded-md px-4 py-2",
+                        "bg-(--bg-primary)",
+                        "transition-all duration-200",
+                        "hover:opacity-80",
+                    ]}
+                >
+                    <span>{viewDetailsText}</span>
+                    <Icon name="bi:arrow-right" />
+                </a>
+            </div>
+        )}
     </div>
 </div>

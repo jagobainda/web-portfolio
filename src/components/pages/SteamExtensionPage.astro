@@ -110,93 +110,89 @@ const formatDate = (dateString: string | null | undefined): string => {
                 </p>
 
                 <div class="mt-6 flex flex-wrap gap-4">
-                    {
-                        extensionProject?.links.map(link => (
-                            <a
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class:list={[
-                                    "inline-flex items-center gap-2",
-                                    "rounded-lg bg-(--bg-primary) px-5 py-3",
-                                    "text-text-color font-mono no-underline",
-                                    "hover:-translate-y-1 hover:shadow-[0_6px_12px_var(--shadow-dark)]",
-                                    "transition-all duration-300",
-                                ]}
-                            >
-                                <Icon name={link.icon} />
-                                {link.text}
-                            </a>
-                        ))
-                    }
+                    {extensionProject?.links.map(link => (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class:list={[
+                                "inline-flex items-center gap-2",
+                                "rounded-lg bg-(--bg-primary) px-5 py-3",
+                                "text-text-color font-mono no-underline",
+                                "hover:-translate-y-1 hover:shadow-[0_6px_12px_var(--shadow-dark)]",
+                                "transition-all duration-300",
+                            ]}
+                        >
+                            <Icon name={link.icon} />
+                            {link.text}
+                        </a>
+                    ))}
                 </div>
             </div>
 
-            {
-                usageStats && (
-                    <section
-                        class:list={[
-                            "mb-8 rounded-2xl bg-(--bg-secondary) p-8",
-                            "shadow-[4px_4px_12px_var(--shadow-light)]",
-                            "max-sm:p-6",
-                        ]}
-                    >
-                        <h2 class:list={["mb-6 font-mono text-3xl font-bold", "text-text-color", "max-sm:text-2xl"]}>
-                            {t.usageStats}
-                        </h2>
-                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-blue-500"]}>
-                                <div class="mb-2 text-sm opacity-70">{t.avgDailyRequests3m}</div>
-                                <div class="font-mono text-3xl font-bold">{usageStats.avgDailyRequests3m}</div>
-                                <div class="mt-1 text-xs opacity-60">{t.requests}</div>
-                            </div>
+            {usageStats && (
+                <section
+                    class:list={[
+                        "mb-8 rounded-2xl bg-(--bg-secondary) p-8",
+                        "shadow-[4px_4px_12px_var(--shadow-light)]",
+                        "max-sm:p-6",
+                    ]}
+                >
+                    <h2 class:list={["mb-6 font-mono text-3xl font-bold", "text-text-color", "max-sm:text-2xl"]}>
+                        {t.usageStats}
+                    </h2>
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-blue-500"]}>
+                            <div class="mb-2 text-sm opacity-70">{t.avgDailyRequests3m}</div>
+                            <div class="font-mono text-3xl font-bold">{usageStats.avgDailyRequests3m}</div>
+                            <div class="mt-1 text-xs opacity-60">{t.requests}</div>
+                        </div>
 
-                            <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-purple-500"]}>
-                                <div class="mb-2 text-sm opacity-70">{t.totalRequests3m}</div>
-                                <div class="font-mono text-3xl font-bold">{usageStats.totalRequests3m}</div>
-                                <div class="mt-1 text-xs opacity-60">{t.requests}</div>
-                            </div>
+                        <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-purple-500"]}>
+                            <div class="mb-2 text-sm opacity-70">{t.totalRequests3m}</div>
+                            <div class="font-mono text-3xl font-bold">{usageStats.totalRequests3m}</div>
+                            <div class="mt-1 text-xs opacity-60">{t.requests}</div>
+                        </div>
 
-                            <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-green-500"]}>
-                                <div class="mb-2 text-sm opacity-70">{t.avgDailyRequests1m}</div>
-                                <div class="font-mono text-3xl font-bold">{usageStats.avgDailyRequests1m}</div>
-                                <div class="mt-1 text-xs opacity-60">{t.requests}</div>
-                            </div>
+                        <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-green-500"]}>
+                            <div class="mb-2 text-sm opacity-70">{t.avgDailyRequests1m}</div>
+                            <div class="font-mono text-3xl font-bold">{usageStats.avgDailyRequests1m}</div>
+                            <div class="mt-1 text-xs opacity-60">{t.requests}</div>
+                        </div>
 
-                            <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-cyan-500"]}>
-                                <div class="mb-2 text-sm opacity-70">{t.totalRequests1m}</div>
-                                <div class="font-mono text-3xl font-bold">{usageStats.totalRequests1m}</div>
-                                <div class="mt-1 text-xs opacity-60">{t.requests}</div>
-                            </div>
+                        <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-cyan-500"]}>
+                            <div class="mb-2 text-sm opacity-70">{t.totalRequests1m}</div>
+                            <div class="font-mono text-3xl font-bold">{usageStats.totalRequests1m}</div>
+                            <div class="mt-1 text-xs opacity-60">{t.requests}</div>
+                        </div>
 
-                            <div
-                                class:list={[
-                                    "rounded-xl bg-(--bg-primary) p-6",
-                                    `border-l-4 ${usageStats.requestsGrowthRateLastMonth >= 0 ? "border-green-500" : "border-red-500"}`,
-                                ]}
-                            >
-                                <div class="mb-2 text-sm opacity-70">{t.requestsGrowthRate}</div>
-                                <div class="flex items-center gap-2 font-mono text-3xl font-bold">
-                                    {usageStats.requestsGrowthRateLastMonth >= 0 ? "+" : ""}
-                                    {usageStats.requestsGrowthRateLastMonth.toFixed(1)}%
-                                    <i
-                                        class={`bi ${usageStats.requestsGrowthRateLastMonth >= 0 ? "bi-arrow-up-right" : "bi-arrow-down-right"} text-2xl`}
-                                    />
-                                </div>
-                            </div>
-
-                            <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-orange-500"]}>
-                                <div class="mb-2 text-sm opacity-70">{t.maxRequestsInADay}</div>
-                                <div class="font-mono text-3xl font-bold">{usageStats.maxRequestsInADay3m}</div>
-                                <div class="mt-1 text-xs opacity-60">{t.requests}</div>
+                        <div
+                            class:list={[
+                                "rounded-xl bg-(--bg-primary) p-6",
+                                `border-l-4 ${usageStats.requestsGrowthRateLastMonth >= 0 ? "border-green-500" : "border-red-500"}`,
+                            ]}
+                        >
+                            <div class="mb-2 text-sm opacity-70">{t.requestsGrowthRate}</div>
+                            <div class="flex items-center gap-2 font-mono text-3xl font-bold">
+                                {usageStats.requestsGrowthRateLastMonth >= 0 ? "+" : ""}
+                                {usageStats.requestsGrowthRateLastMonth.toFixed(1)}%
+                                <i
+                                    class={`bi ${usageStats.requestsGrowthRateLastMonth >= 0 ? "bi-arrow-up-right" : "bi-arrow-down-right"} text-2xl`}
+                                />
                             </div>
                         </div>
-                        <div class="mt-6 text-center text-xs opacity-60">
-                            {t.lastUpdated}: {formatDate(usageStats.lastUpdated)}
+
+                        <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-orange-500"]}>
+                            <div class="mb-2 text-sm opacity-70">{t.maxRequestsInADay}</div>
+                            <div class="font-mono text-3xl font-bold">{usageStats.maxRequestsInADay3m}</div>
+                            <div class="mt-1 text-xs opacity-60">{t.requests}</div>
                         </div>
-                    </section>
-                )
-            }
+                    </div>
+                    <div class="mt-6 text-center text-xs opacity-60">
+                        {t.lastUpdated}: {formatDate(usageStats.lastUpdated)}
+                    </div>
+                </section>
+            )}
 
             <section
                 class:list={[
@@ -209,20 +205,18 @@ const formatDate = (dateString: string | null | undefined): string => {
                     {t.technologies}
                 </h2>
                 <div class="flex flex-wrap gap-3">
-                    {
-                        extensionProject?.tags.map(tag => (
-                            <span
-                                class:list={[
-                                    "rounded-full bg-(--bg-primary) px-4 py-2",
-                                    "font-mono text-base",
-                                    "flex items-center gap-2",
-                                ]}
-                            >
-                                <Icon name="bi:code-slash" class="text-sm" />
-                                {tag}
-                            </span>
-                        ))
-                    }
+                    {extensionProject?.tags.map(tag => (
+                        <span
+                            class:list={[
+                                "rounded-full bg-(--bg-primary) px-4 py-2",
+                                "font-mono text-base",
+                                "flex items-center gap-2",
+                            ]}
+                        >
+                            <Icon name="bi:code-slash" class="text-sm" />
+                            {tag}
+                        </span>
+                    ))}
                 </div>
             </section>
         </div>

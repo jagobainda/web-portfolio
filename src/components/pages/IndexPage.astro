@@ -25,13 +25,13 @@ const jsonLd = homeStructuredData({ lang, description: ui.seo.homeDescription })
 
 <BaseLayout title="Jagoba Inda - Full Stack Developer" description={ui.seo.homeDescription} jsonLd={jsonLd}>
     <Fragment slot="head">
-        <noscript
-            ><style>
+        <noscript>
+            <style>
                 #welcome-title {
                     visibility: visible;
                 }
-            </style></noscript
-        >
+            </style>
+        </noscript>
     </Fragment>
     <main
         id="app"

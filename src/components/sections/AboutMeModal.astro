@@ -26,47 +26,45 @@ const intro = about?.intro.replace("--AGE-PLACEHOLDER--", age.toString()) || "";
 ---
 
 <Modal id="about-me" title={title}>
-    {
-        about ? (
-            <div>
+    {about ? (
+        <div>
+            <div
+                class:list={[
+                    "mb-8 text-lg leading-relaxed",
+                    "border-l-4 border-(--bg-secondary) pl-4",
+                    "max-md:text-base",
+                ]}
+            >
+                <p>{intro}</p>
+            </div>
+
+            <div class="space-y-8 max-md:space-y-2">
+                {about.sections.map(section => (
+                    <div class="mb-8 max-md:mb-2">
+                        <div class="mb-2 flex items-center">
+                            <Icon name={section.icon} class="text-text-color mr-3 text-xl" />
+                            <h3 class="m-0 font-mono text-xl max-md:text-lg">{section.title}</h3>
+                        </div>
+                        <div class="mt-2 max-md:text-sm">
+                            <p class="leading-relaxed">{section.content}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {about.quote && (
                 <div
                     class:list={[
-                        "mb-8 text-lg leading-relaxed",
-                        "border-l-4 border-(--bg-secondary) pl-4",
-                        "max-md:text-base",
+                        "mt-6 p-4 text-center italic",
+                        "border-t border-b border-(--bg-secondary)",
+                        "max-md:text-sm",
                     ]}
                 >
-                    <p>{intro}</p>
+                    <blockquote class="text-text-color m-0 text-lg max-md:text-sm">{about.quote}</blockquote>
                 </div>
-
-                <div class="space-y-8 max-md:space-y-2">
-                    {about.sections.map(section => (
-                        <div class="mb-8 max-md:mb-2">
-                            <div class="mb-2 flex items-center">
-                                <Icon name={section.icon} class="text-text-color mr-3 text-xl" />
-                                <h3 class="m-0 font-mono text-xl max-md:text-lg">{section.title}</h3>
-                            </div>
-                            <div class="mt-2 max-md:text-sm">
-                                <p class="leading-relaxed">{section.content}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {about.quote && (
-                    <div
-                        class:list={[
-                            "mt-6 p-4 text-center italic",
-                            "border-t border-b border-(--bg-secondary)",
-                            "max-md:text-sm",
-                        ]}
-                    >
-                        <blockquote class="text-text-color m-0 text-lg max-md:text-sm">{about.quote}</blockquote>
-                    </div>
-                )}
-            </div>
-        ) : (
-            <p>No about me data found.</p>
-        )
-    }
+            )}
+        </div>
+    ) : (
+        <p>No about me data found.</p>
+    )}
 </Modal>
