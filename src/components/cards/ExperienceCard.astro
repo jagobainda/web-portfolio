@@ -55,38 +55,34 @@ const {
         </div>
     </div>
 
-    {
-        responsibilities.length > 0 && (
-            <div class="mb-4">
-                <h4 class="my-2 font-mono text-base">{responsibilitiesLabel}</h4>
-                <ul class="my-2 list-disc pl-6">
-                    {responsibilities.map(resp => (
-                        <li class="mb-1 text-sm leading-relaxed">{resp}</li>
-                    ))}
-                </ul>
-            </div>
-        )
-    }
+    {responsibilities.length > 0 && (
+        <div class="mb-4">
+            <h4 class="my-2 font-mono text-base">{responsibilitiesLabel}</h4>
+            <ul class="my-2 list-disc pl-6">
+                {responsibilities.map(resp => (
+                    <li class="mb-1 text-sm leading-relaxed">{resp}</li>
+                ))}
+            </ul>
+        </div>
+    )}
 
-    {
-        technologies.length > 0 && (
-            <div>
-                <h4 class="my-2 font-mono text-base">{technologiesLabel}</h4>
-                <div class="mt-4 flex flex-wrap gap-3 max-md:gap-2">
-                    {technologies.map(tech => (
-                        <span
-                            class:list={[
-                                "rounded-full bg-(--bg-primary) px-3 py-1.5 text-sm",
-                                "flex items-center",
-                                "max-md:px-2.5 max-md:py-1 max-md:text-xs",
-                            ]}
-                        >
-                            <Icon name="bi:check-circle-fill" class="mr-1.5 text-xs text-green-500" />
-                            {tech}
-                        </span>
-                    ))}
-                </div>
+    {technologies.length > 0 && (
+        <div>
+            <h4 class="my-2 font-mono text-base">{technologiesLabel}</h4>
+            <div class="mt-4 flex flex-wrap gap-3 max-md:gap-2">
+                {technologies.map(tech => (
+                    <span
+                        class:list={[
+                            "rounded-full bg-(--bg-primary) px-3 py-1.5 text-sm",
+                            "flex items-center",
+                            "max-md:px-2.5 max-md:py-1 max-md:text-xs",
+                        ]}
+                    >
+                        <Icon name="bi:check-circle-fill" class="mr-1.5 text-xs text-green-500" />
+                        {tech}
+                    </span>
+                ))}
             </div>
-        )
-    }
+        </div>
+    )}
 </div>

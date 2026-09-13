@@ -64,12 +64,8 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:controller" />
                     {t.title}
                 </h1>
-                <p class:list={["mb-6 font-mono text-lg opacity-80", "text-text-color"]}>
-                    {t.subtitle}
-                </p>
-                <p class:list={["mt-6 text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.description}
-                </p>
+                <p class:list={["mb-6 font-mono text-lg opacity-80", "text-text-color"]}>{t.subtitle}</p>
+                <p class:list={["mt-6 text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.description}</p>
 
                 <div class="mt-6 flex flex-wrap gap-4">
                     <a
@@ -241,9 +237,7 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:gear" class="text-2xl text-green-500" />
                     {t.cicd}
                 </h2>
-                <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.cicdDesc}
-                </p>
+                <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.cicdDesc}</p>
 
                 <div class="space-y-4">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -323,31 +317,29 @@ const jsonLd = projectStructuredData({
                     {t.features}
                 </h2>
                 <ul class="space-y-4">
-                    {
-                        [
-                            { icon: "bi:collection", text: t.featureLibrary },
-                            { icon: "bi:cloud-arrow-down", text: t.featureDownloads },
-                            { icon: "bi:key", text: t.featureKeys },
-                            { icon: "bi:joystick", text: t.featureMyGames },
-                            { icon: "bi:arrow-repeat", text: t.featureUpdates },
-                            { icon: "bi:megaphone", text: t.featureNews },
-                            { icon: "bi:palette", text: t.featureThemes },
-                            { icon: "bi:translate", text: t.featureLanguages },
-                            { icon: "bi:window-desktop", text: t.featureTray },
-                            { icon: "bi:power", text: t.featureStartup },
-                        ].map(feat => (
-                            <li
-                                class:list={[
-                                    "flex items-center gap-3",
-                                    "rounded-xl bg-(--bg-primary) p-4",
-                                    "text-text-color",
-                                ]}
-                            >
-                                <Icon name={feat.icon} class="text-xl text-green-500" />
-                                <span class="text-lg">{feat.text}</span>
-                            </li>
-                        ))
-                    }
+                    {[
+                        { icon: "bi:collection", text: t.featureLibrary },
+                        { icon: "bi:cloud-arrow-down", text: t.featureDownloads },
+                        { icon: "bi:key", text: t.featureKeys },
+                        { icon: "bi:joystick", text: t.featureMyGames },
+                        { icon: "bi:arrow-repeat", text: t.featureUpdates },
+                        { icon: "bi:megaphone", text: t.featureNews },
+                        { icon: "bi:palette", text: t.featureThemes },
+                        { icon: "bi:translate", text: t.featureLanguages },
+                        { icon: "bi:window-desktop", text: t.featureTray },
+                        { icon: "bi:power", text: t.featureStartup },
+                    ].map(feat => (
+                        <li
+                            class:list={[
+                                "flex items-center gap-3",
+                                "rounded-xl bg-(--bg-primary) p-4",
+                                "text-text-color",
+                            ]}
+                        >
+                            <Icon name={feat.icon} class="text-xl text-green-500" />
+                            <span class="text-lg">{feat.text}</span>
+                        </li>
+                    ))}
                 </ul>
             </section>
 

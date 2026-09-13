@@ -70,33 +70,27 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:code-slash" />
                     {t.title}
                 </h1>
-                <p class:list={["mb-6 font-mono text-lg opacity-80", "text-text-color"]}>
-                    {t.subtitle}
-                </p>
-                <p class:list={["mt-6 text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.description}
-                </p>
+                <p class:list={["mb-6 font-mono text-lg opacity-80", "text-text-color"]}>{t.subtitle}</p>
+                <p class:list={["mt-6 text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.description}</p>
 
                 <div class="mt-6 flex flex-wrap gap-4">
-                    {
-                        portfolioProject?.links.map(link => (
-                            <a
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class:list={[
-                                    "inline-flex items-center gap-2",
-                                    "rounded-lg bg-(--bg-primary) px-5 py-3",
-                                    "text-text-color font-mono no-underline",
-                                    "hover:-translate-y-1 hover:shadow-[0_6px_12px_var(--shadow-dark)]",
-                                    "transition-all duration-300",
-                                ]}
-                            >
-                                <Icon name={link.icon} />
-                                {link.text}
-                            </a>
-                        ))
-                    }
+                    {portfolioProject?.links.map(link => (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class:list={[
+                                "inline-flex items-center gap-2",
+                                "rounded-lg bg-(--bg-primary) px-5 py-3",
+                                "text-text-color font-mono no-underline",
+                                "hover:-translate-y-1 hover:shadow-[0_6px_12px_var(--shadow-dark)]",
+                                "transition-all duration-300",
+                            ]}
+                        >
+                            <Icon name={link.icon} />
+                            {link.text}
+                        </a>
+                    ))}
                 </div>
             </div>
 
@@ -175,9 +169,7 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:diagram-3" class="text-2xl text-green-500" />
                     {t.architecture}
                 </h2>
-                <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.architectureDesc}
-                </p>
+                <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.architectureDesc}</p>
 
                 <div class="space-y-4">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -265,9 +257,7 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:palette" class="text-2xl text-pink-500" />
                     {t.designPhilosophy}
                 </h2>
-                <p class:list={["text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.designDesc}
-                </p>
+                <p class:list={["text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.designDesc}</p>
 
                 <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "flex items-start gap-4"]}>
@@ -305,9 +295,7 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:gear" class="text-2xl text-green-500" />
                     {t.stackPhilosophy}
                 </h2>
-                <p class:list={["text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.stackDesc}
-                </p>
+                <p class:list={["text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.stackDesc}</p>
 
                 <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5 text-center"]}>

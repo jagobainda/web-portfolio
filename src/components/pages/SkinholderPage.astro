@@ -74,9 +74,7 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:collection" />
                     {t.title}
                 </h1>
-                <p class:list={["text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.whatIsDescription}
-                </p>
+                <p class:list={["text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.whatIsDescription}</p>
             </div>
 
             <!-- Features -->
@@ -133,9 +131,7 @@ const jsonLd = projectStructuredData({
                     <Icon name="bi:diagram-3" class="text-2xl" />
                     {t.architecture}
                 </h2>
-                <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.architectureDesc}
-                </p>
+                <p class:list={["mb-8 text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.architectureDesc}</p>
 
                 <div class="space-y-4">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -254,45 +250,40 @@ const jsonLd = projectStructuredData({
                     {t.platforms}
                 </h2>
                 <div class="space-y-4">
-                    {
-                        skinholderProjects.map(project => (
-                            <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-blue-500"]}>
-                                <h3 class="mb-2 font-mono text-xl font-bold">{project.name}</h3>
-                                <p class="text-text-color mb-4 opacity-80">{project.description}</p>
-                                <div class="mb-4 flex flex-wrap gap-2">
-                                    {project.tags.map(tag => (
-                                        <span
-                                            class:list={[
-                                                "rounded-full bg-(--bg-secondary) px-3 py-1",
-                                                "font-mono text-sm",
-                                            ]}
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                                <div class="flex flex-wrap gap-3">
-                                    {project.links.map(link => (
-                                        <a
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class:list={[
-                                                "inline-flex items-center gap-2",
-                                                "rounded-lg bg-(--bg-secondary) px-4 py-2",
-                                                "text-text-color font-mono text-sm no-underline",
-                                                "hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--shadow-dark)]",
-                                                "transition-all duration-300",
-                                            ]}
-                                        >
-                                            <Icon name={link.icon} />
-                                            {link.text}
-                                        </a>
-                                    ))}
-                                </div>
+                    {skinholderProjects.map(project => (
+                        <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4 border-blue-500"]}>
+                            <h3 class="mb-2 font-mono text-xl font-bold">{project.name}</h3>
+                            <p class="text-text-color mb-4 opacity-80">{project.description}</p>
+                            <div class="mb-4 flex flex-wrap gap-2">
+                                {project.tags.map(tag => (
+                                    <span
+                                        class:list={["rounded-full bg-(--bg-secondary) px-3 py-1", "font-mono text-sm"]}
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
                             </div>
-                        ))
-                    }
+                            <div class="flex flex-wrap gap-3">
+                                {project.links.map(link => (
+                                    <a
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class:list={[
+                                            "inline-flex items-center gap-2",
+                                            "rounded-lg bg-(--bg-secondary) px-4 py-2",
+                                            "text-text-color font-mono text-sm no-underline",
+                                            "hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--shadow-dark)]",
+                                            "transition-all duration-300",
+                                        ]}
+                                    >
+                                        <Icon name={link.icon} />
+                                        {link.text}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
 

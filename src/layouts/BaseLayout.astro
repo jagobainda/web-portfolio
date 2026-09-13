@@ -56,18 +56,16 @@ const ogLocaleAlternate = locale === "en" ? "es_ES" : "en_US";
         <title>{title}</title>
         <meta name="description" content={description} />
 
-        {
-            noindex ? (
-                <meta name="robots" content="noindex" />
-            ) : (
-                <Fragment>
-                    <link rel="canonical" href={canonicalURL} />
-                    <link rel="alternate" hreflang="es" href={esURL} />
-                    <link rel="alternate" hreflang="en" href={enURL} />
-                    <link rel="alternate" hreflang="x-default" href={esURL} />
-                </Fragment>
-            )
-        }
+        {noindex ? (
+            <meta name="robots" content="noindex" />
+        ) : (
+            <Fragment>
+                <link rel="canonical" href={canonicalURL} />
+                <link rel="alternate" hreflang="es" href={esURL} />
+                <link rel="alternate" hreflang="en" href={enURL} />
+                <link rel="alternate" hreflang="x-default" href={esURL} />
+            </Fragment>
+        )}
 
         <meta property="og:type" content={ogType} />
         <meta property="og:title" content={title} />
@@ -84,18 +82,18 @@ const ogLocaleAlternate = locale === "en" ? "es_ES" : "en_US";
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImageURL} />
 
-        {jsonLdItems.map(item => <script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />)}
+        {jsonLdItems.map(item => (
+            <script type="application/ld+json" is:inline set:html={JSON.stringify(item)}></script>
+        ))}
 
         <slot name="head" />
     </head>
 
     <body class="dark bg-(--bg-primary) text-(--text-color) transition-colors duration-300">
         <div class="fixed top-5 right-5 z-50 flex items-center gap-5 max-sm:top-2.5 max-sm:right-2.5">
-            {
-                showContactButton && (
-                    <Button id="contact-button" icon="bi:link-45deg" variant="control" ariaLabel="Contact links" />
-                )
-            }
+            {showContactButton && (
+                <Button id="contact-button" icon="bi:link-45deg" variant="control" ariaLabel="Contact links" />
+            )}
             <ThemeToggle />
         </div>
 
@@ -124,7 +122,6 @@ const ogLocaleAlternate = locale === "en" ? "es_ES" : "en_US";
                 window.location.replace(newPath);
             })();
         </script>
-
         <script>
             import "../scripts/main";
         </script>

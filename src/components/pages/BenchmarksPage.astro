@@ -74,12 +74,8 @@ const accentMap: Record<string, string> = {
                     <Icon name="bi:speedometer2" />
                     {t.title}
                 </h1>
-                <p class:list={["mb-6 font-mono text-lg opacity-80", "text-text-color"]}>
-                    {t.subtitle}
-                </p>
-                <p class:list={["mb-4 text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.description}
-                </p>
+                <p class:list={["mb-6 font-mono text-lg opacity-80", "text-text-color"]}>{t.subtitle}</p>
+                <p class:list={["mb-4 text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.description}</p>
                 <div class="mt-6 flex flex-wrap gap-4">
                     <a
                         href="https://github.com/jagobainda/Benchmarks"
@@ -128,9 +124,7 @@ const accentMap: Record<string, string> = {
                     <Icon name="bi:diagram-3" class="text-2xl" />
                     {t.howItWorks}
                 </h2>
-                <p class:list={["mb-6 text-lg leading-relaxed", "text-text-color opacity-90"]}>
-                    {t.howItWorksDesc}
-                </p>
+                <p class:list={["mb-6 text-lg leading-relaxed", "text-text-color opacity-90"]}>{t.howItWorksDesc}</p>
 
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                     <div class:list={["rounded-xl bg-(--bg-primary) p-5", "border-t-4 border-purple-500"]}>
@@ -177,32 +171,47 @@ const accentMap: Record<string, string> = {
                 </h2>
 
                 <div class="space-y-5">
-                    {
-                        t.benchmarkProjects?.map(project => {
-                            const accent = accentMap[project.accent] ?? accentMap.purple;
-                            const [borderClass, textClass] = accent.split(" ");
-                            return (
-                                <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4", borderClass]}>
-                                    <h3 class:list={["mb-2 font-mono text-xl font-bold", "flex items-center gap-2"]}>
-                                        <Icon name={project.icon} class={textClass} />
-                                        {project.name}
-                                    </h3>
-                                    <p class="text-text-color mb-4 opacity-80">{project.description}</p>
-                                    <div class="mb-4 flex flex-wrap gap-2">
-                                        {project.tags.map(tag => (
-                                            <span
-                                                class:list={[
-                                                    "rounded-full bg-(--bg-secondary) px-3 py-1",
-                                                    "font-mono text-sm",
-                                                ]}
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <div class="flex flex-wrap gap-3">
+                    {t.benchmarkProjects?.map(project => {
+                        const accent = accentMap[project.accent] ?? accentMap.purple;
+                        const [borderClass, textClass] = accent.split(" ");
+                        return (
+                            <div class:list={["rounded-xl bg-(--bg-primary) p-6", "border-l-4", borderClass]}>
+                                <h3 class:list={["mb-2 font-mono text-xl font-bold", "flex items-center gap-2"]}>
+                                    <Icon name={project.icon} class={textClass} />
+                                    {project.name}
+                                </h3>
+                                <p class="text-text-color mb-4 opacity-80">{project.description}</p>
+                                <div class="mb-4 flex flex-wrap gap-2">
+                                    {project.tags.map(tag => (
+                                        <span
+                                            class:list={[
+                                                "rounded-full bg-(--bg-secondary) px-3 py-1",
+                                                "font-mono text-sm",
+                                            ]}
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div class="flex flex-wrap gap-3">
+                                    <a
+                                        href={project.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class:list={[
+                                            "inline-flex items-center gap-2",
+                                            "rounded-lg bg-(--bg-secondary) px-4 py-2",
+                                            "text-text-color font-mono text-sm no-underline",
+                                            "hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--shadow-dark)]",
+                                            "transition-all duration-300",
+                                        ]}
+                                    >
+                                        <Icon name="bi:github" />
+                                        {t.sourceCode}
+                                    </a>
+                                    {project.liveUrl && (
                                         <a
-                                            href={project.url}
+                                            href={project.liveUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             class:list={[
@@ -213,38 +222,19 @@ const accentMap: Record<string, string> = {
                                                 "transition-all duration-300",
                                             ]}
                                         >
-                                            <Icon name="bi:github" />
-                                            {t.sourceCode}
+                                            <Icon name="bi:box-arrow-up-right" />
+                                            {project.liveLabel ?? t.liveDemo}
                                         </a>
-                                        {project.liveUrl && (
-                                            <a
-                                                href={project.liveUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                class:list={[
-                                                    "inline-flex items-center gap-2",
-                                                    "rounded-lg bg-(--bg-secondary) px-4 py-2",
-                                                    "text-text-color font-mono text-sm no-underline",
-                                                    "hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--shadow-dark)]",
-                                                    "transition-all duration-300",
-                                                ]}
-                                            >
-                                                <Icon name="bi:box-arrow-up-right" />
-                                                {project.liveLabel ?? t.liveDemo}
-                                            </a>
-                                        )}
-                                    </div>
+                                    )}
                                 </div>
-                            );
-                        })
-                    }
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
 
             <div class="mt-12 text-center">
-                <div class="text-text-color text-sm opacity-50">
-                    {t.madeBy}
-                </div>
+                <div class="text-text-color text-sm opacity-50">{t.madeBy}</div>
             </div>
         </div>
     </div>
