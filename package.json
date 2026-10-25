@@ -11,14 +11,14 @@
         "format:check": "prettier --check ."
     },
     "dependencies": {
-        "@astrojs/node": "^11.1.7",
+        "@astrojs/node": "^11.1.9",
         "@astrojs/sitemap": "^3.7.4",
         "@iconify-json/bi": "^1.2.7",
         "@iconify-json/devicon": "^1.2.71",
         "@iconify-json/devicon-plain": "^1.2.62",
         "@tailwindcss/vite": "^4.3.3",
         "animejs": "^4.5.0",
-        "astro": "^7.3.8",
+        "astro": "^7.4.2",
         "astro-icon": "^1.2.0",
         "tailwindcss": "^4.3.3"
     },
@@ -32,9 +32,9 @@
         "esbuild": "^0.28.1",
         "js-yaml": "^4.3.2",
         "nanoid": "^3.3.18",
-        "sharp": "^0.35.4",
+        "sharp": "^0.35.5",
         "tar": "^7.5.21",
-        "smol-toml": "^1.7.2",
+        "smol-toml": "^1.8.1",
         "svgo": "^4.1.0",
         "@iconify/tools": "^5.0.12"
     }
